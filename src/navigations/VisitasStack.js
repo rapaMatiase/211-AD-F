@@ -6,10 +6,11 @@ const Stack = createNativeStackNavigator();
 
 const VisitasStack = () => {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName="Welcome">
             <Stack.Screen 
                 name="Welcome" 
                 component={WelcomeScreem} 
+                options={{ title: 'Bienvenidos' }}
             />
         </Stack.Navigator>
     );
