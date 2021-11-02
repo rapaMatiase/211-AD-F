@@ -5,6 +5,9 @@ import {
   Stack,
   Image,
   Box,
+  Flex,
+  AspectRatio,
+  Center,
   NativeBaseProvider,
   Text,
 } from "native-base";
@@ -38,13 +41,21 @@ const ButtonGrupWelcome = () => {
 function WelcomeScreen() {
   return (
     <NativeBaseProvider>
-      <Box>
-        <Text fontSize="2xl">Bienvenidos al municipio de </Text>
-        <Image source={require('../assets/img/mobile-logo.png')}  alt="Alternate Text" />
+        <Box>
+          <Text>Bienvenido al municipio de </Text>
+        <AspectRatio ratio={16 / 9}>
+          <Image
+          p="3"
+            source={require('../assets/img/mobile-logo.png')}
+            alt="image"
+            style={{width:100,height:null}}
+          />
+        </AspectRatio>
       </Box>
-      <Box>
+        
+      <Flex height="50%" pb="25" align="center" justify="flex-end">
         <ButtonGrupWelcome />
-      </Box>
+      </Flex>
     </NativeBaseProvider>
   );
 }
