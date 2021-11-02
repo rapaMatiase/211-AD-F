@@ -9,21 +9,21 @@ const Stack = createNativeStackNavigator();
 const VisitasStack = () => {
     return (
         <Stack.Navigator initialRouteName="Welcome">
-            {/* <Stack.Screen 
+            <Stack.Screen 
                 name="Welcome" 
                 component={WelcomeScreem} 
                 options={{ title: 'Bienvenidos' }}
-            /> */}
+            />
            {/*  <Stack.Screen 
                 name="Promotions" 
                 component={PromotionsScreen} 
                 options={{ title: 'Promosiones' }}
             /> */}
-            <Stack.Screen 
+            {/* <Stack.Screen 
                 name="Promotion" 
                 component={PromotionScreen} 
                 options={{ title: 'Promosion' }}
-            />
+            /> */}
         </Stack.Navigator>
     );
 }

@@ -13,76 +13,6 @@ import {
 } from "native-base";
 
 import LayoutWithImage from "../components/LayoutWithImage";
-/* 
-const PromotionScreen = () => {
-
-    return (
-        <NativeBaseProvider>
-            <Box>
-                <AspectRatio ratio={16 / 9}>
-                    <Image
-                        source={{
-                            uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
-                        }}
-                        alt="image"
-                    />
-                </AspectRatio>
-            </Box>
-            <Box bg="white" h="100%" p="3" rounded="xl" mt="-5" >
-            <Stack p="4" space={3}>
-                    <Stack space={2}>
-                        <Heading size="md" ml="-1">
-                            The Garden City
-                        </Heading>
-                    </Stack>
-                    <Text fontWeight="400">
-                        Bengaluru (also called Bangalore) is the center of India's high-tech
-                        industry. The city is also known for its parks and nightlife.
-                    </Text>
-                    <VStack alignItems="flex-start" space={4} justifyContent="space-between">
-                        <HStack alignItems="center">
-                            <Text
-                                fontSize="lg"
-                                fontWeight="600"
-                            >
-                                Direccion
-                            </Text>
-                        </HStack>
-                        <HStack alignItems="center">
-                            <Text
-                                fontSize="lg"
-                                fontWeight="600"
-                            >
-                                Dias
-                            </Text>
-                        </HStack>
-                        <HStack alignItems="center">
-                            <Text
-                                fontSize="lg"
-                                fontWeight="600"
-                            >
-                                Horario
-                            </Text>
-                        </HStack>
-                    </VStack>
-                    <HStack alignItems="center" justifyContent="center">
-                        <Pressable onPress={()=> console.log("hola")}>
-                            <Text
-                                fontSize="lg"
-                                fontWeight="600"
-                            >
-                                Detalle
-                            </Text>
-                        </Pressable>
-                    </HStack>
-                </Stack>
-            </Box>
-        </NativeBaseProvider>
-
-    );
-}
- */
-
 
 const PromotionScreen = () => {
 
@@ -90,53 +20,53 @@ const PromotionScreen = () => {
         <LayoutWithImage
             image="https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg"
         >
-                <Stack space={3}>
-                    <Stack space={2}>
-                        <Heading size="md" ml="-1">
-                            The Garden City
-                        </Heading>
-                    </Stack>
-                    <Text fontWeight="400">
-                        Bengaluru (also called Bangalore) is the center of India's high-tech
-                        industry. The city is also known for its parks and nightlife.
-                    </Text>
-                    <VStack alignItems="flex-start" space={4} justifyContent="space-between">
-                        <HStack alignItems="center">
-                            <Text
-                                fontSize="lg"
-                                fontWeight="600"
-                            >
-                                Direccion
-                            </Text>
-                        </HStack>
-                        <HStack alignItems="center">
-                            <Text
-                                fontSize="lg"
-                                fontWeight="600"
-                            >
-                                Dias
-                            </Text>
-                        </HStack>
-                        <HStack alignItems="center">
-                            <Text
-                                fontSize="lg"
-                                fontWeight="600"
-                            >
-                                Horario
-                            </Text>
-                        </HStack>
-                    </VStack>
-                    <HStack alignItems="center" justifyContent="center">
-                        <Pressable onPress={() => console.log("hola")}>
-                            <Text
-                                fontSize="lg"
-                                fontWeight="600"
-                            >
-                                Detalle
-                            </Text>
-                        </Pressable>
-                    </HStack>
+            <Stack space={3}>
+                <Stack space={2}>
+                    <Heading size="md" ml="-1">
+                        The Garden City
+                    </Heading>
                 </Stack>
+                <Text fontWeight="400">
+                    Bengaluru (also called Bangalore) is the center of India's high-tech
+                    industry. The city is also known for its parks and nightlife.
+                </Text>
+                <VStack alignItems="flex-start" space={4} justifyContent="space-between">
+                    <HStack alignItems="center">
+                        <Text
+                            fontSize="lg"
+                            fontWeight="600"
+                        >
+                            Direccion
+                        </Text>
+                    </HStack>
+                    <HStack alignItems="center">
+                        <Text
+                            fontSize="lg"
+                            fontWeight="600"
+                        >
+                            Dias
+                        </Text>
+                    </HStack>
+                    <HStack alignItems="center">
+                        <Text
+                            fontSize="lg"
+                            fontWeight="600"
+                        >
+                            Horario
+                        </Text>
+                    </HStack>
+                </VStack>
+                <HStack alignItems="center" justifyContent="center">
+                    <Pressable onPress={() => console.log("hola")}>
+                        <Text
+                            fontSize="lg"
+                            fontWeight="600"
+                        >
+                            Detalle
+                        </Text>
+                    </Pressable>
+                </HStack>
+            </Stack>
         </LayoutWithImage>
 
     );
