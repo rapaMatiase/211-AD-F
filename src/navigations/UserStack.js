@@ -16,11 +16,16 @@ const UserStack = () => {
                 component={UserHomeScreen} 
                 options={{ title: 'Bienvenidos vecino', headerShown: false  }}
             />
-            {/* <Stack.Screen 
+            <Stack.Screen 
+                name="NeighboursSingInScreen" 
+                component={NeighboursSingInScreen} 
+                options={{ title: 'Inicio de sesion', headerShown: false }}
+            />
+            <Stack.Screen 
                 name="SignUp" 
                 component={NeighboursSignUpScreen} 
-                options={{ title: 'Registrate' }}
-            /> */}
+                options={{ title: 'Registrate', headerShown: false  }}
+            />
             {/* <Stack.Screen 
                 name="NewProtions" 
                 component={NewPromotionBossScreen} 
@@ -31,12 +36,8 @@ const UserStack = () => {
                 component={NewPromotionDetailScreen} 
                 options={{ title: 'Nueva promocion' }}
             /> */}
-{/* <Stack.Screen 
-                name="NeighboursSingInScreen" 
-                component={NeighboursSingInScreen} 
-                options={{ title: 'Inicio de sesion' }}
-            /> */}
-<Stack.Screen 
+
+            <Stack.Screen 
                 name="Home screen" 
                 component={HomeScreen} 
                 options={{ title: 'Home' }}

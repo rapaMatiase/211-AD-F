@@ -22,7 +22,7 @@ const ButtonGrupNeighbours = ({navigation}) => {
             }}
             w="80"
         >
-            <Button size="lg" colorScheme="tertiary" onPress={() => navigation.navigate('UsersScreen')}> Iniciar sesion</Button>
+            <Button size="lg" colorScheme="tertiary" onPress={() => navigation.navigate('UsersScreen', {screen : 'NeighboursSingInScreen' })}> Iniciar sesion</Button>
             <Button size="lg" colorScheme="tertiary" onPress={() => console.log('hello world')}> Registrarme </Button>
         </Stack>
     );
