@@ -3,7 +3,8 @@ import LayoutWithImage from "../components/LayoutWithImage";
 import {
     VStack,
     Text,
-    Button
+    Button,
+    Heading
 } from "native-base";
 import InputWithControl from "../components/InputWithControl";
 import MunicipioEdificioImage from './../assets/img/EdificioMunicipioDeMerlo.jpeg';
@@ -31,6 +32,7 @@ const NewPromotionScreen = () => {
 
     return (
         <LayoutWithImage image="https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg">
+            <Heading size="lg"> Datos del local </Heading>
             <Text> Necitamos tus datos para indentificarte y habilitar la misma en 15 dias. </Text>
                 <VStack space={4}>
 
