@@ -9,7 +9,7 @@ import {
 import { Text, View } from "react-native";
 
 
-const UserHomeScreen = () => {
+const UserHomeScreen = ({navigation}) => {
 
     return (
         <LayoutWithBrand>
@@ -19,7 +19,7 @@ const UserHomeScreen = () => {
 
                     <Button onPress={() => console.log("DENUNCIAS")} > Reclamos </Button>
                     <Button onPress={() => console.log("DENUNCIAS")}> Denuncias </Button>
-                    <Button onPress={() => console.log("PROMOS")}> Promos </Button>
+                    <Button onPress={() => navigation.navigate('PromotionList', {isLogin : true})}> Promos </Button>
                     <Heading fontSize="lg" pb="4" > Notificaciones </Heading>
 
                 </VStack>

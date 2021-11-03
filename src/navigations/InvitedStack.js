@@ -54,6 +54,7 @@ const InvitedStack = () => {
             <Stack.Screen
                 name="NeighboursStack"
                 component={UserStack}
+                options={{headerShown: false}}
             />
         </Stack.Navigator>
     );

@@ -53,7 +53,7 @@ const ButtomAdd = () => {
                 /* icon={<Icon color="white" as={<AddIcon/>} size="sm" />} */
 
 
-const PromotionListScreen = ({ navigation }) => {
+const PromotionListScreen = ({ navigation, route }) => {
 
     return (
         <NativeBaseProvider>
@@ -66,7 +66,7 @@ const PromotionListScreen = ({ navigation }) => {
                 style={{height: "100%"}}
                 renderItem={({item}) => <CardPromotion item={item} showDetail={() => navigation.navigate('Promotion', {item : item})} />}
             />
-            <ButtomAdd />
+            { route.params.isLogin ? <ButtomAdd /> : ""}
         </NativeBaseProvider>
     );
 }
