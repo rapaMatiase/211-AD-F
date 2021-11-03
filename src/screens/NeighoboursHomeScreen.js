@@ -7,7 +7,7 @@ import {
 } from "native-base";
 import LayoutWithBrand from '../components/LayoutWithBrand';
 
-const ButtonGrupNeighbours = () => {
+const ButtonGrupNeighbours = ({navigation}) => {
     return (
         <Stack
 
@@ -22,24 +22,24 @@ const ButtonGrupNeighbours = () => {
             }}
             w="80"
         >
-            <Button size="lg" colorScheme="tertiary" onPress={() => console.log('hello world1')}> Iniciar sesion</Button>
+            <Button size="lg" colorScheme="tertiary" onPress={() => navigation.navigate('UsersScreen')}> Iniciar sesion</Button>
             <Button size="lg" colorScheme="tertiary" onPress={() => console.log('hello world')}> Registrarme </Button>
         </Stack>
     );
 }
 
-const NeighnoursHomeScreen = () => {
+const NeighoboursHomeScreen = ({navigation}) => {
 
 
     return (
         <NativeBaseProvider>
             <LayoutWithBrand>
                 <Flex height="100%" pb="25" align="center" justify="flex-end">
-                    <ButtonGrupNeighbours />
+                    <ButtonGrupNeighbours navigation={navigation} />
                 </Flex>
             </LayoutWithBrand>
         </NativeBaseProvider>
     );
 }
 
-export default NeighnoursHomeScreen;
+export default NeighoboursHomeScreen;

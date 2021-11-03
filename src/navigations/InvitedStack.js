@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import  WelcomeScreem from '../screens/WelcomeScreen';
 import PromotionListScreen from '../screens/PromotionListScreen';
 import PromotionScreen from '../screens/PromotionScreen';
+import UserStack from './UserStack';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,11 @@ const VisitasStack = () => {
                 name="Promotion" 
                 component={PromotionScreen} 
                 options={{ title: 'Promosion' }}
+            />
+            <Stack.Screen
+                name="UsersScreen"
+                component={UserStack}
+                options={{title: "Bienvenido!!"}}
             />
         </Stack.Navigator>
     );

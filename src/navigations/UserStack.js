@@ -1,22 +1,21 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import NeighnoursHomeScreen from '../screens/NeighboursHomeScreen';
+import HomeScreen from '../screens/NeighoboursHomeScreen';
 import NeighboursSignUpScreen from '../screens/NeighboursSignUpScreen';
 import NewPromotionBossScreen from '../screens/NewPromotionBossScreen';
 import NewPromotionDetailScreen from '../screens/NewPromotionDetailScreen';
 import NeighboursSingInScreen from '../screens/NeighboursSignInScreen';
-import HomeScreen from '../screens/HomeScreen';
 
 const Stack = createNativeStackNavigator();
 
-const NeighboursStack = () => {
+const UserStack = () => {
     return (
         <Stack.Navigator initialRouteName="Welcome">
-            {/* <Stack.Screen 
+            <Stack.Screen 
                 name="Welcome" 
-                component={NeighnoursHomeScreen} 
+                component={HomeScreen} 
                 options={{ title: 'Bienvenidos vecino' }}
-            /> */}
+            />
             {/* <Stack.Screen 
                 name="SignUp" 
                 component={NeighboursSignUpScreen} 
@@ -46,4 +45,4 @@ const NeighboursStack = () => {
     );
 }
 
-export default NeighboursStack;
+export default UserStack;
