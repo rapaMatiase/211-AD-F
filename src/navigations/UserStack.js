@@ -3,6 +3,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 /* Screens */
 import UserHomeScreen from './../screens/UserHomeScreen';
 import PromotionListScreen from '../screens/PromotionListScreen';
+import NeighboursBossSreen from '../screens/NewPromotionBossScreen';
+import NeighboursDetailScreen from '../screens/NewPromotionDetailScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +20,16 @@ const UserStack = () => {
                 name="PromotionList" 
                 component={PromotionListScreen} 
                 options={{ title: 'Consume'}}
+            />
+            <Stack.Screen 
+                name="NeighboursBoss" 
+                component={NeighboursBossSreen} 
+                options={{ title: 'Nueva'}}
+            />
+            <Stack.Screen 
+                name="NeighboursDetail" 
+                component={NeighboursDetailScreen} 
+                options={{ title: 'Nueva'}}
             />
         </Stack.Navigator>
     );

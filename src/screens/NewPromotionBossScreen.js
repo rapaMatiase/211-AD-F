@@ -9,7 +9,7 @@ import {
 import InputWithControl from "../components/InputWithControl";
 import MunicipioEdificioImage from './../assets/img/EdificioMunicipioDeMerlo.jpeg';
 
-const NewPromotionScreen = () => {
+const NewPromotionScreen = ({navigation}) => {
 
     const [businessName, setBusinessName] = useState("")
     const [errorBusinessName, setErrorBusinessName] = useState(false)
@@ -87,7 +87,7 @@ const NewPromotionScreen = () => {
                         errorMenssage="Es obligatorio el horario"
                     />
 
-                    <Button mt="4" onPress={() => console.log("Funciona")}> Continuar </Button>
+                    <Button mt="4" onPress={() => navigation.navigate('NeighboursDetail')}> Continuar </Button>
                 </VStack>
 
         </LayoutWithImage>

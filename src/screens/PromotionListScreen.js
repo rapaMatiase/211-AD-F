@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { Dimensions } from 'react-native';
-/* import AddIcon from './../assets/svg/add.svg';
- */import {
+import {
     NativeBaseProvider,
     FlatList,
     Box,
@@ -44,12 +42,11 @@ const ButtomAdd = ({navigation}) => {
                 position="absolute"
                 size="sm"
                 icon={<AddIcon size="4" />}
-                onPress={()=> navigation.navigate('')}
+                onPress={()=> navigation.navigate('NeighboursBoss')}
             />
         </Box>
     );
 }
-/* icon={<Icon color="white" as={<AddIcon/>} size="sm" />} */
 
 
 const PromotionListScreen = ({ navigation, route }) => {
@@ -65,7 +62,7 @@ const PromotionListScreen = ({ navigation, route }) => {
                 style={{ height: "100%" }}
                 renderItem={({ item }) => <CardPromotion item={item} showDetail={() => navigation.navigate('Promotion', { item: item })} />}
             />
-            {route.params.isLogin ? <ButtomAdd /> : null}
+            {route.params.isLogin ? <ButtomAdd navigation={navigation} /> : null}
         </NativeBaseProvider>
     );
 }
