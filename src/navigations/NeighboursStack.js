@@ -6,7 +6,7 @@ import NewPromotionBossScreen from '../screens/NewPromotionBossScreen';
 import NewPromotionDetailScreen from '../screens/NewPromotionDetailScreen';
 import NeighboursSingInScreen from '../screens/NeighboursSignInScreen';
 import HomeScreen from '../screens/HomeScreen';
-
+import CamaraScreen from '../screens/CamaraScreen';
 const Stack = createNativeStackNavigator();
 
 const NeighboursStack = () => {
@@ -37,9 +37,14 @@ const NeighboursStack = () => {
                 component={NeighboursSingInScreen} 
                 options={{ title: 'Inicio de sesion' }}
             /> */}
-<Stack.Screen 
+        {/* <Stack.Screen 
                 name="Home screen" 
                 component={HomeScreen} 
+                options={{ title: 'Home' }}
+            /> */}
+            <Stack.Screen 
+                name="Camara" 
+                component={CamaraScreen} 
                 options={{ title: 'Home' }}
             />
         </Stack.Navigator>

@@ -6,7 +6,6 @@ import {
 } from "native-base";
 import {  PermissionsAndroid, SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
 
-import Camera from 'react-native-camera';
 
 async function requestCameraPermission() {
   try {
