@@ -10,6 +10,7 @@ import {
 } from 'native-base';
 import LayoutWithBrand from "../components/LayoutWithBrand";
 import InputWithControl from "../components/InputWithControl";
+import { NavigationContainer } from "@react-navigation/native";
 
 
 const AlertMessage = () => {
@@ -40,7 +41,7 @@ const AlertMessage = () => {
     )
 }
 
-const NeighboursSingInScreen = () => {
+const NeighboursSingInScreen = ({navigation}) => {
 
     const [userName, setUserName] = useState("")
     const [errorUserName, setErrorUserName] = useState(false)
@@ -73,8 +74,8 @@ const NeighboursSingInScreen = () => {
                         errorMenssage="Debes tener"
                     />
 
-                    <Button m={3}> Iniciar sesion </Button>
-                    <Pressable onPress={() => console.log("Jodete")}>
+                    <Button m={3} onPress={() =>  navigation.navigate('NeighboursStack', {screen : 'UserHome'})}> Iniciar sesion </Button>
+                    <Pressable onPress={() =>  console.log("Jodete")}>
                         <Center>
                             <Text fontSize="lg"> Recuperar contraseña</Text>
                         </Center>
