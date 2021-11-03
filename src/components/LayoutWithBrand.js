@@ -6,7 +6,8 @@ import {
     VStack,
     Heading,
     NativeBaseProvider,
-    Center
+    Center,
+    ScrollView
 } from "native-base";
 import BrandImage from '../assets/img/mobile-logo.png';
 
@@ -14,22 +15,24 @@ import BrandImage from '../assets/img/mobile-logo.png';
 const LayoutWithBrand = (props) => {
     return (
         <NativeBaseProvider>
-           <Center flex={1} px="3">
-                      
-                            <Image
-                                source={BrandImage}
-                                alt="image"
-                                size="2xl"
-                                resizeMode={"contain"}
-                            />
-                </Center>
-              {/*  
-              
-              <VStack p="4" space={1} justifyContent="center" alignItems="stretch">
-                        <Box>
-                            {props.children}
-                        </Box>
-                </VStack> */}
+            <ScrollView >
+            <Center flex={1} px="3" >
+                <VStack space={2} alignItems="center">
+                    <Heading>Bienvenido al municipio de</Heading>
+                    <Image
+                        source={BrandImage}
+                        alt="image"
+                        size="2xl"
+                        resizeMode={"contain"}
+                    />
+                </VStack>
+            </Center>
+
+                <Box style={{flex: 1}}>
+                    {props.children}
+                </Box>
+
+            </ScrollView>
         </NativeBaseProvider>
     );
 }
