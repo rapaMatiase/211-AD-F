@@ -17,7 +17,9 @@ const NewPromotionScreen = () => {
     const [numberCharacters, setNumberCharacters] = useState(0)
 
     const countCharacters = (text) => {
-        const count = (temp.match(/is/g) || []).length
+        setDetail(text)
+        const count = (text.match(/is/g) || []).length
+        setNumberCharacters(count)
     }
 
     return (
@@ -26,11 +28,11 @@ const NewPromotionScreen = () => {
                 <VStack space={4} style={{flex: 1}}>
                     <Heading size="lg"> La promo </Heading>
                     <Text fontSize="lg"> Describe la promosion para ser elegido por los visitantes al municipio. </Text>
-                    <Text> ( 0 /1000) </Text>
+                    <Text> ( {numberCharacters} /1000) </Text>
                     <TextArea 
                         fontSize="lg"
                         height="220"
-                        onChangeText={(input) => setDetail(input)}
+                        onChangeText={(input) => countCharacters(input)}
                         placeholder="Mi promo es la mejor porque ..."
                         />
 
