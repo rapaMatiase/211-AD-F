@@ -24,11 +24,12 @@ const CardPromotion = (props) => {
 
     return (
         <View style={{ flex: 1, justifyContent: "center", alignItems: "stretch", width: Dimensions.get('window').width }}>
-            <Box p="3">
+            <Box  p="3">
                 <Box
                     rounded="lg"
                     overflow="hidden"
-                    borderColor="coolGray.200"
+                    borderColor="coolGray.900"
+                    shadow={5} 
                     borderWidth="1"
                     _dark={{
                         borderColor: "coolGray.600",

@@ -24,7 +24,7 @@ const ButtonGrupWelcome = ({navigation}) => {
     >
       <Button size="lg" colorScheme="tertiary" onPress={() => navigation.navigate('NeighboursHome')}> Soy Vecino </Button>
       <Button size="lg" colorScheme="tertiary" onPress={() => navigation.navigate('EmployeeHome')}> Soy Empleado </Button>
-      <Button size="lg" colorScheme="tertiary" onPress={() => navigation.navigate('PromotionList')}> Ver promociones </Button>
+      <Button size="lg" colorScheme="tertiary" onPress={() => navigation.navigate('PromotionList', {isLogin : false})}> Ver promociones </Button>
     </Stack>
   );
 }

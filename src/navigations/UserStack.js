@@ -17,7 +17,7 @@ const UserStack = () => {
             <Stack.Screen 
                 name="PromotionList" 
                 component={PromotionListScreen} 
-                options={{ title: 'Consume',   }}
+                options={{ title: 'Consume'}}
             />
         </Stack.Navigator>
     );

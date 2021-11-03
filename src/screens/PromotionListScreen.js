@@ -66,7 +66,7 @@ const PromotionListScreen = ({ navigation, route }) => {
                 style={{height: "100%"}}
                 renderItem={({item}) => <CardPromotion item={item} showDetail={() => navigation.navigate('Promotion', {item : item})} />}
             />
-            { route.params.isLogin ? <ButtomAdd /> : ""}
+            { route.params.isLogin ? <ButtomAdd /> : null}
         </NativeBaseProvider>
     );
 }
