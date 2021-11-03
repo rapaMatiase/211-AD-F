@@ -34,7 +34,7 @@ const NeighoboursHomeScreen = ({navigation}) => {
     return (
         <NativeBaseProvider>
             <LayoutWithBrand>
-                <Flex height="100%" pb="25" align="center" justify="flex-end">
+                <Flex /* height="100%" */ pb="25" align="center" justify="flex-end">
                     <ButtonGrupNeighbours navigation={navigation} />
                 </Flex>
             </LayoutWithBrand>

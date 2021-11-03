@@ -5,16 +5,16 @@ import NeighboursSignUpScreen from '../screens/NeighboursSignUpScreen';
 import NewPromotionBossScreen from '../screens/NewPromotionBossScreen';
 import NewPromotionDetailScreen from '../screens/NewPromotionDetailScreen';
 import NeighboursSingInScreen from '../screens/NeighboursSignInScreen';
-
+import UserHomeScreen from '../screens/UserHomeScreen';
 const Stack = createNativeStackNavigator();
 
 const UserStack = () => {
     return (
-        <Stack.Navigator initialRouteName="Welcome">
+        <Stack.Navigator initialRouteName="Home">
             <Stack.Screen 
-                name="Welcome" 
-                component={HomeScreen} 
-                options={{ title: 'Bienvenidos vecino' }}
+                name="Home" 
+                component={UserHomeScreen} 
+                options={{ title: 'Bienvenidos vecino', headerShown: false  }}
             />
             {/* <Stack.Screen 
                 name="SignUp" 

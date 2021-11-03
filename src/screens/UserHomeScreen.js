@@ -7,7 +7,7 @@ import {
 import {  Text, View } from "react-native";
 
 
-const HomeScreen = () => {
+const UserHomeScreen = () => {
 
     return (
         <LayoutWithBrand>
@@ -22,4 +22,4 @@ const HomeScreen = () => {
     );
 }
 
-export default HomeScreen;
+export default UserHomeScreen;
