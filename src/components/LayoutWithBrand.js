@@ -19,7 +19,7 @@ const LayoutWithBrand = (props) => {
                             <Image
                                 source={BrandImage}
                                 alt="image"
-                                size="3xl"
+                                size="2xl"
                                 resizeMode={"contain"}
                             />
                 </Center>
