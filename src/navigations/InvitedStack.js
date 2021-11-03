@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 /* Screens */
-import  WelcomeScreem from '../screens/WelcomeScreen';
+import InvitedHomeScreen from '../screens/InvitedHomeScreen';
+import EmployeeHomeScreen from '../screens/EmployeeHomeScreen';
+import NeighboursHomeScreen from '../screens/NeighoboursHomeScreen';
 import PromotionListScreen from '../screens/PromotionListScreen';
 import PromotionScreen from '../screens/PromotionScreen';
-import NeighoboursHomeScreen from '../screens/NeighoboursHomeScreen';
-import EmployeeHomeScreen from './../screens/EmployeeHomeScreen';
+import NeighboursSignUpScreen from '../screens/NeighboursSignUpScreen';
+import NeighboursSingInScreen from '../screens/NeighboursSignInScreen';
 /* Stack */
 import UserStack from './UserStack';
 
@@ -13,38 +15,43 @@ const Stack = createNativeStackNavigator();
 
 const InvitedStack = () => {
     return (
-        <Stack.Navigator initialRouteName="Welcome">
+        <Stack.Navigator initialRouteName="InvitedHome">
             <Stack.Screen 
-                name="Welcome" 
-                component={WelcomeScreem} 
-                options={{ title: 'Bienvenidos' }}
+                name="InvitedHome" 
+                component={InvitedHomeScreen} 
+                options={{ title: 'Bienvenido' }}
+            />
+            <Stack.Screen 
+                name="EmployeeHome" 
+                component={EmployeeHomeScreen} 
+                options={{ title: 'Bienvenido esclavo' }}
+            />
+            <Stack.Screen 
+                name="NeighboursHome" 
+                component={NeighboursHomeScreen} 
+                options={{ title: 'Bienvenido victima' }}
             />
             <Stack.Screen 
                 name="PromotionList" 
                 component={PromotionListScreen} 
-                options={{ title: 'Promosiones' }}
+                options={{ title: 'Consume' }}
             />
             <Stack.Screen 
                 name="Promotion" 
                 component={PromotionScreen} 
-                options={{ title: 'Promosion' }}
+                options={{ title: 'Consume este producto' }}
             />
             <Stack.Screen 
-                name="NeighoboursHome"
-                component={NeighoboursHomeScreen}
-                options={{title : 'Menu'}}
+                name="NeighboursSignUp" 
+                component={NeighboursSignUpScreen} 
+                options={{ title: 'Consume este producto' }}
             />
             <Stack.Screen 
-                name="EmployeeHome"
-                component={EmployeeHomeScreen}
-                options={{title : 'Bienvenido esclavo'}}
+                name="NeighboursSingIn" 
+                component={NeighboursSingInScreen} 
+                options={{ title: 'Marketing' }}
             />
-            
-            <Stack.Screen
-                name="UsersScreen"
-                component={UserStack}
-                options={{title: "Bienvenido!!"}}
-            />
+          
         </Stack.Navigator>
     );
 }
