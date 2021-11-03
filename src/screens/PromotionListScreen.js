@@ -9,6 +9,7 @@ import {
     Icon,
     ScrollView,
     View,
+    Image,
     Fab
 } from "native-base";
 import CardPromotion from '../components/CardPromotion';
@@ -46,7 +47,8 @@ const ButtomAdd = () => {
             <Fab
                 position="absolute"
                 size="sm"
-            />
+            >
+            </Fab>
         </Box>
     );
 }
