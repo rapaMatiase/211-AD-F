@@ -64,30 +64,13 @@ const PromotionListScreen = ({ navigation }) => {
                 legacyImplementation={false}
                 data={json}
                 style={{height: "100%"}}
-                renderItem={({item}) => <CardPromotion item={item} showDetail={() => navigation.navigate('Promotion')} />}
+                renderItem={({item}) => <CardPromotion item={item} showDetail={() => navigation.navigate('Promotion', {item : item})} />}
             />
             <ButtomAdd />
         </NativeBaseProvider>
     );
 }
  
-/* 
 
-const PromotionsScreen = () => {
-
-    return (
-        <NativeBaseProvider>
-            <ScrollView horizontal>
-                <View style={{width : Dimensions.get('window').width}}>
-                    <CardPromotion />
-                </View>
-                <View style={{width : Dimensions.get('window').width}}>
-                    <CardPromotion />
-                </View>
-
-            </ScrollView>
-        </NativeBaseProvider>
-    );
-} */
 
 export default PromotionListScreen;

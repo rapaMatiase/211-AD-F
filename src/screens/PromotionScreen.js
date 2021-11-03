@@ -19,7 +19,7 @@ import TextIcon from "../components/TextIcon";
 
 import LayoutWithImage from "../components/LayoutWithImage";
 
-const PromotionScreen = ({ router }) => {
+const PromotionScreen = ({ route }) => {
 
     return (
         <LayoutWithImage
@@ -28,17 +28,16 @@ const PromotionScreen = ({ router }) => {
             <Stack space={3}>
                 <Stack space={2}>
                     <Heading size="md" ml="-1">
-                        The Garden City
+                        {route.params.item.title}
                     </Heading>
                 </Stack>
-                <Text fontWeight="400">
-                    Bengaluru (also called Bangalore) is the center of India's high-tech
-                    industry. The city is also known for its parks and nightlife.
+                <Text fontSize="lg" fontWeight="400">
+                    {route.params.item.description}
                 </Text>
                 <VStack alignItems="flex-start" pt="5" space={4} justifyContent="space-between">
-                    <TextIcon text="Direccion" imageIcon={ImageIconFlag}/>
-                    <TextIcon text="Horario" imageIcon={ImageIconClock}/>
-                    <TextIcon text="Dias" imageIcon={ImageIconCalendar}/>
+                    <TextIcon text={route.params.item.addres} imageIcon={ImageIconFlag} />
+                    <TextIcon text={route.params.item.time} imageIcon={ImageIconClock} />
+                    <TextIcon text={route.params.item.days} imageIcon={ImageIconCalendar} />
                 </VStack>
             </Stack>
         </LayoutWithImage>
