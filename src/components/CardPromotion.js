@@ -76,7 +76,7 @@ const CardPromotion = (props) => {
                             <ListItemTextWithIcon text={props.item.time} />
                         </VStack>
                         <HStack alignItems="center" justifyContent="center">
-                            <Pressable onPress={() => console.log("hola")}>
+                            <Pressable onPress={() => props.showDetail()}>
                                 <Text
                                     fontSize="2xl"
                                     fontWeight="600"

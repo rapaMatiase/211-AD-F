@@ -7,7 +7,7 @@ import {
 } from "native-base";
 import LayoutWithBrand from '../components/LayoutWithBrand';
 
-const ButtonGrupWelcome = () => {
+const ButtonGrupWelcome = ({navigation}) => {
   return (
     <Stack
 
@@ -22,19 +22,19 @@ const ButtonGrupWelcome = () => {
       }}
       w="80"
     >
-      <Button size="lg" colorScheme="tertiary" onPress={() => console.log('hello world1')}> Soy Vecino </Button>
-      <Button size="lg" colorScheme="tertiary" onPress={() => console.log('hello world')}> Soy Empleado </Button>
-      <Button size="lg" colorScheme="tertiary" onPress={() => console.log('hello world')}> Ver promociones </Button>
+      <Button size="lg" colorScheme="tertiary" onPress={() => navigation.navigate('')}> Soy Vecino </Button>
+      <Button size="lg" colorScheme="tertiary" onPress={() => navigation.navigate('')}> Soy Empleado </Button>
+      <Button size="lg" colorScheme="tertiary" onPress={() => navigation.navigate('PromotionList')}> Ver promociones </Button>
     </Stack>
   );
 }
 
-function WelcomeScreen() {
+function WelcomeScreen({ navigation }) {
   return (
     <NativeBaseProvider>
       <LayoutWithBrand>
-        <Flex height="100%" pb="25"  align="center" justify="flex-end">
-          <ButtonGrupWelcome />
+        <Flex pb="25"  align="center" justify="flex-end">
+          <ButtonGrupWelcome navigation={navigation} />
         </Flex>
       </LayoutWithBrand>
     </NativeBaseProvider>

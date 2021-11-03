@@ -53,7 +53,7 @@ const ButtomAdd = () => {
                 /* icon={<Icon color="white" as={<AddIcon/>} size="sm" />} */
 
 
-const PromotionsScreen = () => {
+const PromotionListScreen = ({ navigation }) => {
 
     return (
         <NativeBaseProvider>
@@ -64,7 +64,7 @@ const PromotionsScreen = () => {
                 legacyImplementation={false}
                 data={json}
                 style={{height: "100%"}}
-                renderItem={({item}) => <CardPromotion item={item} />}
+                renderItem={({item}) => <CardPromotion item={item} showDetail={() => navigation.navigate('Promotion')} />}
             />
             <ButtomAdd />
         </NativeBaseProvider>
@@ -90,4 +90,4 @@ const PromotionsScreen = () => {
     );
 } */
 
-export default PromotionsScreen;
+export default PromotionListScreen;

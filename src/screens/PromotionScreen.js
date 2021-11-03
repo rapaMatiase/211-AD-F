@@ -14,7 +14,7 @@ import {
 
 import LayoutWithImage from "../components/LayoutWithImage";
 
-const PromotionScreen = () => {
+const PromotionScreen = ({ navigation }) => {
 
     return (
         <LayoutWithImage
