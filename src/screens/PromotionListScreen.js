@@ -1,15 +1,11 @@
 import * as React from 'react';
 import { Dimensions } from 'react-native';
-import AddIcon from './../assets/svg/add.svg';
-import {
+/* import AddIcon from './../assets/svg/add.svg';
+ */import {
     NativeBaseProvider,
-    Text,
     FlatList,
     Box,
-    Icon,
-    ScrollView,
-    View,
-    Image,
+    AddIcon,
     Fab
 } from "native-base";
 import CardPromotion from '../components/CardPromotion';
@@ -41,38 +37,39 @@ const json = [
     }
 ]
 
-const ButtomAdd = () => {
+const ButtomAdd = ({navigation}) => {
     return (
         <Box position="relative" h={100} w="100%">
             <Fab
                 position="absolute"
                 size="sm"
-            >
-            </Fab>
+                icon={<AddIcon size="4" />}
+                onPress={()=> navigation.navigate('')}
+            />
         </Box>
     );
 }
-                /* icon={<Icon color="white" as={<AddIcon/>} size="sm" />} */
+/* icon={<Icon color="white" as={<AddIcon/>} size="sm" />} */
 
 
 const PromotionListScreen = ({ navigation, route }) => {
 
     return (
         <NativeBaseProvider>
-            <FlatList 
+            <FlatList
                 horizontal
                 pagingEnabled={true}
                 showsHorizontalScrollIndicator={false}
                 legacyImplementation={false}
                 data={json}
-                style={{height: "100%"}}
-                renderItem={({item}) => <CardPromotion item={item} showDetail={() => navigation.navigate('Promotion', {item : item})} />}
+                style={{ height: "100%" }}
+                renderItem={({ item }) => <CardPromotion item={item} showDetail={() => navigation.navigate('Promotion', { item: item })} />}
             />
-            { route.params.isLogin ? <ButtomAdd /> : null}
+            {route.params.isLogin ? <ButtomAdd /> : null}
         </NativeBaseProvider>
     );
 }
- 
+
 
 
 export default PromotionListScreen;
