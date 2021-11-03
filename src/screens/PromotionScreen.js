@@ -11,10 +11,15 @@ import {
     Pressable,
     NativeBaseProvider
 } from "native-base";
+import ImageIconFlag from './../assets/img/maps-and-flags.png';
+import ImageIconClock from './../assets/img/clock-circular-outline.png';
+import ImageIconCalendar from './../assets/img/calendar.png';
+
+import TextIcon from "../components/TextIcon";
 
 import LayoutWithImage from "../components/LayoutWithImage";
 
-const PromotionScreen = ({ navigation }) => {
+const PromotionScreen = ({ router }) => {
 
     return (
         <LayoutWithImage
@@ -30,42 +35,11 @@ const PromotionScreen = ({ navigation }) => {
                     Bengaluru (also called Bangalore) is the center of India's high-tech
                     industry. The city is also known for its parks and nightlife.
                 </Text>
-                <VStack alignItems="flex-start" space={4} justifyContent="space-between">
-                    <HStack alignItems="center">
-                        <Text
-                            fontSize="lg"
-                            fontWeight="600"
-                        >
-                            Direccion
-                        </Text>
-                    </HStack>
-                    <HStack alignItems="center">
-                        <Text
-                            fontSize="lg"
-                            fontWeight="600"
-                        >
-                            Dias
-                        </Text>
-                    </HStack>
-                    <HStack alignItems="center">
-                        <Text
-                            fontSize="lg"
-                            fontWeight="600"
-                        >
-                            Horario
-                        </Text>
-                    </HStack>
+                <VStack alignItems="flex-start" pt="5" space={4} justifyContent="space-between">
+                    <TextIcon text="Direccion" imageIcon={ImageIconFlag}/>
+                    <TextIcon text="Horario" imageIcon={ImageIconClock}/>
+                    <TextIcon text="Dias" imageIcon={ImageIconCalendar}/>
                 </VStack>
-                <HStack alignItems="center" justifyContent="center">
-                    <Pressable onPress={() => console.log("hola")}>
-                        <Text
-                            fontSize="lg"
-                            fontWeight="600"
-                        >
-                            Detalle
-                        </Text>
-                    </Pressable>
-                </HStack>
             </Stack>
         </LayoutWithImage>
 

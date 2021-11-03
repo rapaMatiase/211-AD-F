@@ -13,20 +13,11 @@ import {
     HStack,
     Stack,
 } from "native-base";
+import ImageIconFlag from './../assets/img/maps-and-flags.png';
+import ImageIconClock from './../assets/img/clock-circular-outline.png';
+import ImageIconCalendar from './../assets/img/calendar.png';
 
-
-const ListItemTextWithIcon = (props) => {
-    return (
-        <HStack alignItems="center">
-            <Text
-                fontSize="lg"
-                fontWeight="600"
-            >
-                {props.text}
-            </Text>
-        </HStack>
-    );
-}
+import TextIcon from "../components/TextIcon";
 
 
 const CardPromotion = (props) => {
@@ -70,10 +61,10 @@ const CardPromotion = (props) => {
                         <Text fontSize="lg" fontWeight="400" isTruncated >
                             {props.item.description}
                         </Text>
-                        <VStack alignItems="flex-start" space={4} justifyContent="space-between">
-                            <ListItemTextWithIcon text={props.item.addres} />
-                            <ListItemTextWithIcon text={props.item.days} />
-                            <ListItemTextWithIcon text={props.item.time} />
+                        <VStack alignItems="flex-start" pt="5" space={4} justifyContent="space-between">
+                            <TextIcon text={props.item.addres} imageIcon={ImageIconFlag} />
+                            <TextIcon text={props.item.days} imageIcon={ImageIconClock} />
+                            <TextIcon text={props.item.time} imageIcon={ImageIconCalendar} />
                         </VStack>
                         <HStack alignItems="center" justifyContent="center">
                             <Pressable onPress={() => props.showDetail()}>
