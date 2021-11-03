@@ -4,6 +4,7 @@ import {
     AspectRatio,
     Image,
     Stack,
+    ScrollView,
     NativeBaseProvider
 } from "native-base";
 
@@ -41,14 +42,16 @@ const LayoutWithImage = (props) => {
 
     return (
         <NativeBaseProvider>
-            <Box>
-                {props.image === undefined ? <ImageDefualt /> : <ImageUser image={props.image} />}
-            </Box>
-            <Box bg="white" h="100%" p="3" rounded="xl" mt="-5" >
-                <Stack p="4" space={3}>
-                    {props.children}
-                </Stack>
-            </Box>
+            <ScrollView>
+                <Box>
+                    {props.image === undefined ? <ImageDefualt /> : <ImageUser image={props.image} />}
+                </Box>
+                <Box bg="white" h="100%" p="3" rounded="xl" mt="-5" >
+                    <Stack p="4" space={3}>
+                        {props.children}
+                    </Stack>
+                </Box>
+                </ScrollView>
         </NativeBaseProvider>
     );
 }

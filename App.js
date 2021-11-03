@@ -6,7 +6,7 @@ import NeighboursStack from './src/navigations/NeighboursStack';
 function App() {
   return (
     <NavigationContainer>
-      <VisitasStack />
+      <NeighboursStack />
     </NavigationContainer>
   );
 }
