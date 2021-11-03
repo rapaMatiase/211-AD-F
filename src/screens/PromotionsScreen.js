@@ -1,45 +1,93 @@
 import * as React from 'react';
-
+import { Dimensions } from 'react-native';
+import AddIcon from './../assets/svg/add.svg';
 import {
     NativeBaseProvider,
     Text,
-  } from "native-base";
+    FlatList,
+    Box,
+    Icon,
+    ScrollView,
+    View,
+    Fab
+} from "native-base";
 import CardPromotion from '../components/CardPromotion';
 
 const json = [
     {
-        title : "La buena mesa de oscar",
-        description : "Un lugar para comer en familia y difrustra todos juntos de una buena comida",
-        addres : "Av. Que te importa 2233",
-        days : "Lunes, Martes, y Miercoles",
-        time : "8 a 10 am",
-        image : ""
+        title: "La buena mesa de oscar",
+        description: "Un lugar para comer en familia y difrustra todos juntos de una buena comida",
+        addres: "Av. Que te importa 2233",
+        days: "Lunes, Martes, y Miercoles",
+        time: "8 a 10 am",
+        image: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg"
     },
     {
-        title : "2La buena mesa de oscar",
-        description : "Un lugar para comer en familia y difrustra todos juntos de una buena comida",
-        addres : "Av. Que te importa 2233",
-        days : "Lunes, Martes, y Miercoles",
-        time : "8 a 10 am",
-        image : ""
+        title: "2La buena mesa de oscar",
+        description: "Un lugar para comer en familia y difrustra todos juntos de una buena comida",
+        addres: "Av. Que te importa 2233",
+        days: "Lunes, Martes, y Miercoles",
+        time: "8 a 10 am",
+        image: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg"
     },
     {
-        title : "3La buena mesa de oscar",
-        description : "Un lugar para comer en familia y difrustra todos juntos de una buena comida",
-        addres : "Av. Que te importa 2233",
-        days : "Lunes, Martes, y Miercoles",
-        time : "8 a 10 am",
-        image : ""
+        title: "3La buena mesa de oscar",
+        description: "Un lugar para comer en familia y difrustra todos juntos de una buena comida",
+        addres: "Av. Que te importa 2233",
+        days: "Lunes, Martes, y Miercoles",
+        time: "8 a 10 am",
+        image: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg"
     }
 ]
+
+const ButtomAdd = () => {
+    return (
+        <Box position="relative" h={100} w="100%">
+            <Fab
+                position="absolute"
+                size="sm"
+            />
+        </Box>
+    );
+}
+                /* icon={<Icon color="white" as={<AddIcon/>} size="sm" />} */
+
 
 const PromotionsScreen = () => {
 
     return (
         <NativeBaseProvider>
-            <CardPromotion />
+            <FlatList 
+                horizontal
+                pagingEnabled={true}
+                showsHorizontalScrollIndicator={false}
+                legacyImplementation={false}
+                data={json}
+                style={{height: "100%"}}
+                renderItem={({item}) => <CardPromotion item={item} />}
+            />
+            <ButtomAdd />
         </NativeBaseProvider>
     );
 }
+ 
+/* 
+
+const PromotionsScreen = () => {
+
+    return (
+        <NativeBaseProvider>
+            <ScrollView horizontal>
+                <View style={{width : Dimensions.get('window').width}}>
+                    <CardPromotion />
+                </View>
+                <View style={{width : Dimensions.get('window').width}}>
+                    <CardPromotion />
+                </View>
+
+            </ScrollView>
+        </NativeBaseProvider>
+    );
+} */
 
 export default PromotionsScreen;

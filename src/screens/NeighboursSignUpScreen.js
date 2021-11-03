@@ -12,9 +12,9 @@ import {
     WarningOutlineIcon,
     NativeBaseProvider,
     Button
-} from "native-base"
+} from "native-base";
 import LayoutWithBrand from "../components/LayoutWithBrand";
-
+import InputWithControl from "../components/InputWithControl";
 
 
 
@@ -40,57 +40,43 @@ const NeighboursSignUpScreen = () => {
         <NativeBaseProvider>
             <LayoutWithBrand>
                 
-                <FormControl isRequired isInvalid={dniError}>
-                    <Stack mx="4">
-                        <FormControl.Label>DNI</FormControl.Label>
-                        <Input type="number" placeholder="DNI" onChangeText={(input) => setDni(input)} />
-                        <FormControl.HelperText>
-                            Must be atleast 6 characters.
-                        </FormControl.HelperText>
-                        <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
-                            Atleast 6 characters are required.
-                        </FormControl.ErrorMessage>
-                    </Stack>
-                </FormControl>
-                
-                <FormControl isRequired isInvalid={nameError}>
-                    <Stack mx="4">
-                        <FormControl.Label>Nombre</FormControl.Label>
-                        <Input type="text" placeholder="Juan pablo" onChangeText={(input) => setName(input)} />
-                        <FormControl.HelperText>
-                            Must be atleast 6 characters.
-                        </FormControl.HelperText>
-                        <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
-                            Atleast 6 characters are required.
-                        </FormControl.ErrorMessage>
-                    </Stack>
+                <InputWithControl 
+                    error={dniError} 
+                    setValue={setDni} 
+                    title="DNI" 
+                    type="text" 
+                    placeholder="XXXXXXX" 
+                    errorMenssage="Este es el error"
+                />
 
-                </FormControl>
-                <FormControl isRequired isInvalid={lastNameError}>
-                    <Stack mx="4">
-                        <FormControl.Label>Apellido</FormControl.Label>
-                        <Input type="text" placeholder="Perez" onChangeText={(input) => setLastName(input)} />
-                        <FormControl.HelperText>
-                            Must be atleast 6 characters.
-                        </FormControl.HelperText>
-                        <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
-                            Atleast 6 characters are required.
-                        </FormControl.ErrorMessage>
-                    </Stack>
-                </FormControl>
-                <FormControl isRequired isInvalid={emailError}>
-                    <Stack mx="4">
-                        <FormControl.Label>email</FormControl.Label>
-                        <Input type="email" placeholder="Perezj@gmail.com" onChangeText={(input) => setEmail(input)} />
-                        <FormControl.HelperText>
-                            Must be atleast 6 characters.
-                        </FormControl.HelperText>
-                        <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
-                            Atleast 6 characters are required.
-                        </FormControl.ErrorMessage>
-                    </Stack>
-                    <Button m="2" onPress={() => sendData()}> Enviar </Button>
-                </FormControl>
+                <InputWithControl 
+                    error={nameError} 
+                    setValue={setName} 
+                    title="Nombre" 
+                    type="text" 
+                    placeholder="Juan Pablo" 
+                    errorMenssage="Debes tener"
+                />
+
+                <InputWithControl 
+                    error={lastNameError} 
+                    setValue={setLastName} 
+                    title="Apellido" 
+                    type="text" 
+                    placeholder="Perez" 
+                    errorMenssage="Debes tener"
+                />
+
+                <InputWithControl 
+                    error={emailError} 
+                    setValue={setEmail} 
+                    title="Mail" 
+                    type="email" 
+                    placeholder="perezj@gmail.com" 
+                    errorMenssage="Debes tener"
+                />
+                
+                
             </LayoutWithBrand>
         </NativeBaseProvider>
     );
