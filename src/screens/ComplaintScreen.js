@@ -12,6 +12,10 @@ import IconImageOk from './../assets/img/comprobado.png';
 import LayoutWithImage from "../components/LayoutWithImage";
 const ComplaintScreen = () => {
 
+
+
+
+
     return (
         <LayoutWithImage>
             <VStack>

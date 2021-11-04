@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     NativeBaseProvider,
     Button,
@@ -6,42 +6,42 @@ import {
     Pressable,
     Alert,
     VStack,
-    Center
+    Center,
+    HStack,
+
 } from 'native-base';
 import LayoutWithBrand from "../components/LayoutWithBrand";
 import InputWithControl from "../components/InputWithControl";
 import { NavigationContainer } from "@react-navigation/native";
-
+import axios from "axios";
 
 const AlertMessage = () => {
 
+
     return (
-        <Stack space={3} w="100%">
-            {statusArray.map((status) => {
-                return (
-                    <Alert w="100%" status="error">
-                        <VStack space={2} flexShrink={1} w="100%">
-                            <HStack flexShrink={1} space={2} justifyContent="space-between">
-                                <HStack space={2} flexShrink={1}>
-                                    <Alert.Icon mt="1" />
-                                    <Text fontSize="md" color="coolGray.800">
-                                        El nombre de usuario o contraseña son incorrectos
-                                    </Text>
-                                </HStack>
-                                <IconButton
+        <Center>
+            <Alert w="80%" m="1" status="error">
+                <VStack space={2} flexShrink={1} w="100%">
+                    <HStack flexShrink={1} space={2} justifyContent="space-between">
+                        <HStack space={2} flexShrink={1}>
+                            <Alert.Icon mt="1" />
+                            <Text fontSize="md" textAlign="center" color="coolGray.800">
+                                El usuario no existe.
+                            </Text>
+                        </HStack>
+                        {/* <IconButton
                                     variant="unstyled"
                                     icon={<CloseIcon size="3" color="coolGray.600" />}
-                                />
-                            </HStack>
-                        </VStack>
-                    </Alert>
-                )
-            })}
-        </Stack>
+                                /> */}
+                    </HStack>
+                </VStack>
+            </Alert>
+        </Center>
     )
+
 }
 
-const NeighboursSingInScreen = ({navigation}) => {
+const NeighboursSingInScreen = ({ navigation }) => {
 
     const [userName, setUserName] = useState("")
     const [errorUserName, setErrorUserName] = useState(false)
@@ -50,6 +50,36 @@ const NeighboursSingInScreen = ({navigation}) => {
     const [errorPassword, setErrorPassword] = useState(false)
 
     const [alert, setAlert] = useState(false)
+
+    hanleSubmit = () => {
+
+        const user = {
+            documento: userName,
+            password: password
+        };
+
+        axios.post('http://10.0.2.2:3000/api/usuario/login', {
+            documento: userName,
+            password: password
+        })
+            .then(function (response) {
+                console.log(response.status)
+                if (response.status == "200") {
+                    console.log("Estas logueado")
+                    navigation.navigate('NeighboursStack', {screen : 'UserHome'})
+                }
+            })
+            .catch(function (error) {
+                console.log(error.response.status)
+                if (error.response.status === "401") {
+                    console.log("El usuario es desconocido")
+                    setAlert(true)
+                }
+                setAlert(true)
+
+            })
+
+    }
 
     return (
         <NativeBaseProvider>
@@ -74,8 +104,11 @@ const NeighboursSingInScreen = ({navigation}) => {
                         errorMenssage="Debes tener"
                     />
 
-                    <Button m={3} onPress={() =>  navigation.navigate('NeighboursStack', {screen : 'UserHome'})}> Iniciar sesion </Button>
-                    <Pressable onPress={() =>  console.log("Jodete")}>
+                    {/*   <Button m={3} onPress={() =>  navigation.navigate('NeighboursStack', {screen : 'UserHome'})}> Iniciar sesion </Button> */}
+                    <Button m={3} onPress={() => hanleSubmit()}> Iniciar sesion </Button>
+
+
+                    <Pressable onPress={() => console.log("Jodete")}>
                         <Center>
                             <Text fontSize="lg"> Recuperar contraseña</Text>
                         </Center>
