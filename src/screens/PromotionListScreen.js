@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
     NativeBaseProvider,
     FlatList,
@@ -7,32 +7,77 @@ import {
     Fab
 } from "native-base";
 import CardPromotion from '../components/CardPromotion';
+import ImageNoFound from '../assets/img/no-image.jpg';
 
 const json = [
-    {
-        title: "La buena mesa de oscar",
-        description: "Un lugar para comer en familia y difrustra todos juntos de una buena comida",
-        addres: "Av. Que te importa 2233",
-        days: "Lunes, Martes, y Miercoles",
-        time: "8 a 10 am",
-        image: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg"
-    },
-    {
-        title: "2La buena mesa de oscar",
-        description: "Un lugar para comer en familia y difrustra todos juntos de una buena comida",
-        addres: "Av. Que te importa 2233",
-        days: "Lunes, Martes, y Miercoles",
-        time: "8 a 10 am",
-        image: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg"
-    },
-    {
-        title: "3La buena mesa de oscar",
-        description: "Un lugar para comer en familia y difrustra todos juntos de una buena comida",
-        addres: "Av. Que te importa 2233",
-        days: "Lunes, Martes, y Miercoles",
-        time: "8 a 10 am",
-        image: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg"
-    }
+    [
+        {
+          "idPromocion": 1,
+          "tituloPromocion": "Super promo",
+          "direccion": "abc 1234",
+          "desdeDia": "Lunes",
+          "hastaDia": "Viernes",
+          "desdeHora": "8 AM",
+          "hastaHora": "19 PM",
+          "descripcion": "2x1 en hamburguesa",
+          "imagen1": null,
+          "imagen2": null,
+          "imagen3": null,
+          "imagen4": null,
+          "imagen5": null,
+          "servicioProfesional": "No",
+          "telefono": "1121-2121",
+          "mail": "abc@1234.com",
+          "nombre": "Ernesto",
+          "apellido": "Perez",
+          "documento": "123456",
+          "activa": "Si"
+        },
+        {
+          "idPromocion": 10,
+          "tituloPromocion": "Ultra promo",
+          "direccion": "Av. Directores 232",
+          "desdeDia": "Miercoles",
+          "hastaDia": "Jueves",
+          "desdeHora": "11 AM",
+          "hastaHora": "14 PM",
+          "descripcion": "Una milanesa completa con papas fritas o pure mixto con una cerveza o cola marca Manaos",
+          "imagen1": null,
+          "imagen2": null,
+          "imagen3": null,
+          "imagen4": null,
+          "imagen5": null,
+          "servicioProfesional": "No",
+          "telefono": "4585-8754",
+          "mail": "Milanga@gmail.com",
+          "nombre": "Hernan",
+          "apellido": "Cabellos",
+          "documento": "321",
+          "activa": "Si"
+        },
+        {
+          "idPromocion": 13,
+          "tituloPromocion": "La pachora",
+          "direccion": "Av. San martin 2332",
+          "desdeDia": "Jueves",
+          "hastaDia": "Sabados",
+          "desdeHora": "14 PM",
+          "hastaHora": "16 PM",
+          "descripcion": "Pizza para 4 y 2 Cervezas baratas",
+          "imagen1": null,
+          "imagen2": null,
+          "imagen3": null,
+          "imagen4": null,
+          "imagen5": null,
+          "servicioProfesional": "No",
+          "telefono": "4869-8875",
+          "mail": "Carl@hotmail.com",
+          "nombre": "Juan",
+          "apellido": "Carlos",
+          "documento": "23423",
+          "activa": "Si"
+        }
+      ]
 ]
 
 const ButtomAdd = ({navigation}) => {
@@ -50,6 +95,16 @@ const ButtomAdd = ({navigation}) => {
 
 
 const PromotionListScreen = ({ navigation, route }) => {
+
+    const [json, setJson] = useState(null);
+
+    useEffect(() => {
+        fetch('http://localhost:3000/api/promocion')
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .cacth((error) => console.log(error.message));
+
+    }, [setJson]);
 
     return (
         <NativeBaseProvider>

@@ -46,9 +46,8 @@ const CardPromotion = (props) => {
                     <Box>
                         <AspectRatio ratio={16 / 9}>
                             <Image
-                                source={{
-                                    uri: props.item.image,
-                                }}
+                                /* ESTO HAY QUE CAMBIARLO DESPUES */
+                                source={ImageNoFound}
                                 alt="image"
                             />
                         </AspectRatio>
@@ -56,16 +55,16 @@ const CardPromotion = (props) => {
                     <Stack p="4" space={4} >
                         <Stack space={2}>
                             <Heading size="lg" ml="-1">
-                                {props.item.title}
+                                {props.item.tituloPromocion}
                             </Heading>
                         </Stack>
                         <Text fontSize="lg" fontWeight="400" isTruncated >
-                            {props.item.description}
+                            {props.item.descripcion}
                         </Text>
                         <VStack alignItems="flex-start" pt="5" space={4} justifyContent="space-between">
-                            <TextIcon text={props.item.addres} imageIcon={ImageIconFlag} />
-                            <TextIcon text={props.item.days} imageIcon={ImageIconClock} />
-                            <TextIcon text={props.item.time} imageIcon={ImageIconCalendar} />
+                           <TextIcon text={props.item.direccion} imageIcon={ImageIconFlag} />
+                            <TextIcon text={`${props.item.desdeDia} a ${props.item.hastaDia}`} imageIcon={ImageIconClock} />
+                            <TextIcon text={`${props.item.desdeHora} a ${props.item.hastaHora}`} imageIcon={ImageIconCalendar} />
                         </VStack>
                         <HStack alignItems="center" justifyContent="center">
                             <Pressable onPress={() => props.showDetail()}>
