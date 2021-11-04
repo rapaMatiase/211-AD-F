@@ -18,6 +18,7 @@ import ImageIconClock from './../assets/img/clock-circular-outline.png';
 import ImageIconCalendar from './../assets/img/calendar.png';
 
 import TextIcon from "../components/TextIcon";
+import ImageNoFound from '../assets/img/no-image.jpg';
 
 
 const CardPromotion = (props) => {
@@ -47,7 +48,9 @@ const CardPromotion = (props) => {
                         <AspectRatio ratio={16 / 9}>
                             <Image
                                 /* ESTO HAY QUE CAMBIARLO DESPUES */
-                                source={ImageNoFound}
+                                source={{
+                                    uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
+                                }}
                                 alt="image"
                             />
                         </AspectRatio>
