@@ -18,7 +18,7 @@ const UserHomeScreen = ({navigation}) => {
                     <Heading fontSize="lg"  > !Hola, ACA VA EL NOMBRE¡ </Heading>
 
                     <Button onPress={() => console.log("DENUNCIAS")} > Reclamos </Button>
-                    <Button onPress={() => console.log("DENUNCIAS")}> Denuncias </Button>
+                    <Button onPress={() => navigation.navigate('ComplaintsHome')}> Denuncias </Button>
                     <Button onPress={() => navigation.navigate('PromotionList', {isLogin : true})}> Promos </Button>
                     <Heading fontSize="lg" pb="4" > Notificaciones </Heading>
 

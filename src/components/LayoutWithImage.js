@@ -51,7 +51,7 @@ const LayoutWithImage = (props) => {
                         {props.children}
                     </Stack>
                 </Box>
-                </ScrollView>
+            </ScrollView>
         </NativeBaseProvider>
     );
 }
