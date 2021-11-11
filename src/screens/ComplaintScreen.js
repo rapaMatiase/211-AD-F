@@ -13,9 +13,6 @@ import LayoutWithImage from "../components/LayoutWithImage";
 const ComplaintScreen = () => {
 
 
-
-
-
     return (
         <LayoutWithImage>
             <VStack>

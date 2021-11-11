@@ -11,11 +11,19 @@ import NeighboursSingInScreen from '../screens/NeighboursSignInScreen';
 /* Stack */
 import UserStack from './UserStack';
 
+/* PRuebas */
+import ClaimsHomeScreen from '../screens/ClaimsHomeScreen';
+
 const Stack = createNativeStackNavigator();
 
 const InvitedStack = () => {
     return (
-        <Stack.Navigator initialRouteName="InvitedHome">
+        <Stack.Navigator initialRouteName="Prueba">
+            <Stack.Screen 
+                name="Prueba"
+                component={ClaimsHomeScreen}
+
+            />
             <Stack.Screen 
                 name="InvitedHome" 
                 component={InvitedHomeScreen} 
@@ -24,12 +32,12 @@ const InvitedStack = () => {
             <Stack.Screen 
                 name="EmployeeHome" 
                 component={EmployeeHomeScreen} 
-                options={{ title: 'Bienvenido esclavo' }}
+                options={{ title: 'Bienvenido' }}
             />
             <Stack.Screen 
                 name="NeighboursHome" 
                 component={NeighboursHomeScreen} 
-                options={{ title: 'Bienvenido victima' }}
+                options={{ title: 'Bienvenido' }}
             />
             <Stack.Screen 
                 name="PromotionList" 
@@ -39,12 +47,12 @@ const InvitedStack = () => {
             <Stack.Screen 
                 name="Promotion" 
                 component={PromotionScreen} 
-                options={{ title: 'Consume este producto' }}
+                options={{ title: 'Consume' }}
             />
             <Stack.Screen 
                 name="NeighboursSignUp" 
                 component={NeighboursSignUpScreen} 
-                options={{ title: 'Consume este producto' }}
+                options={{ title: 'Consume' }}
             />
             <Stack.Screen 
                 name="NeighboursSingIn" 

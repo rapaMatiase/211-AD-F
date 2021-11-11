@@ -11,13 +11,11 @@ import {
 
 } from 'native-base';
 import LayoutWithBrand from "../components/LayoutWithBrand";
-import InputWithControl from "../components/InputWithControl";
-import { NavigationContainer } from "@react-navigation/native";
+import InputText from "../components/InputText";
+import InputPassword from "../components/InputPassword";
 import axios from "axios";
 
 const AlertMessage = () => {
-
-
     return (
         <Center>
             <Alert w="80%" m="1" status="error">
@@ -44,14 +42,10 @@ const AlertMessage = () => {
 const NeighboursSingInScreen = ({ navigation }) => {
 
     const [userName, setUserName] = useState("")
-    const [errorUserName, setErrorUserName] = useState(false)
-
     const [password, setPassword] = useState("")
-    const [errorPassword, setErrorPassword] = useState(false)
-
     const [alert, setAlert] = useState(false)
 
-    hanleSubmit = () => {
+/*     hanleSubmit = () => {
 
         const user = {
             documento: userName,
@@ -80,29 +74,45 @@ const NeighboursSingInScreen = ({ navigation }) => {
             })
 
     }
+ */
+
+    const validarUserName = (userName)=>{
+        if(userName.length > 3){
+            return true
+        }else{
+            return false
+        }
+    }
+
+    const validarPassword = (password)=>{
+        if(password.length > 3){
+            return true
+        }else{
+            return false
+        }
+    }
 
     return (
         <NativeBaseProvider>
             <LayoutWithBrand>
                 <VStack space={3}>
 
-                    <InputWithControl
-                        error={errorUserName}
+                    <InputText 
                         setValue={setUserName}
                         title="Nombre de usuario"
-                        type="text"
                         placeholder="JPerez"
-                        errorMenssage="Debes tener"
+                        errorMenssage="El usuario no es correcto"  
+                        validator={validarUserName}
                     />
 
-                    <InputWithControl
-                        error={errorPassword}
+                    <InputPassword 
                         setValue={setPassword}
                         title="Contraseña"
-                        type="password"
                         placeholder="No compartas tu constraseña"
-                        errorMenssage="Debes tener"
+                        errorMenssage="El usuario no es correcto"  
+                        validator={validarPassword}
                     />
+
 
                     {/*   <Button m={3} onPress={() =>  navigation.navigate('NeighboursStack', {screen : 'UserHome'})}> Iniciar sesion </Button> */}
                     <Button m={3} onPress={() => hanleSubmit()}> Iniciar sesion </Button>
@@ -116,7 +126,7 @@ const NeighboursSingInScreen = ({ navigation }) => {
 
 
                 </VStack>
-                {alert ? <AlertMessage /> : ""}r
+                {alert ? <AlertMessage /> : ""}
             </LayoutWithBrand>
         </NativeBaseProvider>
     );

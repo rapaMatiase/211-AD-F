@@ -28,17 +28,18 @@ const PromotionScreen = ({ route }) => {
             <Stack space={3}>
                 <Stack space={2}>
                     <Heading size="md" ml="-1">
-                        {route.params.item.title}
+                        {route.params.item.tituloPromocion}
                     </Heading>
                 </Stack>
                 <Text fontSize="lg" fontWeight="400">
-                    {route.params.item.description}
+                    {route.params.item.descripcion}
                 </Text>
                 <VStack alignItems="flex-start" pt="5" space={4} justifyContent="space-between">
-                    <TextIcon text={route.params.item.addres} imageIcon={ImageIconFlag} />
-                    <TextIcon text={route.params.item.time} imageIcon={ImageIconClock} />
-                    <TextIcon text={route.params.item.days} imageIcon={ImageIconCalendar} />
-                </VStack>
+                    <TextIcon text={route.params.item.direccion} imageIcon={ImageIconFlag} />
+                    <TextIcon text={`${route.params.item.desdeDia} a ${route.params.item.hastaDia}`} imageIcon={ImageIconClock} />
+                    <TextIcon text={`${route.params.item.desdeHora} a ${route.params.item.hastaHora}`} imageIcon={ImageIconCalendar} />
+                
+                                  </VStack>
             </Stack>
         </LayoutWithImage>
 

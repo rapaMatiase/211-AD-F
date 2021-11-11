@@ -16,7 +16,7 @@ const UserStack = () => {
             <Stack.Screen 
                 name="UserHome"
                 component={UserHomeScreen}
-                options={{ title: 'Ahora sos nuestro, jaja' }}
+                options={{ title: 'Home' }}
             />
             <Stack.Screen 
                 name="PromotionList" 
