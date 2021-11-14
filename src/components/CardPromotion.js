@@ -16,6 +16,7 @@ import {
 import ImageIconFlag from './../assets/img/maps-and-flags.png';
 import ImageIconClock from './../assets/img/clock-circular-outline.png';
 import ImageIconCalendar from './../assets/img/calendar.png';
+import Card from './Card';
 
 import TextIcon from "../components/TextIcon";
 import ImageNoFound from '../assets/img/no-image.jpg';

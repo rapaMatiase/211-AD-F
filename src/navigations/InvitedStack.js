@@ -12,7 +12,7 @@ import NeighboursSingInScreen from '../screens/NeighboursSignInScreen';
 import UserStack from './UserStack';
 
 /* PRuebas */
-import ClaimsHomeScreen from '../screens/ClaimsHomeScreen';
+import ClaimsHomeScreen from '../screens/Claims/ClaimsHomeScreen';
 
 const Stack = createNativeStackNavigator();
 
