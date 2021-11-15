@@ -21,7 +21,16 @@ const InvitedStack = () => {
             <Stack.Screen 
                 name="Prueba"
                 component={HomeScreen}
-
+                options={{
+                    title: 'Inicio',
+                    headerStyle: {
+                      backgroundColor: '#2F824C',
+                    },
+                    headerTintColor: '#fff',
+                    headerTitleStyle: {
+                      fontWeight: 'bold',
+                    },
+                  }}
             />
           {/*   <Stack.Screen 
                 name="InvitedHome" 
