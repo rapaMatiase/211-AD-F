@@ -4,40 +4,60 @@ import {
   Stack,
   Flex,
   NativeBaseProvider,
+  VStack,
+  Text
 } from "native-base";
 import LayoutWithBrand from '../components/LayoutWithBrand';
 
-const ButtonGrupWelcome = ({navigation}) => {
+const ButtonGrupWelcome = ({ navigation }) => {
   return (
-    <Stack
-
-      direction={{
-        base: "column",
-        md: "row",
-      }}
-      space={5}
+    <VStack
+      space={8}
       mx={{
         base: "auto",
         md: "0",
       }}
+      justifyContent="flex-end"
       w="80"
+
     >
-      <Button size="lg" colorScheme="tertiary" onPress={() => navigation.navigate('NeighboursHome')}> Soy Vecino </Button>
-      <Button size="lg" colorScheme="tertiary" onPress={() => navigation.navigate('EmployeeHome')}> Soy Empleado </Button>
-      <Button size="lg" colorScheme="tertiary" onPress={() => navigation.navigate('PromotionList', {isLogin : false})}> Ver promociones </Button>
-    </Stack>
+      <Button
+        size="lg"
+        _text={{
+          fontSize: "xl"
+        }}
+        colorScheme="tertiary"
+        onPress={() => navigation.navigate('NeighboursHome')}
+      >
+        Soy Vecino
+      </Button>
+      <Button
+        _text={{
+          fontSize: "xl"
+        }}
+        size="lg"
+        colorScheme="tertiary"
+        onPress={() => navigation.navigate('EmployeeHome')}
+      >
+        Soy Empleado
+      </Button>
+      <Button
+        _text={{
+          fontSize: "xl"
+        }}
+        size="lg"
+        colorScheme="tertiary"
+        onPress={() => navigation.navigate('PromotionList', { isLogin: false })}>
+        Ver promociones </Button>
+    </VStack>
   );
 }
 
 function HomeScreen({ navigation }) {
   return (
-    <NativeBaseProvider>
-      <LayoutWithBrand>
-        <Flex pb="25"  align="center" justify="flex-end">
-          <ButtonGrupWelcome navigation={navigation} />
-        </Flex>
-      </LayoutWithBrand>
-    </NativeBaseProvider>
+    <LayoutWithBrand>
+      <ButtonGrupWelcome navigation={navigation} />
+    </LayoutWithBrand>
   );
 }
 

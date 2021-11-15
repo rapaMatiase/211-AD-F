@@ -7,73 +7,41 @@ import {
     NativeBaseProvider,
     Center,
     Flex,
+    AspectRatio,
     Text,
     ScrollView
 } from "native-base";
 import BrandImage from '../assets/img/LOgoVErdeGrande.jpeg';
+import BrandImageTwo from '../assets/img/merlo-green.png';
+import BrandImageThree from '../assets/img/mobile-logo.jpg';
+
 
 
 const LayoutWithBrand = (props) => {
     return (
         <NativeBaseProvider>
-            <ScrollView flex="1">
-                <VStack space={4} mt={16} >
-                    <Center>
-                        <Heading size="xl">Bienvenido al municipio de</Heading>
-                    </Center>
-                    <Center bg="primary.500" rounded="md" shadow={3} >
-                        <Image
-                            source={BrandImage}
-                            alt="image"
-                            size="2xl"
-                            resizeMode={"contain"}
-                            borderRadius={"sm"}
-                            
-                        />
-                    </Center>
-                    <Center>
-                        {props.children}
-                    </Center>
-                </VStack>
+            <Center flex={1} px="3">
+                <ScrollView>
+                    <VStack space={4} mt="12" mb="16">
+                        <Box >
+                            <Heading size="xl">Bienvenido al municipio de</Heading>
+                        </Box>
+                        <Center >
+                            <Image
+                                source={BrandImage}
+                                alt="image"
+                                size="2xl"
+                                resizeMode={"contain"}
+                                borderRadius={"sm"}
 
-            </ScrollView>
+                            />
+                        </Center>
+                    </VStack>
+                    {props.children}
+                </ScrollView>
+            </Center>
         </NativeBaseProvider>
     );
 }
 
 export default LayoutWithBrand;
-
-/*
-
- <Flex flex={1} w="100%">
-                        <Center
-                            flex="1"
-                            bg="primary.500"
-                            _dark={{
-                                bg: "primary.400",
-                            }}
-                            rounded="sm"
-                            _text={{
-                                color: "warmGray.50",
-                                fontWeight: "medium",
-                            }}
-                        >
-                            <Text> Box 2 </Text>
-                        </Center>
-                        <Center
-                            flex="1"
-                            bg="secondary.500"
-                            _dark={{
-                                bg: "secondary.400",
-                            }}
-                            rounded="sm"
-                            _text={{
-                                color: "warmGray.50",
-                                fontWeight: "medium",
-                            }}
-                        >
-                        <Text> Box 2 </Text>
-
-                            </Center>
-                    </Flex>
-*/
