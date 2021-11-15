@@ -1,11 +1,17 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+/* Screen */
+import HomeScreen from '../screens/HomeScreen';
+
+/* Screens  - Employee*/
+import EmployeeLoginScreen from '../screens/Employee/EmployeeLoginScreen';
+
 /* Screens  - Promotions*/
 import PromotionListScreen from '../screens/Promotion/PromotionListScreen';
 import PromotionScreen from '../screens/Promotion/PromotionScreen';
 /* Screens  - Claims*/
 
-import HomeScreen from '../screens/HomeScreen';
 
 /* Stack */
 import UserStack from './UserStack';
@@ -20,7 +26,7 @@ const InvitedStack = () => {
         <Stack.Navigator initialRouteName="Prueba">
             <Stack.Screen 
                 name="Prueba"
-                component={HomeScreen}
+                component={EmployeeLoginScreen}
                 options={{
                     title: 'Inicio',
                     headerStyle: {
