@@ -10,9 +10,9 @@ import {
     HStack,
 
 } from 'native-base';
-import LayoutWithBrand from "../components/LayoutWithBrand";
-import InputText from "../components/InputText";
-import InputPassword from "../components/InputPassword";
+import LayoutWithBrand from "../../components/LayoutWithBrand";
+import InputText from "../../components/InputText";
+import InputPassword from "../../components/InputPassword";
 import axios from "axios";
 
 const AlertMessage = () => {

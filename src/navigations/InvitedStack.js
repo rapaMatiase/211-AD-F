@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-/* Screens */
-import InvitedHomeScreen from '../screens/InvitedHomeScreen';
-import EmployeeHomeScreen from '../screens/EmployeeHomeScreen';
-import NeighboursHomeScreen from '../screens/NeighoboursHomeScreen';
-import PromotionListScreen from '../screens/PromotionListScreen';
-import PromotionScreen from '../screens/PromotionScreen';
-import NeighboursSignUpScreen from '../screens/NeighboursSignUpScreen';
-import NeighboursSingInScreen from '../screens/NeighboursSignInScreen';
+/* Screens  - Promotions*/
+import PromotionListScreen from '../screens/Promotion/PromotionListScreen';
+import PromotionScreen from '../screens/Promotion/PromotionScreen';
+/* Screens  - Claims*/
+
+import HomeScreen from '../screens/HomeScreen';
+
 /* Stack */
 import UserStack from './UserStack';
 
@@ -21,10 +20,10 @@ const InvitedStack = () => {
         <Stack.Navigator initialRouteName="Prueba">
             <Stack.Screen 
                 name="Prueba"
-                component={ClaimsHomeScreen}
+                component={HomeScreen}
 
             />
-            <Stack.Screen 
+          {/*   <Stack.Screen 
                 name="InvitedHome" 
                 component={InvitedHomeScreen} 
                 options={{ title: 'Bienvenido' }}
@@ -63,7 +62,7 @@ const InvitedStack = () => {
                 name="NeighboursStack"
                 component={UserStack}
                 options={{headerShown: false}}
-            />
+            /> */}
         </Stack.Navigator>
     );
 }

@@ -1,19 +1,19 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 /* Screens */
-import UserHomeScreen from './../screens/UserHomeScreen';
-import PromotionListScreen from '../screens/PromotionListScreen';
-import NeighboursBossSreen from '../screens/NewPromotionBossScreen';
-import NeighboursDetailScreen from '../screens/NewPromotionDetailScreen';
-import ComplaintsHomeScreen from '../screens/ComplaintsHomeScreen';
-import ComplaintScreen from '../screens/ComplaintScreen';
-import NewComplaintScreen from '../screens/NewComplaintSceen';
+// import UserHomeScreen from './../screens/UserHomeScreen';
+// import PromotionListScreen from '../screens/Promotion/PromotionListScreen';
+// import NeighboursBossSreen from '../screens/NewPromotionBossScreen';
+// import NeighboursDetailScreen from '../screens/NewPromotionDetailScreen';
+// import ComplaintsHomeScreen from '../screens/ComplaintsHomeScreen';
+// import ComplaintScreen from '../screens/ComplaintScreen';
+// import NewComplaintScreen from '../screens/NewComplaintSceen';
 const Stack = createNativeStackNavigator();
 
 const UserStack = () => {
     return (
         <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen 
+            {/* <Stack.Screen 
                 name="UserHome"
                 component={UserHomeScreen}
                 options={{ title: 'Home' }}
@@ -47,7 +47,7 @@ const UserStack = () => {
                 name="NewComplaint" 
                 component={NewComplaintScreen} 
                 options={{ title: 'Nueva'}}
-            />
+            /> */}
         </Stack.Navigator>
     );
 }

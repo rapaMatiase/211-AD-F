@@ -29,7 +29,7 @@ const ButtonGrupWelcome = ({navigation}) => {
   );
 }
 
-function InvitedHomeScreen({ navigation }) {
+function HomeScreen({ navigation }) {
   return (
     <NativeBaseProvider>
       <LayoutWithBrand>
@@ -41,4 +41,4 @@ function InvitedHomeScreen({ navigation }) {
   );
 }
 
-export default InvitedHomeScreen;
+export default HomeScreen;

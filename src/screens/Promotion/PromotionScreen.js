@@ -11,13 +11,13 @@ import {
     Pressable,
     NativeBaseProvider
 } from "native-base";
-import ImageIconFlag from './../assets/img/maps-and-flags.png';
-import ImageIconClock from './../assets/img/clock-circular-outline.png';
-import ImageIconCalendar from './../assets/img/calendar.png';
+import ImageIconFlag from './../../assets/img/maps-and-flags.png';
+import ImageIconClock from './../../assets/img/clock-circular-outline.png';
+import ImageIconCalendar from './../../assets/img/calendar.png';
 
-import TextIcon from "../components/TextIcon";
+import TextIcon from "../../components/TextIcon";
 
-import LayoutWithImage from "../components/LayoutWithImage";
+import LayoutWithImage from "../../components/LayoutWithImage";
 
 const PromotionScreen = ({ route }) => {
 

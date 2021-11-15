@@ -4,7 +4,7 @@ import {
     Text,
     Heading
 } from 'native-base';
-import LayoutWithImage from "../components/LayoutWithImage";
+import LayoutWithImage from "../../components/LayoutWithImage";
 
 
 const NewComplaintScreen = () => {

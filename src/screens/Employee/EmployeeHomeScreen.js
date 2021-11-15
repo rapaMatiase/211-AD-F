@@ -5,8 +5,8 @@ import {
     Flex,
     NativeBaseProvider,
 } from "native-base";
-import LayoutWithBrand from '../components/LayoutWithBrand';
-import InputWithControl from './../components/InputWithControl';
+import LayoutWithBrand from '../../components/LayoutWithBrand';
+import InputWithControl from '../../components/InputWithControl';
 
 
 const EmployeeHomeScreen = ({navigation}) => {

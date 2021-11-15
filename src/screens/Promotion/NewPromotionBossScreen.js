@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import LayoutWithImage from "../components/LayoutWithImage";
+import LayoutWithImage from "../../components/LayoutWithImage";
 import {
     VStack,
     Text,
     Button,
     Heading
 } from "native-base";
-import InputWithControl from "../components/InputWithControl";
+import InputWithControl from "../../components/InputWithControl";
 import MunicipioEdificioImage from './../assets/img/EdificioMunicipioDeMerlo.jpeg';
 
 const NewPromotionScreen = ({navigation}) => {

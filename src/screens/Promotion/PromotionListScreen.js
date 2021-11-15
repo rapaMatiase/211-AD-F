@@ -6,10 +6,42 @@ import {
     AddIcon,
     Fab
 } from "native-base";
-import CardPromotion from '../components/CardPromotion';
-import ImageNoFound from '../assets/img/no-image.jpg';
-
+import CardPromotion from '../../components/CardPromotion';
+/* import ImageNoFound from './../../assets/img/no-image.png';
+ */
 import axios from 'axios';
+
+const json = [
+    {
+        tituloPromocion : "Palmitos gratis",
+        descripcion : "Si señores, todos los palmitos que pueda comer totalmente gratis. No es mentira. Venga!!",
+        direccion : "Av. No existe 2323",
+        desdeDia : "L",
+        hastaDia : "M",
+        desdeHora : "8",
+        hastaHoram : "11",
+        image : {uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg"}
+    },
+    {
+        tituloPromocion : "Palmitos gratis",
+        descripcion : "Si señores, todos los palmitos que pueda comer totalmente gratis. No es mentira. Venga!!",
+        direccion : "Av. No existe 2323",
+        desdeDia : "L",
+        hastaDia : "M",
+        desdeHora : "8",
+        hastaHoram : "11"
+    },
+    {
+        tituloPromocion : "Palmitos gratis",
+        descripcion : "Si señores, todos los palmitos que pueda comer totalmente gratis. No es mentira. Venga!!",
+        direccion : "Av. No existe 2323",
+        desdeDia : "L",
+        hastaDia : "M",
+        desdeHora : "8",
+        hastaHoram : "11"
+    }
+]
+
 
 const ButtomAdd = ({navigation}) => {
     return (
@@ -27,7 +59,7 @@ const ButtomAdd = ({navigation}) => {
 
 const PromotionListScreen = ({ navigation, route }) => {
 
-    const [json, setJson] = useState([]);
+    /* const [json, setJson] = useState([]);
 
     useEffect(() => {
         axios({
@@ -42,7 +74,7 @@ const PromotionListScreen = ({ navigation, route }) => {
         .catch(function(error){
             console.log(error)
         })
-    }, [setJson]);
+    }, [setJson]); */
 
     return (
         <NativeBaseProvider>
