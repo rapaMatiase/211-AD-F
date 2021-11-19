@@ -1,49 +1,22 @@
 import React, { useEffect, useState } from "react";
 import {
-    NativeBaseProvider,
-    Button,
     Text,
     Pressable,
-    Alert,
     VStack,
     Center,
-    HStack,
-
 } from 'native-base';
 import LayoutWithBrand from "../../components/LayoutWithBrand";
 import InputText from "../../components/InputText";
 import InputPassword from "../../components/InputPassword";
 import axios from "axios";
-
-const AlertMessage = () => {
-    return (
-        <Center>
-            <Alert w="80%" m="1" status="error">
-                <VStack space={2} flexShrink={1} w="100%">
-                    <HStack flexShrink={1} space={2} justifyContent="space-between">
-                        <HStack space={2} flexShrink={1}>
-                            <Alert.Icon mt="1" />
-                            <Text fontSize="md" textAlign="center" color="coolGray.800">
-                                El usuario no existe.
-                            </Text>
-                        </HStack>
-                        {/* <IconButton
-                                    variant="unstyled"
-                                    icon={<CloseIcon size="3" color="coolGray.600" />}
-                                /> */}
-                    </HStack>
-                </VStack>
-            </Alert>
-        </Center>
-    )
-
-}
+import MyButton from "../../components/MyButton";
+import AlertMessage from "../../components/AlertMessage";
 
 const NeighboursSingInScreen = ({ navigation }) => {
 
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
-    const [alert, setAlert] = useState(false)
+    const [showAlert, setShowAlert] = useState(false)
 
 /*     hanleSubmit = () => {
 
@@ -77,7 +50,7 @@ const NeighboursSingInScreen = ({ navigation }) => {
  */
 
     const validarUserName = (userName)=>{
-        if(userName.length > 3){
+        if(userName.length != 0){
             return true
         }else{
             return false
@@ -85,7 +58,7 @@ const NeighboursSingInScreen = ({ navigation }) => {
     }
 
     const validarPassword = (password)=>{
-        if(password.length > 3){
+        if(password.length != 0){
             return true
         }else{
             return false
@@ -93,9 +66,8 @@ const NeighboursSingInScreen = ({ navigation }) => {
     }
 
     return (
-        <NativeBaseProvider>
             <LayoutWithBrand>
-                <VStack space={3}>
+                <VStack space={4}>
 
                     <InputText 
                         setValue={setUserName}
@@ -109,27 +81,30 @@ const NeighboursSingInScreen = ({ navigation }) => {
                         setValue={setPassword}
                         title="Contraseña"
                         placeholder="No compartas tu constraseña"
-                        errorMenssage="El usuario no es correcto"  
+                        errorMenssage="Debes ingresar "  
                         validator={validarPassword}
                     />
 
 
-                    {/*   <Button m={3} onPress={() =>  navigation.navigate('NeighboursStack', {screen : 'UserHome'})}> Iniciar sesion </Button> */}
-                    <Button m={3} onPress={() => hanleSubmit()}> Iniciar sesion </Button>
+{/*   onPress={() =>  navigation.navigate('NeighboursStack', {screen : 'UserHome'})}*/}
 
-
+                    <MyButton text="Iniciar sesion" onPress={() => hanleSubmit()} />
                     <Pressable onPress={() => console.log("Jodete")}>
                         <Center>
-                            <Text fontSize="lg"> Recuperar contraseña</Text>
+                            <Text fontSize="lg" color="lightBlue.400" fontWeight="bold"> Recuperar contraseña</Text>
                         </Center>
                     </Pressable>
-
+                    
+                    <AlertMessage  
+                        message="El usuario o contraseña son incorrectas" 
+                        show={showAlert}
+                        /> 
 
                 </VStack>
-                {alert ? <AlertMessage /> : ""}
+               
             </LayoutWithBrand>
-        </NativeBaseProvider>
     );
 }
 
 export default NeighboursSingInScreen;
+

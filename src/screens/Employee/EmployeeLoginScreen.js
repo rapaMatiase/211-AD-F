@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
-    Button,
-    Flex,
+    VStack,
 } from "native-base";
 import LayoutWithBrand from '../../components/LayoutWithBrand';
 import InputWithControl from '../../components/InputWithControl';
@@ -18,7 +17,7 @@ const EmployeeHomeScreen = ({ navigation }) => {
 
     return (
         <LayoutWithBrand>
-            <Flex >
+            <VStack space={"lg"}>
                 <InputWithControl
                     error={errorLegajo}
                     setValue={setLegajo}
@@ -36,7 +35,7 @@ const EmployeeHomeScreen = ({ navigation }) => {
                     errorMenssage="Debe ingresar su legajo"
                 />
                 <MyButton onPress={() => { navigation.navigate('UsersScreen') }}  text="Entrar" />
-            </Flex>
+            </VStack>
         </LayoutWithBrand>
     );
 }

@@ -4,6 +4,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 /* Screen */
 import HomeScreen from '../screens/HomeScreen';
 
+/* Screen - Neighbours */
+import NeighoboursHomeScreen from '../screens/Neighbours/NeighoboursHomeScreen';
+import NeighboursSingInScreen from '../screens/Neighbours/NeighboursSignInScreen';
+import NeighboursForgotPassword from '../screens/Neighbours/NeighboursForgotPassword';
 /* Screens  - Employee*/
 import EmployeeLoginScreen from '../screens/Employee/EmployeeLoginScreen';
 
@@ -26,7 +30,7 @@ const InvitedStack = () => {
         <Stack.Navigator initialRouteName="Prueba">
             <Stack.Screen 
                 name="Prueba"
-                component={EmployeeLoginScreen}
+                component={NeighboursForgotPassword}
                 options={{
                     title: 'Inicio',
                     headerStyle: {
