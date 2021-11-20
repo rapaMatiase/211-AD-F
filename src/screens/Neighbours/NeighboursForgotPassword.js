@@ -13,7 +13,7 @@ import Modal from "../../components/Modal";
 const NeighboursForgotPassword = ({ navigation }) => {
 
     const [userEmail, setUserEmail] = useState("")
-
+    const [show, setShow] = useState(false)
 
     /*     hanleSubmit = () => {
     
@@ -65,10 +65,10 @@ const NeighboursForgotPassword = ({ navigation }) => {
                     validator={validarEmail}
                 />
 
-                <MyButton text="Recuperar contraseña" onPress={() => { }} />
+                <MyButton text="Recuperar contraseña" onPress={() => { setShow(true) }} />
             </VStack>
-            <Modal show={true} title="Email enviado" message="Se enviara un mail a la cuante de email ingresada si es que esta pertenece a un vecino del municipio que este habilitado. No olvides ver la casilla de Span." >
-                <Pressable onPress={() => console.log("Jodete")}>
+            <Modal show={show} title="Email enviado" message="Se enviara un mail a la cuante de email ingresada si es que esta pertenece a un vecino del municipio que este habilitado. No olvides ver la casilla de Span." >
+                <Pressable onPress={() => navigation.navigate('InvitedHome')}>
                     <Center>
                         <Text fontSize="lg" color="lightBlue.400" fontWeight="bold"> Ir al inicio</Text>
                     </Center>

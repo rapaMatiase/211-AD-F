@@ -5,18 +5,18 @@ import {
     Flex,
 } from "native-base";
 import LayoutWithBrand from '../../components/LayoutWithBrand';
-
+import MyButton from "../../components/MyButton";
 
 const NeighoboursHomeScreen = ({ navigation }) => {
     return (
         <LayoutWithBrand>
-            <Flex h="250" justifyContent="flex-end">
+            <Flex h="250" justifyContent="flex-end" alignItems="center">
                 <Stack
                     space={5}
                     w="80"
                 >
-                    <Button size="lg" colorScheme="tertiary" onPress={() => navigation.navigate('NeighboursSingIn')}> Iniciar sesion</Button>
-                    <Button size="lg" colorScheme="tertiary" onPress={() => navigation.navigate('NeighboursSignUp')}> Registrarme </Button>
+                    <MyButton text="Iniciar sesion" onPress={() => navigation.navigate('NeighboursSingIn')} />
+                    <MyButton text="Registrarme" onPress={() => navigation.navigate('NeighboursSignUp')} />
                 </Stack>
             </Flex>
         </LayoutWithBrand>

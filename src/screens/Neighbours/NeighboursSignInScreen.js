@@ -18,6 +18,9 @@ const NeighboursSingInScreen = ({ navigation }) => {
     const [password, setPassword] = useState("")
     const [showAlert, setShowAlert] = useState(false)
 
+    const hanleSubmit = () => {
+        navigation.navigate('NeighboursStack', {screen : 'UserHome'})
+    }
 /*     hanleSubmit = () => {
 
         const user = {
@@ -86,10 +89,9 @@ const NeighboursSingInScreen = ({ navigation }) => {
                     />
 
 
-{/*   onPress={() =>  navigation.navigate('NeighboursStack', {screen : 'UserHome'})}*/}
-
                     <MyButton text="Iniciar sesion" onPress={() => hanleSubmit()} />
-                    <Pressable onPress={() => console.log("Jodete")}>
+                    
+                    <Pressable onPress={() => navigation.navigate('NeighboursStack', {screen : 'NeighboursForgotPassword'})}>
                         <Center>
                             <Text fontSize="lg" color="lightBlue.400" fontWeight="bold"> Recuperar contraseña</Text>
                         </Center>

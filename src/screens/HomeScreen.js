@@ -18,7 +18,7 @@ const ButtonGrupWelcome = ({ navigation }) => {
     >
       {[
         { text: "Soy Vecino", onPress: () => { navigation.navigate('NeighboursHome') } },
-        { text: "Soy Empleado", onPress: () => { navigation.navigate('EmployeeHome') } },
+        { text: "Soy Empleado", onPress: () => { navigation.navigate('EmployeeLogin') } },
         { text: "Ver promociones ", onPress: () => { navigation.navigate('PromotionList', { isLogin: false }) } },
       ].map(({index, text, onPress }) => (
         <MyButton key={index} text={text} onPress={onPress} />

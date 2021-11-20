@@ -1,23 +1,31 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 /* Screens */
-// import UserHomeScreen from './../screens/UserHomeScreen';
+import UserHomeScreen from './../screens/UserHomeScreen';
+import NeighboursForgotPassword from './../screens/Neighbours/NeighboursForgotPassword';
 // import PromotionListScreen from '../screens/Promotion/PromotionListScreen';
 // import NeighboursBossSreen from '../screens/NewPromotionBossScreen';
 // import NeighboursDetailScreen from '../screens/NewPromotionDetailScreen';
 // import ComplaintsHomeScreen from '../screens/ComplaintsHomeScreen';
 // import ComplaintScreen from '../screens/ComplaintScreen';
 // import NewComplaintScreen from '../screens/NewComplaintSceen';
+
 const Stack = createNativeStackNavigator();
 
-const UserStack = () => {
+const NeighoutsStack = () => {
     return (
         <Stack.Navigator initialRouteName="Home">
-            {/* <Stack.Screen 
+            <Stack.Screen 
                 name="UserHome"
                 component={UserHomeScreen}
                 options={{ title: 'Home' }}
             />
+            <Stack.Screen 
+                name="NeighboursForgotPassword"
+                component={NeighboursForgotPassword}
+                options={{ title: 'Recuperar contraseña' }}
+            />
+            {/* 
             <Stack.Screen 
                 name="PromotionList" 
                 component={PromotionListScreen} 
@@ -52,4 +60,4 @@ const UserStack = () => {
     );
 }
 
-export default UserStack;
+export default NeighoutsStack;

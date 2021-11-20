@@ -18,6 +18,10 @@ const NewComplaintAcceptSceen = (props) => {
     const [agree, setAgree] = useState(false)
     const [showModal, setShowModal] = useState(false)
 
+    const SendComplaint = () => {
+        agree ? setShowModal(true) : setShowModal(false)
+    }
+
     return (
         <LayoutWithImage>
             <Heading size="2xl"> ¡Atencion! </Heading>
@@ -26,8 +30,8 @@ const NewComplaintAcceptSceen = (props) => {
                 {props.image || "Ustedes entiende que esta enviando una declaracion jurada y de proveer informacion falsa, el municipio o el acusado puede tomar medidas legales contra usted."}
             </Text>
 
-            {/* <InputCheckbox  /> */}
-            <MyButton text="Enviar" onPress={()=>{console.log("JOdete kai")}} />
+            <InputCheckbox text="Si, acepto" setValue={(input)=>setAgree(input)} />
+            <MyButton text="Enviar" onPress={SendComplaint} isDisable={agree} />
             <Modal 
                 title="Denuncia hecha" 
                 message="Su solicitud a sido registrado con exito. Recibira un email en 15 dias con el resutlado." 

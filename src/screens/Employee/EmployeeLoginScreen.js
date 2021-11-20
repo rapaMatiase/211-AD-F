@@ -12,7 +12,7 @@ const EmployeeLoginScreen = ({ navigation }) => {
 
     const [legajo, setLegajo] = useState("")
     const [password, setPassword] = useState("")
-    const [showAlert, setShowAlert] = useState(true)
+    const [showAlert, setShowAlert] = useState(false)
 
     return (
         <LayoutWithBrand>
@@ -32,7 +32,7 @@ const EmployeeLoginScreen = ({ navigation }) => {
 
 
                 <MyButton onPress={() => { navigation.navigate('UsersScreen') }} text="Entrar" />
-                <AlertMessage message="El usuario ingresado no es valido" show={true} />
+                <AlertMessage message="El usuario ingresado no es valido" show={showAlert} />
             </VStack>
         </LayoutWithBrand>
     );

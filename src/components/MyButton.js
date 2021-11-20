@@ -1,9 +1,9 @@
 import React from "react";
 import {
-    Button
+    Button, Fab
 } from 'native-base';
 
-const MyButton = ({text, onPress}) => {
+const MyButton = ({text, onPress, isDisable}) => {
     return (
         <Button
           size="lg"
@@ -12,6 +12,7 @@ const MyButton = ({text, onPress}) => {
           }}
           bg="#2F824C"
           onPress={onPress}
+          isDisabled={isDisable ? true : false}
         >
           {text}
         </Button>
