@@ -26,7 +26,7 @@ const AlertMessage = ({ message, show }) => {
                     </VStack>
                 </Alert>
                 :
-                <Text>""</Text>
+                <Text></Text>
             }
         </Center>
     )

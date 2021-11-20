@@ -3,41 +3,39 @@ import {
     VStack,
 } from "native-base";
 import LayoutWithBrand from '../../components/LayoutWithBrand';
-import InputWithControl from '../../components/InputWithControl';
+import InputNumber from "../../components/InputNumber";
+import InputPassword from "../../components/InputPassword";
 import MyButton from "../../components/MyButton";
+import AlertMessage from "../../components/AlertMessage";
 
-
-const EmployeeHomeScreen = ({ navigation }) => {
+const EmployeeLoginScreen = ({ navigation }) => {
 
     const [legajo, setLegajo] = useState("")
-    const [errorLegajo, setErrorLegajo] = useState(false)
-
     const [password, setPassword] = useState("")
-    const [errorPassword, setErrorPassword] = useState(false)
+    const [showAlert, setShowAlert] = useState(true)
 
     return (
         <LayoutWithBrand>
             <VStack space={"lg"}>
-                <InputWithControl
-                    error={errorLegajo}
+                <InputNumber
                     setValue={setLegajo}
                     title="Legajo"
-                    type="text"
                     placeholder="32424343"
                     errorMenssage="Debe ingresar su legajo"
                 />
-                <InputWithControl
-                    error={errorPassword}
-                    setValue={setPassword}
+                <InputPassword
                     title="Contraseña"
-                    type="text"
+                    setValue={setPassword}
                     placeholder="32424343"
                     errorMenssage="Debe ingresar su legajo"
                 />
-                <MyButton onPress={() => { navigation.navigate('UsersScreen') }}  text="Entrar" />
+
+
+                <MyButton onPress={() => { navigation.navigate('UsersScreen') }} text="Entrar" />
+                <AlertMessage message="El usuario ingresado no es valido" show={true} />
             </VStack>
         </LayoutWithBrand>
     );
 }
 
-export default EmployeeHomeScreen;
+export default EmployeeLoginScreen;

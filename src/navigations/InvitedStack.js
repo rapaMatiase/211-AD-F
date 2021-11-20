@@ -8,6 +8,11 @@ import HomeScreen from '../screens/HomeScreen';
 import NeighoboursHomeScreen from '../screens/Neighbours/NeighoboursHomeScreen';
 import NeighboursSingInScreen from '../screens/Neighbours/NeighboursSignInScreen';
 import NeighboursForgotPassword from '../screens/Neighbours/NeighboursForgotPassword';
+import NeighboursSignUpScreen from '../screens/Neighbours/NeighboursSignUpScreen';
+
+/* Screen - User */
+import UserHomeScreen from '../screens/UserHomeScreen';
+
 /* Screens  - Employee*/
 import EmployeeLoginScreen from '../screens/Employee/EmployeeLoginScreen';
 
@@ -30,7 +35,7 @@ const InvitedStack = () => {
         <Stack.Navigator initialRouteName="Prueba">
             <Stack.Screen 
                 name="Prueba"
-                component={NeighboursForgotPassword}
+                component={UserHomeScreen}
                 options={{
                     title: 'Inicio',
                     headerStyle: {

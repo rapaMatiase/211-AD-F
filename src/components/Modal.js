@@ -2,6 +2,7 @@ import React from "react"
 import {
     Modal,
     Text,
+    HStack
 } from "native-base"
 
 
@@ -20,7 +21,9 @@ const ModalMessage = ({ title, message, show, children }) => {
                     </Text>
                 </Modal.Body>
                 <Modal.Footer>
-                    {children}
+                    <HStack space={4}>
+                        {children}
+                    </HStack>
                 </Modal.Footer>
             </Modal.Content>
         </Modal>

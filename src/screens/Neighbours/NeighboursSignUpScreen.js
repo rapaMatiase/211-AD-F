@@ -1,23 +1,19 @@
 
 import React, { useState } from "react"
 import {
-    ScrollView,
     VStack,
-    Center,
-    useTheme,
     Heading,
-    FormControl,
-    Input,
-    Stack,
-    WarningOutlineIcon,
-    NativeBaseProvider,
-    Button,
+    Pressable,
     Text
 } from "native-base";
-import LayoutWithBrand from "../components/LayoutWithBrand";
-import InputWithControl from "../components/InputWithControl";
+import LayoutWithBrand from "../../components/LayoutWithBrand";
 import axios from "axios";
-
+import InputText from "../../components/InputText";
+import InputNumber from "../../components/InputNumber";
+import InputEmail from "../../components/InputEmail";
+import MyButton from "../../components/MyButton";
+import Modal from "../../components/Modal";
+import AlertMessage from "../../components/AlertMessage";
 
 const NeighboursSignUpScreen = () => {
 
@@ -25,11 +21,8 @@ const NeighboursSignUpScreen = () => {
     const [name, setName] = useState("")
     const [lastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
-
-    const [dniError, setDniError] = useState(false)
-    const [nameError, setNameError] = useState(false)
-    const [lastNameError, setLastNameError] = useState(false)
-    const [emailError, setemailError] = useState(false)
+    const [showAlert, setShowAlert] = useState(false)
+    const [showModal, setShowModal] = useState(false)
 
     const [resultado, setResultado] = useState(false)
 
@@ -38,99 +31,127 @@ const NeighboursSignUpScreen = () => {
         console.log(name)
     }
 
+    const validatorDni = (inputDni) => {
+        return inputDni ? true : false
+    }
 
-    hanleSubmit = () => {
-
-    if(dni === ""){
-        setDniError(true)
-    }else{
-        setDniError(false)
+    const validatorName = (inputName) => {
+        return inputName ? true : false
     }
     
-    if (name === ""){
-        setNameError(true)
-    }else{
-        setNameError(false) 
-    }
-    
-    if (lastName === ""){
-        setLastNameError(true)
-    }else{
-        setLastNameError(false) 
-    }
-    
-    if(email === ""){
-        setemailError(true)
-    }else{
-        setemailError(false)
+    const validatorLastName = (inputLastName) => {
+        return inputLastName ? true : false
     }
 
-    if(dniError === true || nameError === true || lastNameError === true || emailError === true){
+    const validatorEmail = (inputEmail) => {
+        return inputEmail ? true : false
+    }
 
-        axios.post('http://10.0.2.2:3000/api/usuario/solicitudRegistro', {
-            email : email,
-            documento: dni,
-            userName : name,
-            lastName: lastName
-        })
-            .then(function (response) {
-                console.log(response.status)
-                if (response.status == "200") {
-                    console.log("Registrado")
-                    setResultado(true)
-                }
+
+
+    /* hanleSubmit = () => {
+
+        if (dni === "") {
+            setDniError(true)
+        } else {
+            setDniError(false)
+        }
+
+        if (name === "") {
+            setNameError(true)
+        } else {
+            setNameError(false)
+        }
+
+        if (lastName === "") {
+            setLastNameError(true)
+        } else {
+            setLastNameError(false)
+        }
+
+        if (email === "") {
+            setemailError(true)
+        } else {
+            setemailError(false)
+        }
+
+        if (dniError === true || nameError === true || lastNameError === true || emailError === true) {
+
+            axios.post('http://10.0.2.2:3000/api/usuario/solicitudRegistro', {
+                email: email,
+                documento: dni,
+                userName: name,
+                lastName: lastName
             })
-            .catch(function (error) {
-                console.log(error.response.status)
+                .then(function (response) {
+                    console.log(response.status)
+                    if (response.status == "200") {
+                        console.log("Registrado")
+                        setResultado(true)
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error.response.status)
 
-            })
+                })
         }
     }
-
+ */
     return (
-        <NativeBaseProvider>
-            <LayoutWithBrand>
-                
-                <InputWithControl 
-                    error={dniError} 
-                    setValue={setDni} 
-                    title="DNI" 
-                    type="text" 
-                    placeholder="XXXXXXX" 
+        <LayoutWithBrand>
+            <VStack space={4}>
+
+                <Heading> Registro </Heading>
+
+                <InputNumber
+                    setValue={setDni}
+                    title="DNI"
+                    placeholder="XXXXXXX"
                     errorMenssage="Este es el error"
+                    validator={validatorDni}
                 />
 
-                <InputWithControl 
-                    error={nameError} 
-                    setValue={setName} 
-                    title="Nombre" 
-                    type="text" 
-                    placeholder="Juan Pablo" 
-                    errorMenssage="Debes tener"
+                <InputText
+                    setValue={setName}
+                    title="Nombre"
+                    placeholder="Juan"
+                    errorMenssage="Debe completar este campo"
+                    validator={validatorName}
                 />
 
-                <InputWithControl 
-                    error={lastNameError} 
-                    setValue={setLastName} 
-                    title="Apellido" 
-                    type="text" 
-                    placeholder="Perez" 
-                    errorMenssage="Debes tener"
+                <InputText
+                    setValue={setLastName}
+                    title="Apellido"
+                    placeholder="Perez"
+                    errorMenssage="Debe completar este campo"
+                    validator={validatorLastName}
                 />
 
-                <InputWithControl 
-                    error={emailError} 
-                    setValue={setEmail} 
-                    title="Mail" 
-                    type="email" 
-                    placeholder="perezj@gmail.com" 
-                    errorMenssage="Debes tener"
+                <InputEmail
+                    setValue={setEmail}
+                    title="Email"
+                    placeholder="jperez@hotmail.com"
+                    error="Debes completar este campo"
+                    validator={validatorEmail}
                 />
                 
-                <Button onPress={() => hanleSubmit()} > Enviar</Button>
-                {resultado ? <Text> Ya estas registrado, te habilitaran en 15 dias </Text>  : <Text> "" </Text>}
-            </LayoutWithBrand>
-        </NativeBaseProvider>
+                <MyButton text="Eviar" onPress={() => hanleSubmit()} />
+
+                <AlertMessage message="No se puedo realizar el evio" show={showAlert} />
+            </VStack>
+            <Modal 
+                title="¡Felicitaciones!" 
+                message="Su solicitud a sido registrado con exito. Recibira un email en 15 dias con el resutlado." 
+                show={showModal}
+            >
+                <Pressable onPress={() => console.log("Jodete1")}>
+                    <Text fontSize="lg" color="lightBlue.400" fontWeight="bold"> Ver promosiones</Text>
+                </Pressable>
+                <Pressable onPress={() => console.log("Jodete2")}>
+                    <Text fontSize="lg" color="lightBlue.400" fontWeight="bold"> Ir al inicio</Text>
+                </Pressable>
+            </Modal>
+        </LayoutWithBrand>
     );
 }
 
