@@ -18,26 +18,33 @@ import IconImageNoOk from './../assets/img/boton-x.png';
 import IconImageOk from './../assets/img/comprobado.png';
 import Card from './Card';
 
-import TextIcon from "./TextIcon";
-
-
 const CardPromotion = (props) => {
 
     return (
         <Card>
             <HStack space={3} alignItems="center">
-                <Image
-                    source={IconImageNoOk}
-                    alt="Icon no ok"
-                    size="xs"
-                />
+                {props.state ?
+                    <Image
+                        source={IconImageNoOk}
+                        alt="Icon no ok"
+                        size="xs"
+                    />
+                    :
+
+                    <Image
+                        source={IconImageOk}
+                        alt="Icon no ok"
+                        size="xs"
+                    />
+                }
+
                 <Heading size="lg" ml="-1">
-                    Titulo
+                    {props.title || "Sin titulo"}
                 </Heading>
             </HStack>
             <Divider bg="gray.400" thickness="3" />
             <Text fontSize="lg" fontWeight="400" isTruncated >
-                La descripcion
+                {props.detail || "No hay descripcion disponible"}
             </Text>
             <HStack alignItems="center" justifyContent="center">
                 <Pressable onPress={() => props.showState()}>

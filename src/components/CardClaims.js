@@ -1,22 +1,16 @@
 import * as React from 'react';
 
 import {
-    Box,
     Heading,
     Pressable,
     Image,
     Text,
-    View,
     Divider,
     HStack,
-    Stack,
 } from "native-base";
 import Card from './Card';
 import IconImageNoOk from './../assets/img/boton-x.png';
 import IconImageOk from './../assets/img/comprobado.png';
-
-
-import TextIcon from "./TextIcon";
 
 
 const ClainNoOk = () => {
@@ -45,14 +39,14 @@ const CardClaims = (props) => {
     return (
         <Card>
             <HStack space={3} alignItems="center">
-                {props.item.state === "PENDIENTE" ? <ClainNoOk /> : <ClainOk />}
+                {props.state === "PENDIENTE" ? <ClainNoOk /> : <ClainOk />}
                 <Heading size="lg" ml="-1">
-                    #{props.item.id}
+                    #{props.id}
                 </Heading>
             </HStack>
             <Divider bg="gray.400" thickness="3" />
             <Text fontSize="lg" fontWeight="400" isTruncated >
-                {props.item.description}
+                {props.description}
             </Text>
             <HStack alignItems="center" justifyContent="center">
                 <Pressable onPress={() => props.showState()}>

@@ -41,13 +41,13 @@ const ImageUser = (props) => {
 const LayoutWithImage = (props) => {
 
     return (
-        <NativeBaseProvider >
-            <ScrollView >
+        <NativeBaseProvider  >
+            <ScrollView style={{backgroundColor : "white"}}>
                 <Box>
                     {props.image === undefined ? <ImageDefualt /> : <ImageUser image={props.image} />}
                 </Box>
-                <Box bg="white" h="100%" p="3" rounded="xl" mt="-5" >
-                    <Stack p="4" space={3}>
+                <Box bg="white"  p="4" roundedTopLeft="xl" roundedTopRight="xl"  mt="-5" >
+                    <Stack  space={5}>
                         {props.children}
                     </Stack>
                 </Box>

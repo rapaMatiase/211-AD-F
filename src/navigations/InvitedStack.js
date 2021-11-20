@@ -4,30 +4,14 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 /* Screen */
 import HomeScreen from '../screens/HomeScreen';
 
-/* Screen - Neighbours */
-import NeighoboursHomeScreen from '../screens/Neighbours/NeighoboursHomeScreen';
-import NeighboursSingInScreen from '../screens/Neighbours/NeighboursSignInScreen';
-import NeighboursForgotPassword from '../screens/Neighbours/NeighboursForgotPassword';
-import NeighboursSignUpScreen from '../screens/Neighbours/NeighboursSignUpScreen';
-
-/* Screen - User */
-import UserHomeScreen from '../screens/UserHomeScreen';
-
-/* Screens  - Employee*/
-import EmployeeLoginScreen from '../screens/Employee/EmployeeLoginScreen';
-
-/* Screens  - Promotions*/
-import PromotionListScreen from '../screens/Promotion/PromotionListScreen';
-import PromotionScreen from '../screens/Promotion/PromotionScreen';
-/* Screens  - Claims*/
-
 
 /* Stack */
 import UserStack from './UserStack';
 
 /* PRuebas */
-import ClaimsHomeScreen from '../screens/Claims/ClaimsHomeScreen';
-
+import NewComplaintDetailSceen from "../screens/NewComplaints/NewComplaintDetail";
+import NewComplaintConfirmSceen from '../screens/NewComplaints/NewComplaintConfirmSceen';
+import NewComplaintAcceptSceen from '../screens/NewComplaints/NewComplaintAcceptScreen';
 const Stack = createNativeStackNavigator();
 
 const InvitedStack = () => {
@@ -35,7 +19,7 @@ const InvitedStack = () => {
         <Stack.Navigator initialRouteName="Prueba">
             <Stack.Screen 
                 name="Prueba"
-                component={UserHomeScreen}
+                component={NewComplaintDetailSceen}
                 options={{
                     title: 'Inicio',
                     headerStyle: {

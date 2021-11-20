@@ -3,37 +3,43 @@ import {
     FormControl,
     Input,
     Stack,
+    HStack,
     VStack,
     WarningOutlineIcon,
+    Text,
+    TextArea
 } from "native-base";
 
 const InputText = (props) => {
 
     const [error, setError] = useState(false)
     const [numberCaracter, setNumeberCaracter] = useState(0)
+
     const onChange = (input) => {
         props.setValue(input)
         setNumeberCaracter(input.length)
-        if(props.validator(input)){
+        if (props.validator(input)) {
             setError(true)
-        }else{
+        } else {
             setError(false)
         }
     }
-    
+
 
     return (
         <VStack>
-            <Text> ( {numberCaracter} /1000) </Text>
-            <FormControl isRequired isInvalid={error}>
-                <Stack mx="4">
-                    <FormControl.Label>{props.title}</FormControl.Label>
-                    <Input type="text" placeholder={props.placeholder} onChangeText={(input) => onChange(input)} />
-                    <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
-                        {props.errorMenssage || "Este campo no esta llenado correctamente"}
-                    </FormControl.ErrorMessage>
-                </Stack>
-            </FormControl>
+            <HStack justifyContent="space-around">
+                <Text> {props.title} </Text>
+                <Text> ( {numberCaracter} /1000) </Text>
+            </HStack>
+
+            <TextArea
+                h={20}
+                placeholder={props.placeholder}
+                numberOfLines={8}
+                isInvalid={error}
+                onChangeText={onChange}
+            />
         </VStack>
     );
 }
