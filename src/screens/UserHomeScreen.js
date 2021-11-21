@@ -33,7 +33,7 @@ const UserHomeScreen = ({navigation}) => {
                     </Center>
                     <ButtonMenu text="Reclamos" onPress={() => console.log("DENUNCIAS")} />
                     <ButtonMenu text="Denuncias" onPress={() => navigation.navigate('ComplaintsHome')} />
-                    <ButtonMenu text="Promosiones" onPress={() => navigation.navigate('PromotionList', {isLogin : true})} />
+                    <ButtonMenu text="Promosiones" onPress={() => navigation.navigate('PromotionList')} />
                     <Heading fontSize="lg" pb="4" > Notificaciones </Heading>
                 </VStack>
             </Flex>

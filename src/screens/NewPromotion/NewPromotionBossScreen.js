@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import LayoutWithImage from "../../components/LayoutWithImage";
+import LayoutWithImage from "./../../components/LayoutWithImage";
 import {
     VStack,
     Text,
     Button,
     Heading
 } from "native-base";
-import InputWithControl from "../../components/InputWithControl";
-import MunicipioEdificioImage from './../assets/img/EdificioMunicipioDeMerlo.jpeg';
+import InputWithControl from "./../../components/InputWithControl";
+import MunicipioEdificioImage from './../../assets/img/EdificioMunicipioDeMerlo.jpeg';
 
 const NewPromotionScreen = ({navigation}) => {
 
@@ -29,6 +29,22 @@ const NewPromotionScreen = ({navigation}) => {
     const [time, setTime] = useState("")
     const [errorTime, setErrorTime] = useState(false)
 
+    const NextScreen = () =>{
+        navigation.navigate(
+            'NeighboursStack', 
+            {
+                screen : 'NeighboursDetail', 
+                params : {
+                    businessName,
+                    name,
+                    lastName,
+                    adress,
+                    days,
+                    time
+                }
+            }
+        )
+    }
 
     return (
         <LayoutWithImage image="https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg">
@@ -87,7 +103,7 @@ const NewPromotionScreen = ({navigation}) => {
                         errorMenssage="Es obligatorio el horario"
                     />
 
-                    <Button mt="4" onPress={() => navigation.navigate('NeighboursDetail')}> Continuar </Button>
+                    <Button mt="4" onPress={NextScreen}> Continuar </Button>
                 </VStack>
 
         </LayoutWithImage>

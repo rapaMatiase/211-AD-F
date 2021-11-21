@@ -56,6 +56,7 @@ const InvitedStack = () => {
                 name="PromotionList"
                 component={PromotionListScreen}
                 options={{ title: 'Consume' }}
+                initialParams={{isLoading : false}}
             />
             <Stack.Screen
                 name="Promotion"
