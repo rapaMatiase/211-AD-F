@@ -8,6 +8,7 @@ import {
     Pressable
 } from "native-base";
 import MunicipioEdificioImage from './../../assets/img/EdificioMunicipioDeMerlo.jpeg';
+import Camara from './../../components/Camra';
 
 const NewPromotionChooseImageScreen = ({navigation, route}) => {
 
@@ -24,9 +25,10 @@ const NewPromotionChooseImageScreen = ({navigation, route}) => {
     }
     return (
         <LayoutWithImage image="https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg">
-            <Pressable onPress={NextScreen}>
+            {/* <Pressable onPress={NextScreen}>
                <Text> HOla </Text>
-            </Pressable>
+            </Pressable> */}
+            <Camara />
         </LayoutWithImage>
     );
 }
