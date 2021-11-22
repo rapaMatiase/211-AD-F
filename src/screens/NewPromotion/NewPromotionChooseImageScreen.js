@@ -8,7 +8,6 @@ import {
     Pressable
 } from "native-base";
 import MunicipioEdificioImage from './../../assets/img/EdificioMunicipioDeMerlo.jpeg';
-import Camara from './../../components/Camra';
 
 const NewPromotionChooseImageScreen = ({navigation, route}) => {
 
@@ -28,7 +27,7 @@ const NewPromotionChooseImageScreen = ({navigation, route}) => {
             {/* <Pressable onPress={NextScreen}>
                <Text> HOla </Text>
             </Pressable> */}
-            <Camara />
+           
         </LayoutWithImage>
     );
 }

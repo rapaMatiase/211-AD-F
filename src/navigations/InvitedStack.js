@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-
+import ImagePicker from '../screens/ImagePickerScreen';
 import HomeScreen from '../screens/HomeScreen';
 /* Screen - NEIGHOBOURS */
 import NeighboursHomeScreen from '../screens/Neighbours/NeighoboursHomeScreen';
@@ -23,7 +23,13 @@ const Stack = createNativeStackNavigator();
 
 const InvitedStack = () => {
     return (
-        <Stack.Navigator initialRouteName="InvitedHome">
+        <Stack.Navigator initialRouteName="picker">
+            <Stack.Screen
+                name="picker"
+                component={ImagePicker}
+                options={{ title: 'Bienvenido' }}
+            />
+
             <Stack.Screen
                 name="InvitedHome"
                 component={HomeScreen}
