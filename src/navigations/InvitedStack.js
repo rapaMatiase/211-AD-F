@@ -17,7 +17,7 @@ import PromotionScreen from '../screens/Promotion/PromotionScreen';
 
 /* Stacks */
 import NeighoutsStack from './NeighoutsStack';
-
+import CamaraScreen from './../screens/CamaraScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,7 +29,11 @@ const InvitedStack = () => {
                 component={HomeScreen}
                 options={{ title: 'Bienvenido' }}
             />
-
+        <Stack.Screen
+                name="Camara"
+                component={CamaraScreen}
+                options={{ title: 'Bienvenido' }}
+            />
             <Stack.Screen
                 name="NeighboursHome"
                 component={NeighboursHomeScreen}
