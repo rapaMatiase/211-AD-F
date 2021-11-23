@@ -5,11 +5,21 @@ import {
     HStack,
     Text,
     Heading,
-    Pressable
+    Pressable,
+    FlatList
 } from "native-base";
 import MyButton from "../../components/MyButton";
 import MunicipioEdificioImage from './../../assets/img/EdificioMunicipioDeMerlo.jpeg';
 import ModalMessage from "../../components/Modal";
+
+
+const imageRow = (index) =>{
+    return (
+        <HStack>
+            <Text> Image number {index} </Text>
+        </HStack>
+    );
+}
 
 const NewPromotionConfirmScreen = ({ navigation, route }) => {
 
@@ -58,6 +68,11 @@ const NewPromotionConfirmScreen = ({ navigation, route }) => {
                 </HStack>
                 <Text fontSize="lg" fontWeight="bold"> Detalle: </Text>
                 <Text fontSize="lg"> {route.params.detail} </Text>
+                <Text> Imagenes seleccionados </Text>
+                <FlatList 
+                    data={route.params.images}
+                    renderItem={({index, item}) => <imageRow index={index} />}
+                />
 
                 <MyButton text="Enviar" onPress={() => setShowModal(true)} />
             </VStack>

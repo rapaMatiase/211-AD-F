@@ -9,6 +9,7 @@ import NewPromotionBossScreen from '../screens/NewPromotion/NewPromotionBossScre
 import NeighboursDetailScreen from '../screens/NewPromotion/NewPromotionDetailScreen';
 import NewPromotionChooseImageScreen from '../screens/NewPromotion/NewPromotionChooseImageScreen';
 import NewPromotionConfirmScreen from '../screens/NewPromotion/NewPromotionConfirmScreen';
+import CamaraPromotionScreen from '../screens/NewPromotion/CamaraPromotionScreen';
 // import ComplaintsHomeScreen from '../screens/ComplaintsHomeScreen';
 // import ComplaintScreen from '../screens/ComplaintScreen';
 // import NewComplaintScreen from '../screens/NewComplaintSceen';
@@ -30,12 +31,18 @@ const NeighoutsStack = () => {
             />
 
             <Stack.Screen 
+                name="CamaraPromotion" 
+                component={CamaraPromotionScreen} 
+                options={{ title: 'Consume'}}
+                initialParams={{isLogin : true}}
+            />
+
+            <Stack.Screen 
                 name="PromotionList" 
                 component={PromotionListScreen} 
                 options={{ title: 'Consume'}}
                 initialParams={{isLogin : true}}
             />
-
             <Stack.Screen 
                 name="PromotionScreen" 
                 component={PromotionScreen} 

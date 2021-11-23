@@ -22,7 +22,7 @@ const NewPromotionScreen = ({navigation, route}) => {
         navigation.navigate(
             'NeighboursStack', 
             {
-                screen : 'NewPromotionChooseImage', 
+                screen : 'CamaraPromotion', 
                 params : {
                     ...route.params,
                     detail
