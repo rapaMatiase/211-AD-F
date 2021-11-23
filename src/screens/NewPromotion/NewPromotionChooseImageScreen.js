@@ -1,33 +1,59 @@
 import React, { useState } from "react";
-import LayoutWithImage from "../../components/LayoutWithImage";
 import {
-    VStack,
     Text,
-    Button,
-    Heading,
-    Pressable
+    HStack,
+
+    Image,
+    FlatList,
+    NativeBaseProvider
 } from "native-base";
-import MunicipioEdificioImage from './../../assets/img/EdificioMunicipioDeMerlo.jpeg';
+
+
+const ImageItem = ({url}) => {
+
+    return (
+        <HStack>
+            <Text> {url} </Text>
+        <Image
+                size="lg"
+                resizeMode="cover"
+                source={url }
+                alt={"Alternate Text "}
+            />
+            </HStack>
+    )
+}
 
 const NewPromotionChooseImageScreen = ({navigation, route}) => {
 
     const NextScreen = () =>{
         navigation.navigate(
             'NeighboursStack', 
-            {
+            /* {
                 screen : 'NewPromotionConfirm', 
                 params : {
                     ...route.params,
                 }
-            }
+            } */
         )
     }
+
+    const TakeImage = () =>{
+        navigation.navigate('Camara',
+        {
+            params: { 
+
+            },
+        })
+    }
+
     return (
-        <LayoutWithImage image="https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg">
-            <Pressable onPress={NextScreen}>
-               <Text> HOla </Text>
-            </Pressable>
-        </LayoutWithImage>
+        <NativeBaseProvider >
+            <FlatList
+                    data={route.params.images}
+                    renderItem={({item}) => <ImageItem url={item} /> }
+                />            
+        </NativeBaseProvider>
     );
 }
 

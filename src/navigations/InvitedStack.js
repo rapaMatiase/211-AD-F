@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import NewPromotionChooseImageScreen from '../screens/NewPromotion/NewPromotionChooseImageScreen';
 
 import HomeScreen from '../screens/HomeScreen';
 /* Screen - NEIGHOBOURS */
@@ -28,6 +29,11 @@ const InvitedStack = () => {
                 name="InvitedHome"
                 component={HomeScreen}
                 options={{ title: 'Bienvenido' }}
+            />
+            <Stack.Screen 
+                name="NewPromotionChooseImage" 
+                component={NewPromotionChooseImageScreen} 
+                options={{ title: 'Selecciona images'}}
             />
         <Stack.Screen
                 name="Camara"
