@@ -10,10 +10,16 @@ import NeighboursDetailScreen from '../screens/NewPromotion/NewPromotionDetailSc
 import NewPromotionChooseImageScreen from '../screens/NewPromotion/NewPromotionChooseImageScreen';
 import NewPromotionConfirmScreen from '../screens/NewPromotion/NewPromotionConfirmScreen';
 import CamaraPromotionScreen from '../screens/NewPromotion/CamaraPromotionScreen';
+import NewPromotionServicioProfecionalScreen from '../screens/NewPromotion/NewPromotionServicioProfecionalScreen';
 // import ComplaintsHomeScreen from '../screens/ComplaintsHomeScreen';
 // import ComplaintScreen from '../screens/ComplaintScreen';
 // import NewComplaintScreen from '../screens/NewComplaintSceen';
 
+import NewPromotionDesdeDiaScreen from '../screens/NewPromotion/NewPromotionDesdeDia';
+import NewPromotionHastaDiaScreen from '../screens/NewPromotion/NewPromotionHastaDia';
+
+import NewPromotionDesdeHorarioScreen from '../screens/NewPromotion/NewPromotionDesdeHorario';
+import NewPromotionHastaHorarioScreen from '../screens/NewPromotion/NewPromotionHastaHoraraio';
 const Stack = createNativeStackNavigator();
 
 const NeighoutsStack = () => {
@@ -27,6 +33,33 @@ const NeighoutsStack = () => {
             <Stack.Screen 
                 name="NeighboursForgotPassword"
                 component={NeighboursForgotPassword}
+                options={{ title: 'Recuperar contraseña' }}
+            />
+            <Stack.Screen 
+                name="NewPromotionServicioProfecional"
+                component={NewPromotionServicioProfecionalScreen}
+                options={{ title: 'Recuperar contraseña' }}
+            />
+
+
+<Stack.Screen 
+                name="NewPromotionDesdeDia"
+                component={NewPromotionDesdeDiaScreen}
+                options={{ title: 'Recuperar contraseña' }}
+            />
+<Stack.Screen 
+                name="NewPromotionHastaDia"
+                component={NewPromotionHastaDiaScreen}
+                options={{ title: 'Recuperar contraseña' }}
+            />
+<Stack.Screen 
+                name="NewPromotionDesdeHorario"
+                component={NewPromotionDesdeHorarioScreen}
+                options={{ title: 'Recuperar contraseña' }}
+            />
+<Stack.Screen 
+                name="NewPromotionHastaHorario"
+                component={NewPromotionHastaHorarioScreen}
                 options={{ title: 'Recuperar contraseña' }}
             />
 

@@ -9,7 +9,10 @@ import {
 import InputWithControl from "./../../components/InputWithControl";
 import MunicipioEdificioImage from './../../assets/img/EdificioMunicipioDeMerlo.jpeg';
 import InputNumber from './../../components/InputNumber';
+
+
 const NewPromotionScreen = ({ navigation }) => {
+
 
     const [businessName, setBusinessName] = useState("")
     const [errorBusinessName, setErrorBusinessName] = useState(false)
@@ -32,38 +35,31 @@ const NewPromotionScreen = ({ navigation }) => {
     const [adress, setAdress] = useState("")
     const [errorAdress, setErrorAdress] = useState(false)
 
-    const [desdeDia, setDesdeDia] = useState("")
-    const [errorDesdeDia, setErrorDesdeDia] = useState(false)
-
-    const [hastaDia, setHastaDia] = useState("")
-    const [errorHastaDia, setErrorHastaDia] = useState(false)
-
-    const [desdeHora, setDesdeHora] = useState("")
-    const [errorDesdeHora, setErrorDesdeHora] = useState(false)
-
-    const [hastaHora, setHastaHora] = useState("")
-    const [errorHastaHora, setErrorHastaHora] = useState(false)
 
     const NextScreen = () => {
         navigation.navigate(
             'NeighboursStack',
             {
-                screen: 'NeighboursDetail',
+                screen: 'NewPromotionServicioProfecional',
                 params: {
                     businessName,
                     name,
                     lastName,
                     adress,
-                    desdeDia,
-                    hastaDia,
-                    desdeHora,
-                    hastaHora,
                     telefono,
                     dni,
-                    email
+                    email,
                 }
             }
         )
+    }
+
+    const validatorDni = (input) => {
+        return input.lenght != 0 ? false : true
+    }
+
+    const validatorTelefono = (input) => {
+        return input.lenght != 0 ? false : true
     }
 
     return (
@@ -71,6 +67,7 @@ const NewPromotionScreen = ({ navigation }) => {
             <Heading size="lg"> Datos del local </Heading>
             <Text> Necitamos tus datos para indentificarte y habilitar la misma en 15 dias. </Text>
             <VStack space={4}>
+
 
                 <InputWithControl
                     error={errorBusinessName}
@@ -85,6 +82,7 @@ const NewPromotionScreen = ({ navigation }) => {
                     setValue={setDni}
                     title="DNI"
                     placeholder="XXXXXXXX"
+                    validator={validatorDni}
                     errorMenssage="Este campo es obligatorio"
                 />
 
@@ -92,6 +90,7 @@ const NewPromotionScreen = ({ navigation }) => {
                     setValue={setTelefono}
                     title="Telefono"
                     placeholder="54 xxxxxxxxx"
+                    validator={validatorTelefono}
                     errorMenssage="Este campo es obligatorio"
                 />
 
@@ -129,41 +128,8 @@ const NewPromotionScreen = ({ navigation }) => {
                     placeholder="Avenia siempre viva"
                     errorMenssage="La direccion es obligatorio"
                 />
-                <InputWithControl
-                    error={errorDesdeDia}
-                    setValue={setDesdeDia}
-                    title="Dia - desde"
-                    type="text"
-                    placeholder="Luenes"
-                    errorMenssage="Es obligatorio el horario"
-                />
-                <InputWithControl
-                    error={errorHastaDia}
-                    setValue={setHastaDia}
-                    title="Hasta - dia"
-                    type="text"
-                    placeholder="Martes"
-                    errorMenssage="Es obligatorio el horario"
-                />
-                <InputWithControl
-                    error={errorDesdeHora}
-                    setValue={setDesdeHora}
-                    title="Hora - desde"
-                    type="text"
-                    placeholder="10"
-                    errorMenssage="Es obligatorio el horario"
-                />
-                <InputWithControl
-                    error={errorHastaHora}
-                    setValue={setHastaHora}
-                    title="Hasta - Hora"
-                    type="text"
-                    placeholder="15"
-                    errorMenssage="Es obligatorio el horario"
-                />
-
-
-                <Button mt="4" onPress={NextScreen}> Continuar </Button>
+         
+            <Button mt="4" onPress={NextScreen}> Continuar </Button>
             </VStack>
 
         </LayoutWithImage>

@@ -11,6 +11,7 @@ import {
 import MyButton from "../../components/MyButton";
 import MunicipioEdificioImage from './../../assets/img/EdificioMunicipioDeMerlo.jpeg';
 import ModalMessage from "../../components/Modal";
+import axios from "axios";
 
 
 const imageRow = (index) =>{
@@ -41,21 +42,40 @@ const NewPromotionConfirmScreen = ({ navigation, route }) => {
 
     const CreateNewPromotion = () => {
         const json = {
-            tituloPromocion, 
-            direccion, 
-            desdeDia, 
-            hastaDia, 
-            desdeHora, 
-            hastaHora, 
-            descripcion,
-            servicioProfesional, 
-            telefono, 
-            mail, 
-            nombre, 
-            apellido, 
-            documento
+            tituloPromocion : route.params.businessName, 
+            direccion : route.params.adress , 
+            desdeDia : route.params.desdeDia, 
+            hastaDia : route.params.hastaDia, 
+            desdeHora : route.params.desdeHora, 
+            hastaHora : route.params.hastaHora, 
+            descripcion : route.params.detail,
+            servicioProfesional : "No", 
+            telefono : route.params.telefono, 
+            mail : route.params.email, 
+            nombre : route.params.name, 
+            apellido : route.params.lastName, 
+            documento : route.params.dni
         }
+        console.log(json)
     
+        axios.post('http://10.0.2.2:3000/api/promocion', {
+            ...json
+        })
+            .then(function (response) {
+                console.log(response.status)
+                if (response.status == "200") {
+                    console.log("Esta publicado")
+                    setShowModal(true)
+                }
+            })
+            .catch(function (error) {
+                console.log(error.response.status)
+                if (error.response.status === "401") {
+                    console.log("Boludo")
+                }
+
+            })
+    }
 
     return (
         <LayoutWithImage image="https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg">
@@ -89,12 +109,12 @@ const NewPromotionConfirmScreen = ({ navigation, route }) => {
                 <Text fontSize="lg" fontWeight="bold"> Detalle: </Text>
                 <Text fontSize="lg"> {route.params.detail} </Text>
                 <Text> Imagenes seleccionados </Text>
-                <FlatList 
+           {/*      <FlatList 
                     data={route.params.images}
                     renderItem={({index, item}) => <imageRow index={index} />}
-                />
+                /> */}
 
-                <MyButton text="Enviar" onPress={() => setShowModal(true)} />
+                <MyButton text="Enviar" onPress={CreateNewPromotion} />
             </VStack>
 
             <ModalMessage title="Promo enviada" message="La promocion fue enviada. Te enviaremos un email en 15 dias con el resultado" show={showModal} >
