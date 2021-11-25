@@ -36,6 +36,26 @@ const NewPromotionConfirmScreen = ({ navigation, route }) => {
     const [showModal, setShowModal] = useState(false)
 
     /* Aca hay que hacer coneccion al backend */
+    
+
+
+    const CreateNewPromotion = () => {
+        const json = {
+            tituloPromocion, 
+            direccion, 
+            desdeDia, 
+            hastaDia, 
+            desdeHora, 
+            hastaHora, 
+            descripcion,
+            servicioProfesional, 
+            telefono, 
+            mail, 
+            nombre, 
+            apellido, 
+            documento
+        }
+    
 
     return (
         <LayoutWithImage image="https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg">

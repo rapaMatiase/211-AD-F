@@ -10,7 +10,7 @@ import CardPromotion from '../../components/CardPromotion';
 /* import ImageNoFound from './../../assets/img/no-image.png';
  */
 import axios from 'axios';
-
+/* 
 const json = [
     {
         tituloPromocion : "Palmitos gratis",
@@ -42,7 +42,7 @@ const json = [
     }
 ]
 
-
+ */
 const ButtomAdd = ({navigation}) => {
     return (
         <Box position="relative" h={100} w="100%">
@@ -59,7 +59,7 @@ const ButtomAdd = ({navigation}) => {
 
 const PromotionListScreen = ({ navigation, route }) => {
 
-    /* const [json, setJson] = useState([]);
+    const [json, setJson] = useState([]);
 
     useEffect(() => {
         axios({
@@ -74,7 +74,7 @@ const PromotionListScreen = ({ navigation, route }) => {
         .catch(function(error){
             console.log(error)
         })
-    }, [setJson]); */
+    }, [setJson]);
 
     return (
         <NativeBaseProvider>
