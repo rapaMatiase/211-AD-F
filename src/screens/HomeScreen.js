@@ -4,6 +4,7 @@ import {
 } from "native-base";
 import LayoutWithBrand from '../components/LayoutWithBrand';
 import MyButton from '../components/MyButton';
+
 const ButtonGrupWelcome = ({ navigation }) => {
   return (
     <VStack
@@ -16,13 +17,26 @@ const ButtonGrupWelcome = ({ navigation }) => {
       w="80"
 
     >
-      {[
-        { text: "Soy Vecino", onPress: () => { navigation.navigate('NeighboursStack', {screen : 'NeighboursHome'}) } },
-        { text: "Soy Empleado", onPress: () => { navigation.navigate('EmployeeStack', {screen : 'EmployeeLogin'}) } },
-        { text: "Ver promociones ", onPress: () => { navigation.navigate('PromotionStack', {screen : 'PromotionList', params : { isEmployee : true}}) } },
-      ].map(({index, text, onPress }) => (
-        <MyButton key={index} text={text} onPress={onPress} />
-      ))}
+        <MyButton 
+          text={"Soy Vecino"} 
+          onPress={() => { navigation.navigate('NeighboursStack', {screen : 'NeighboursHome'}) }} 
+        />
+        
+        <MyButton 
+          text={"Soy Empleado"} 
+          onPress={() => { navigation.navigate('EmployeeStack', {screen : 'EmployeeLogin'}) }} 
+        />
+        
+        <MyButton 
+          text={"Ver promociones"} 
+          onPress={() => { 
+            navigation.navigate('PromotionStack', {
+              screen : 'PromotionList', 
+              params : { isEmployee : true}
+            }) 
+          }} 
+        />
+        
     </VStack>
   );
 }
