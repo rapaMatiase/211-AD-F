@@ -1,6 +1,5 @@
 import React from "react";
 import {
-    Button,
     Stack,
     Flex,
 } from "native-base";
@@ -15,8 +14,8 @@ const NeighoboursHomeScreen = ({ navigation }) => {
                     space={5}
                     w="80"
                 >
-                    <MyButton text="Iniciar sesion" onPress={() => navigation.navigate('NeighboursSingIn')} />
-                    <MyButton text="Registrarme" onPress={() => navigation.navigate('NeighboursSignUp')} />
+                    <MyButton text="Iniciar sesion" onPress={() => navigation.navigate('NeighboursStack',{screen: 'NeighnoursSingIn'})} />
+                    <MyButton text="Registrarme" onPress={() => navigation.navigate('NeighboursStack',{screen: 'NeighnoursSingUp'})} />
                 </Stack>
             </Flex>
         </LayoutWithBrand>

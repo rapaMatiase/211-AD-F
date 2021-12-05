@@ -1,20 +1,11 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import NewPromotionChooseImageScreen from '../screens/NewPromotion/NewPromotionChooseImageScreen';
-
 import HomeScreen from '../screens/HomeScreen';
-/* Screen - NEIGHOBOURS */
-import NeighboursHomeScreen from '../screens/Neighbours/NeighoboursHomeScreen';
-import NeighboursSingInScreen from '../screens/Neighbours/NeighboursSignInScreen';
-import NeighboursSignUpScreen from '../screens/Neighbours/NeighboursSignUpScreen';
+
 
 /* Screen - EMPLOYEES */
 import EmployeeLoginScreen from '../screens/Employee/EmployeeLoginScreen'
-
-/* Screen - PROMOTIONS */
-import PromotionListScreen from '../screens/Promotion/PromotionListScreen';
-import PromotionScreen from '../screens/Promotion/PromotionScreen';
 
 /* Stacks */
 import NeighoutsStack from './NeighoutsStack';

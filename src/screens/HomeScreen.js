@@ -17,11 +17,9 @@ const ButtonGrupWelcome = ({ navigation }) => {
 
     >
       {[
-        { text: "Soy Vecino", onPress: () => { navigation.navigate('NeighboursHome') } },
-        { text: "camara", onPress: () => { navigation.navigate('Camara') } },
-
-        { text: "Soy Empleado", onPress: () => { navigation.navigate('EmployeeLogin') } },
-        { text: "Ver promociones ", onPress: () => { navigation.navigate('PromotionList') } },
+        { text: "Soy Vecino", onPress: () => { navigation.navigate('NeighboursStack', {screen : 'NeighboursHome'}) } },
+        { text: "Soy Empleado", onPress: () => { navigation.navigate('EmployeeStack', {screen : 'EmployeeLogin'}) } },
+        { text: "Ver promociones ", onPress: () => { navigation.navigate('PromotionStack', {screen : 'PromotionList', params : { isEmployee : true}}) } },
       ].map(({index, text, onPress }) => (
         <MyButton key={index} text={text} onPress={onPress} />
       ))}

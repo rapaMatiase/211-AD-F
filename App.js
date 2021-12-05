@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import InvitedStack from './src/navigations/InvitedStack';
+import MainStack from './src/navigations/mainStack';
 
 
 
@@ -8,7 +8,7 @@ import InvitedStack from './src/navigations/InvitedStack';
 function App() {
   return (
     <NavigationContainer>
-        <InvitedStack />
+        <MainStack />
     </NavigationContainer>
   );
 }

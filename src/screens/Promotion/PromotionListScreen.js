@@ -7,10 +7,9 @@ import {
     Fab
 } from "native-base";
 import CardPromotion from '../../components/CardPromotion';
-/* import ImageNoFound from './../../assets/img/no-image.png';
- */
+
 import axios from 'axios';
-/* 
+
 const json = [
     {
         tituloPromocion : "Palmitos gratis",
@@ -42,7 +41,7 @@ const json = [
     }
 ]
 
- */
+
 const ButtomAdd = ({navigation}) => {
     return (
         <Box position="relative" h={100} w="100%">
@@ -59,9 +58,9 @@ const ButtomAdd = ({navigation}) => {
 
 const PromotionListScreen = ({ navigation, route }) => {
 
-    const [json, setJson] = useState([]);
+    /* const [json, setJson] = useState([]); */
 
-    useEffect(() => {
+    /* useEffect(() => {
         axios({
             method : "GET",
             url : 'http://10.0.2.2:3000/api/promocion',
@@ -74,7 +73,7 @@ const PromotionListScreen = ({ navigation, route }) => {
         .catch(function(error){
             console.log(error)
         })
-    }, [setJson]);
+    }, [setJson]); */
 
     return (
         <NativeBaseProvider>
@@ -85,9 +84,9 @@ const PromotionListScreen = ({ navigation, route }) => {
                 legacyImplementation={false}
                 data={json}
                 style={{ height: "100%" }}
-                renderItem={({ item }) => <CardPromotion item={item} showDetail={() => navigation.navigate('Promotion', { item: item })} />}
+                renderItem={({ item }) => <CardPromotion item={item} showDetail={() => navigation.navigate( 'PromotionStack' ,{screen : 'PromotionDetail', params : { item: item} })} />}
             />
-            {route.params.isLogin ? <ButtomAdd navigation={navigation} /> : null}
+            {route.params.isEmployee ?  null : <ButtomAdd navigation={navigation} />}
         </NativeBaseProvider>
     );
 }

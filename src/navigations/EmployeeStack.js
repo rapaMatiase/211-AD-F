@@ -1,15 +1,28 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+/* Screen */
+import EmployeeLoginScreen from '../screens/Employee/EmployeeLoginScreen';
+import UserHomeScreen from '../screens/UserHomeScreen';
 
 const Stack = createNativeStackNavigator();
 
 const UserStack = () => {
     return (
-        <Stack.Navigator initialRouteName="Home">
-            {/* <Stack.Screen 
+        <Stack.Navigator initialRouteName="EmployeeLogin">
+
+            <Stack.Screen 
+                name="EmployeeLogin"
+                component={EmployeeLoginScreen}
+                options={{ title: 'Bienvenido escalvo' }}
+            />
+            <Stack.Screen
                 name="UserHome"
                 component={UserHomeScreen}
+            />
+            {/* <Stack.Screen 
+                name="UserHome"
+                component={EmployeeLoginScreen}
                 options={{ title: 'Home' }}
             />
             <Stack.Screen 

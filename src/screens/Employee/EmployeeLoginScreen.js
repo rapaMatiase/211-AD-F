@@ -29,9 +29,7 @@ const EmployeeLoginScreen = ({ navigation }) => {
                     placeholder="32424343"
                     errorMenssage="Debe ingresar su legajo"
                 />
-
-
-                <MyButton onPress={() => { navigation.navigate('UsersScreen') }} text="Entrar" />
+                <MyButton onPress={() => { navigation.navigate('EmployeeStack', {screen : 'UserHome', params : {isEmployee : true }}) }} text="Entrar" />
                 <AlertMessage message="El usuario ingresado no es valido" show={showAlert} />
             </VStack>
         </LayoutWithBrand>

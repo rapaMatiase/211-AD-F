@@ -41,12 +41,12 @@ const CardClaims = (props) => {
             <HStack space={3} alignItems="center">
                 {props.state === "PENDIENTE" ? <ClainNoOk /> : <ClainOk />}
                 <Heading size="lg" ml="-1">
-                    #{props.id}
+                    #{props.item.id}
                 </Heading>
             </HStack>
             <Divider bg="gray.400" thickness="3" />
             <Text fontSize="lg" fontWeight="400" isTruncated >
-                {props.description}
+                {props.item.description}
             </Text>
             <HStack alignItems="center" justifyContent="center">
                 <Pressable onPress={() => props.showState()}>
