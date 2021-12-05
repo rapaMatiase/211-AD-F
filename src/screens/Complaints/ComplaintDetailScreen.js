@@ -11,7 +11,7 @@ import {
 import IconImageNoOk from './../../assets/img/boton-x.png';
 import IconImageOk from './../../assets/img/comprobado.png';
 import LayoutWithImage from "../../components/LayoutWithImage";
-const ComplaintScreen = (props) => {
+const ComplaintDetailScreen = (props) => {
 
 
     return (
@@ -49,4 +49,4 @@ const ComplaintScreen = (props) => {
     );
 }
 
-export default ComplaintScreen;
+export default ComplaintDetailScreen;

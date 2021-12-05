@@ -9,7 +9,10 @@ import NeighboursStack from '../navigations/NeighoutsStack';
 import EmployeeStack from '../navigations/EmployeeStack';
 import PromotionStack from '../navigations/PromotionStack';
 import ClaimStack from './ClaimStack';
-
+import NewClaimStack from './NewClaimStack';
+import ComplaintStack from './ComplaintStack';
+import NewComplaintStack from './NewComplaintStack';
+import NewPromotionStack from './NewPromotionStack';
 const Stack = createNativeStackNavigator();
 
 const MainStack = () => {
@@ -44,6 +47,31 @@ const MainStack = () => {
                 component={ClaimStack}
                 options={{  headerShown: false }}
             />
+
+            <Stack.Screen
+                name="NewClaimStack"
+                component={NewClaimStack}
+                options={{  headerShown: false }}
+            />
+
+            <Stack.Screen
+                name="ComplaintStack"
+                component={ComplaintStack}
+                options={{  headerShown: false }}
+            />
+            
+            <Stack.Screen
+                name="NewComplaintStack"
+                component={NewComplaintStack}
+                options={{  headerShown: false }}
+            />
+
+            <Stack.Screen
+                name="NewPromotionStack"
+                component={NewPromotionStack}
+                options={{  headerShown: false }}
+            />
+
 
         </Stack.Navigator>
     );

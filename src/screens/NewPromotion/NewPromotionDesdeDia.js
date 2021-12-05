@@ -27,7 +27,7 @@ const NewPromotionDesdeDiaScreen = ({ navigation, route }) => {
     const NextScreen = () => {
         if(desdeDia != ""){
         navigation.navigate(
-                'NeighboursStack',
+                'NewPromotionStack',
                 {
                     screen: 'NewPromotionHastaDia',
                     params: {

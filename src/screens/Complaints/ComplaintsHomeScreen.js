@@ -9,7 +9,6 @@ import {
 } from "native-base";
 import CardComplaints from './../../components/CardComplaints';
 import LayoutWithImage from './../../components/LayoutWithImage';
-import CardClaims from "../../components/CardClaims";
 
 const json = [
     {state : "Pendiente", title : "#213123", detail : "Sin ningun detalle en especial"},
@@ -25,7 +24,7 @@ const ButtomAdd = ({ navigation }) => {
                 position="absolute"
                 size="sm"
                 icon={<AddIcon size="4" />}
-                onPress={() => navigation.navigate('NewComplaint')}
+                onPress={() => navigation.navigate('NewComplaintStack', { screen : ''})}
             />
         </Box>
     );
@@ -41,7 +40,7 @@ const ComplaintsHomeScreen = ({ navigation }) => {
                 <CardComplaints showState={() => navigation.navigate('Complaint', /* { item: item } */)} />
                 <FlatList 
                     data={json}
-                    renderItem={({state, title, detail})=> <CardClaims state={state} title={title} detail={detail} />}
+                    renderItem={({state, title, detail})=> <CardComplaints state={state} title={title} detail={detail} showState={() => navigation.navigate('ComplaintStack', {screen : 'ComplaintDetail', params : {isEmployee : route.isEmployee, item : item}})} />}
                 />
             </VStack>
             <ButtomAdd navigation={navigation} />

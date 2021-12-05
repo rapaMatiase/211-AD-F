@@ -34,7 +34,7 @@ const UserHomeScreen = ({navigation, route}) => {
                     </Center>
                     <Text> {route.params.isEmployee ? "vedadero" : "false"} </Text>
                     <ButtonMenu text="Reclamos" onPress={() => navigation.navigate('ClaimStack', {screen : 'ClaimHome' , params : {isEmployee : route.params.isEmployee}})} />
-                    <ButtonMenu text="Denuncias" onPress={() => navigation.navigate('ComplaintsHome')} />
+                    <ButtonMenu text="Denuncias" onPress={() => navigation.navigate('ComplaintStack', {screen : 'ComplaintHome', params : {isEmployee : route.params.isEmployee}})} />
                     <ButtonMenu text="Promosiones" onPress={() => navigation.navigate('PromotionStack', {screen : 'PromotionList', params : {isEmployee : route.params.isEmployee}}) }  />
                     <Heading fontSize="lg" pb="4" > Notificaciones </Heading>
                 </VStack>

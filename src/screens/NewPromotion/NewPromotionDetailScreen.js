@@ -20,7 +20,7 @@ const NewPromotionScreen = ({navigation, route}) => {
 
     const NextScreen = () =>{
         navigation.navigate(
-            'NeighboursStack', 
+            'NewPromotionStack', 
             {
                 screen : 'CamaraPromotion', 
                 params : {

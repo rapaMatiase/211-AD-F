@@ -49,7 +49,7 @@ const ButtomAdd = ({navigation}) => {
                 position="absolute"
                 size="sm"
                 icon={<AddIcon size="4" />}
-                onPress={()=> navigation.navigate('NeighboursStack', {screen : 'NewPromotionBossScreen'})}
+                onPress={()=> navigation.navigate('NewPromotionStack', {screen : 'NewPromotionBossScreen'})}
             />
         </Box>
     );

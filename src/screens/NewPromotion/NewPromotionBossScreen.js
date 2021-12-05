@@ -38,9 +38,9 @@ const NewPromotionScreen = ({ navigation }) => {
 
     const NextScreen = () => {
         navigation.navigate(
-            'NeighboursStack',
+            'NewPromotionStack',
             {
-                screen: 'NewPromotionServicioProfecional',
+                screen: 'NewPromotionServicioProfesional',
                 params: {
                     businessName,
                     name,

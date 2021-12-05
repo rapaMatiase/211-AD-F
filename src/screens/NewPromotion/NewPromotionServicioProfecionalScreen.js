@@ -22,7 +22,7 @@ const NewPromotionServicioProfecionalScreen = ({ navigation, route }) => {
     const NextScreen = () => {
         if(servicioProfesional != ""){
         navigation.navigate(
-                'NeighboursStack',
+                'NewPromotionStack',
                 {
                     screen: 'NewPromotionDesdeDia',
                     params: {

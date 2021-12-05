@@ -21,6 +21,7 @@ export default function Camara ({navigation, route}){
     const [images, setImages] = useState([])
     const [counter, setCounter] = useState(0)
     const [show, setShow] = useState(false)
+   
     const captureHandle = async () => {
         try {
             const data = await takePicture();
@@ -50,7 +51,7 @@ export default function Camara ({navigation, route}){
 
     const NextScreen = () => {
         navigation.navigate(
-            'NeighboursStack', 
+            'NewPromotionStack', 
             {
                 screen : 'NewPromotionConfirm', 
                 params : {

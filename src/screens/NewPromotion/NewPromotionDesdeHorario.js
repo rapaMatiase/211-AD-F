@@ -44,7 +44,7 @@ const NewPromotionDesdeHorarioScreen = ({ navigation, route }) => {
     const NextScreen = () => {
         if(desdeHorario != ""){
         navigation.navigate(
-                'NeighboursStack',
+                'NewPromotionStack',
                 {
                     screen: 'NewPromotionHastaHorario',
                     params: {
