@@ -29,7 +29,7 @@ const ButtomAdd = ({ navigation, route }) => {
                     'NewComplaintStack', 
                     { 
                         screen : 'NewComplaintChoose', 
-                        params : {...route}
+                        params : {...route.params}
                     }
                 )}
             />

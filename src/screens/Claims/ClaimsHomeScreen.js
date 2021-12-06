@@ -31,14 +31,14 @@ const json = [
     }
 ]
 
-const ButtomAdd = ({navigation}) => {
+const ButtomAdd = ({navigation, route}) => {
     return (
         <Box position="relative" h={100} w="100%">
             <Fab
                 position="absolute"
                 size="sm"
                 icon={<AddIcon size="4" />}
-                onPress={()=> navigation.navigate('NeighboursStack', {screen : 'NewPromotionBossScreen'})}
+                onPress={()=> navigation.navigate('NewClaimStack', {screen : 'NewClaimsChoosePlace', params : {...route.params}})}
             />
         </Box>
     );
@@ -54,7 +54,7 @@ const ClaimsHomeScreen = ({navigation, route}) => {
                     renderItem={({ item }) => <CardClaims item={item} key={item.id} showState={() => navigation.navigate('ClaimStack', {screen : 'ClaimDetail', params : {isEmployee : route.isEmployee, item : item}})} />}
                 />
             </VStack>
-            <ButtomAdd navigation={navigation} />
+            <ButtomAdd navigation={navigation} route={route} />
         </LayoutWithImage>
     );
 }

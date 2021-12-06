@@ -31,7 +31,7 @@ const NewComplaintsPersonDataScreen = ({ navigation, route }) => {
                     buisnessNameOfTheAccused,
                     adressBuisnessOfTheAccused,
                     dniOfTheAccused,
-                    ...route
+                    ...route.params
                 }
             }
         )

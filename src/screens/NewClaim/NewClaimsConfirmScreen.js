@@ -12,7 +12,7 @@ import axios from "axios";
 import InputCheckbox from "../../components/InputCheckbox";
 
 
-const NewComplaintsConfirmScreen = ({ navigation, route }) => {
+const NewClaimsConfirmScreen = ({ navigation, route }) => {
 
 
     const NextScreen = () => {
@@ -26,7 +26,7 @@ const NewComplaintsConfirmScreen = ({ navigation, route }) => {
 
     const [showModal, setShowModal] = useState(false);
     const [accept, setAccept] = useState(false); 
-    /* Aca hay que hacer coneccion al backend */
+
     
 
 
@@ -34,16 +34,19 @@ const NewComplaintsConfirmScreen = ({ navigation, route }) => {
 
         if(accept == true) {
         const json = {
-            documento : route.params.dni, 
-            idSitio : route.params.idPlace,
-            descripcion : route.params.detail,
-            estado : 'Pendiente',
-            aceptaResponsabilidad : accept, 
-            denunciadoNombre : route.params.nameOfTheAccused, 
-            denunciadoApellido : route.params.lastnameOfTheAccused, 
-            comercioDenunciado : route.params.buisnessNameOfTheAccused, 
-            denunciadoDireccion : route.params.adressBuisnessOfTheAccused,
-            denunciadoDocumento : route.params.dniOfTheAccused
+            documento: route.params.dni, 
+            idDesperfecto : '', 
+            idSitio : route.params.idPlace, 
+            idReclamoUnificado : '',
+            lugarReclamo : route.params.detailPlace, 
+            descripcion : route.params.detail, 
+            imagen1: '', 
+            imagen2 : '', 
+            imagen3 : '',
+            imagen4 : '', 
+            imagen5 : '', 
+            imagen6 : '', 
+            imagen7 : '' 
         }
         console.log(json)
     
@@ -73,31 +76,20 @@ const NewComplaintsConfirmScreen = ({ navigation, route }) => {
         <LayoutWithImage image="https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg">
 
             <VStack space={4} style={{ flex: 1 }}>
-                <Heading> Datos del denunciado  </Heading>
+                <Heading> Datos del reclamo  </Heading>
+
 
                 <HStack>
-                    <Text fontSize="lg" fontWeight="bold"> Nombre: </Text>
-                    <Text fontSize="lg"> {route.params.nameOfTheAccused} </Text>
-                </HStack>
-                <HStack>
-                    <Text fontSize="lg" fontWeight="bold"> Apellido: </Text>
-                    <Text fontSize="lg"> {route.params.lastnameOfTheAccused} </Text>
-                </HStack>
-                <HStack>
-                    <Text fontSize="lg" fontWeight="bold"> Nombre del local: </Text>
-                    <Text fontSize="lg"> {route.params.buisnessNameOfTheAccused} </Text>
-                </HStack>
-                <HStack>
-                    <Text fontSize="lg" fontWeight="bold"> Direccion: </Text>
-                    <Text fontSize="lg"> {route.params.adressBuisnessOfTheAccused} </Text>
-                </HStack>
-                <HStack>
-                    <Text fontSize="lg" fontWeight="bold"> Dni: </Text>
-                    <Text fontSize="lg"> {route.params.dniOfTheAccused} </Text>
+                    <Text fontSize="lg" fontWeight="bold"> Descripcion del reclamo: </Text>
+                    <Text fontSize="lg"> {route.params.detail} </Text>
                 </HStack>
                 <HStack>
                     <Text fontSize="lg" fontWeight="bold"> Ubicacion: </Text>
                     <Text fontSize="lg"> {route.params.namePlace} </Text>
+                </HStack>
+                <HStack>
+                    <Text fontSize="lg" fontWeight="bold"> Descripcion de la ubicacion: </Text>
+                    <Text fontSize="lg"> {route.params.detailPlace} </Text>
                 </HStack>
                 <InputCheckbox text="Acepto los terminos y condiciones" setValue={(value)=> setAccept(value)} />
 
@@ -110,4 +102,4 @@ const NewComplaintsConfirmScreen = ({ navigation, route }) => {
     );
 }
 
-export default NewComplaintsConfirmScreen;
+export default NewClaimsConfirmScreen;

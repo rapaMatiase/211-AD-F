@@ -19,7 +19,7 @@ const NeighboursSingInScreen = ({ navigation }) => {
     const [showAlert, setShowAlert] = useState(false)
 
     const hanleSubmit = () => {
-        navigation.navigate('NeighboursStack', {screen : 'UserHome', params: { isEmployee : false}})
+        navigation.navigate('NeighboursStack', {screen : 'UserHome', params: { isEmployee : false, dni : userName}})
     }
     /* hanleSubmit = () => {
 
@@ -36,7 +36,7 @@ const NeighboursSingInScreen = ({ navigation }) => {
                 console.log(response.status)
                 if (response.status == "200") {
                     console.log("Estas logueado")
-                    navigation.navigate('NeighboursStack', {screen : 'UserHome', params: { isEmployee : false}})
+                    navigation.navigate('NeighboursStack', {screen : 'UserHome', params: { isEmployee : false, dni : userName}})
                 }
             })
             .catch(function (error) {

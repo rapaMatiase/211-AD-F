@@ -11,8 +11,8 @@ import InputWithControl from "../../components/InputWithControl";
 import MunicipioEdificioImage from './../../assets/img/EdificioMunicipioDeMerlo.jpeg';
 import InputTextarea from '../../components/InputTextarea';
 
-const NewComplaintsDetailPlaceScreen = ({navigation, route}) => {
-    const [detailPlace, setDetailPlace] = useState("")
+const NewClaimsDetailScreen = ({navigation, route}) => {
+    const [detail, setDetail] = useState("")
 
     const validatorTextAea = (inputText) => {
         return    InputTextarea ? false : true
@@ -22,10 +22,10 @@ const NewComplaintsDetailPlaceScreen = ({navigation, route}) => {
         navigation.navigate(
             'NewClaimStack', 
             {
-                screen : 'NewClaimsDetail', 
+                screen : 'NewClaimsConfirm', 
                 params : {
                     ...route.params,
-                    detailPlace
+                    detail
                 }
             }
         )
@@ -35,10 +35,10 @@ const NewComplaintsDetailPlaceScreen = ({navigation, route}) => {
         <LayoutWithImage image="https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg">
             
                 <VStack space={4} style={{flex: 1}}>
-                    <Heading size="lg">  Detalle la ubicacion </Heading>
+                    <Heading size="lg">  Detalle la del reclamo </Heading>
                     <Text fontSize="lg"> Si usted no encontro la ubicacion en la lista, por favor ingrese todos los datos necesarios. </Text>
                     <InputTextarea 
-                        setValue={setDetailPlace}
+                        setValue={setDetail}
                         validator={validatorTextAea}
                         title="Descipcion de la ubicacion"
                         placeholder="Sobre la calle Perior, entre alvarez y jonte, frente al local de jose."
@@ -50,4 +50,4 @@ const NewComplaintsDetailPlaceScreen = ({navigation, route}) => {
     );
 }
 
-export default NewComplaintsDetailPlaceScreen;
+export default NewClaimsDetailScreen;

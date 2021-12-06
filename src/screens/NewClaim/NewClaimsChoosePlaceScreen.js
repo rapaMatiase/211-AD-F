@@ -16,7 +16,7 @@ import MyButton from "../../components/MyButton";
 const json = [{"idBarrio":1,"nombre":"Moreno"}, {"idBarrio":2,"nombre":"Merlo"},{"idBarrio":3,"nombre":"San martin"}]
 
 
-const NewComplaintChoosePlace = ({ navigation , route}) => {
+const NewClaimsChoosePlace = ({ navigation , route}) => {
 
     const [value, setValue] = useState("1");
 
@@ -28,7 +28,7 @@ const NewComplaintChoosePlace = ({ navigation , route}) => {
         console.log(item[0].nombre)
 
         navigation.navigate(
-            'NewComplaintStack', {
+            'NewClaimStack', {
                 screen : 'NewComplaintsDetailPlace', 
                 params: { 
                     idPlace : item[0].idBarrio,
@@ -41,7 +41,7 @@ const NewComplaintChoosePlace = ({ navigation , route}) => {
     
     return (
         <LayoutWithImageSimple>
-            <Heading>Ubicaciones de la denuncia </Heading>
+            <Heading>Ubicaciones del reclamo </Heading>
             <Text> Selecciona de la lista una ubicacion. Si no aparece selecciona otros para ingresar la ubicacion a mano.</Text>
             <Radio.Group
                 name="myRadioGroup"
@@ -59,4 +59,4 @@ const NewComplaintChoosePlace = ({ navigation , route}) => {
     );
 }
 
-export default NewComplaintChoosePlace;
+export default NewClaimsChoosePlace;

@@ -22,7 +22,7 @@ const NewComplaintsDetailPlaceScreen = ({navigation, route}) => {
         navigation.navigate(
             'NewClaimStack', 
             {
-                screen : 'NewClaimsDetail', 
+                screen : 'NewComplaintsPersonData', 
                 params : {
                     ...route.params,
                     detailPlace
