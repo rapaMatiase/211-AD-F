@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {
     Heading,
     VStack,
@@ -10,13 +10,15 @@ import {
 import CardComplaints from './../../components/CardComplaints';
 import LayoutWithImage from './../../components/LayoutWithImage';
 import LayoutWithImageSimple from './../../components/LayoutWithImageSimple';
+import axios from 'axios';
 
+/* 
 const json = [
     {state : "Pendiente", title : "#213123", detail : "Sin ningun detalle en especial"},
     {state : "Pendiente", title : "#213123", detail : "Sin ningun detalle en especial"},
     {state : "Pendiente", title : "#213123", detail : "Sin ningun detalle en especial"},
 
-]
+] */
 
 const ButtomAdd = ({ navigation, route }) => {
     return (
@@ -38,6 +40,23 @@ const ButtomAdd = ({ navigation, route }) => {
 }
 
 const ComplaintsHomeScreen = ({ navigation, route }) => {
+
+    const [json, setJson] = useState([]); 
+
+     useEffect(() => {
+        axios({
+            method : "GET",
+            url : `http://10.0.2.2:3000/api//denuncia/${route.params.dni}`,
+            responseType: "json"
+        })
+        .then( function (response){
+            console.log(response.data)
+            setJson(response.data)
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    }, [setJson]); 
 
 
     return (

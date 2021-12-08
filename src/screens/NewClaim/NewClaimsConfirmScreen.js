@@ -35,9 +35,9 @@ const NewClaimsConfirmScreen = ({ navigation, route }) => {
         if(accept == true) {
         const json = {
             documento: route.params.dni, 
-            idDesperfecto : '', 
+            idDesperfecto : '1', 
             idSitio : route.params.idPlace, 
-            idReclamoUnificado : '',
+            idReclamoUnificado : '1',
             lugarReclamo : route.params.detailPlace, 
             descripcion : route.params.detail, 
             imagen1: '', 
@@ -50,7 +50,7 @@ const NewClaimsConfirmScreen = ({ navigation, route }) => {
         }
         console.log(json)
     
-       /*  axios.post('http://10.0.2.2:3000/api/', {
+        axios.post('http://10.0.2.2:3000/api/reclamo', {
             ...json
         })
             .then(function (response) {
@@ -66,7 +66,7 @@ const NewClaimsConfirmScreen = ({ navigation, route }) => {
                     console.log("Boludo")
                 }
 
-            }) */
+            })
         }else{
             console.log("NOnoon")
         }
@@ -76,7 +76,7 @@ const NewClaimsConfirmScreen = ({ navigation, route }) => {
         <LayoutWithImage image="https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg">
 
             <VStack space={4} style={{ flex: 1 }}>
-                <Heading> Datos del reclamo  </Heading>
+                <Heading> Datos del reclamo 4 </Heading>
 
 
                 <HStack>

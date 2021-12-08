@@ -35,7 +35,7 @@ const NewClaimsDetailScreen = ({navigation, route}) => {
         <LayoutWithImage image="https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg">
             
                 <VStack space={4} style={{flex: 1}}>
-                    <Heading size="lg">  Detalle la del reclamo </Heading>
+                    <Heading size="lg">  Detalle la del reclamo3 </Heading>
                     <Text fontSize="lg"> Si usted no encontro la ubicacion en la lista, por favor ingrese todos los datos necesarios. </Text>
                     <InputTextarea 
                         setValue={setDetail}

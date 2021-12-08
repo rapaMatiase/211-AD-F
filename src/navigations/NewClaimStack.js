@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen';
 import NewClaimsChoosePlaceScreen from '../screens/NewClaim/NewClaimsChoosePlaceScreen';
 import NewClaimsDetailScreen from '../screens/NewClaim/NewClaimsDetailScreen';
-import NewComplaintsDetailPlaceScreen from '../screens/NewComplaints/NewComplaintsDetailPlaceScreen';
+import NewClaimsDetailPlaceScreen from './../screens/NewClaim/NewClaimsDetailPlaceScreen';
 import NewClaimsConfirmScreen from '../screens/NewClaim/NewClaimsConfirmScreen';
 
 const Stack = createNativeStackNavigator();
@@ -20,8 +20,8 @@ const NewClaimStack = () => {
                 options={{ title: 'Bienvenido' }}
             />
             <Stack.Screen
-                name="NewComplaintsDetailPlace"
-                component={NewComplaintsDetailPlaceScreen}
+                name="NewClaimsDetailPlaceScreen"
+                component={NewClaimsDetailPlaceScreen}
                 options={{ title: 'Bienvenido' }}
             />
             <Stack.Screen

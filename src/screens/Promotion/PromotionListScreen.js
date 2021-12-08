@@ -9,7 +9,7 @@ import {
 import CardPromotion from '../../components/CardPromotion';
 
 import axios from 'axios';
-
+/* 
 const json = [
     {
         tituloPromocion : "Palmitos gratis",
@@ -39,7 +39,7 @@ const json = [
         desdeHora : "8",
         hastaHoram : "11"
     }
-]
+] */
 
 
 const ButtomAdd = ({navigation}) => {
@@ -58,9 +58,9 @@ const ButtomAdd = ({navigation}) => {
 
 const PromotionListScreen = ({ navigation, route }) => {
 
-    /* const [json, setJson] = useState([]); */
+     const [json, setJson] = useState([]); 
 
-    /* useEffect(() => {
+     useEffect(() => {
         axios({
             method : "GET",
             url : 'http://10.0.2.2:3000/api/promocion',
@@ -73,7 +73,7 @@ const PromotionListScreen = ({ navigation, route }) => {
         .catch(function(error){
             console.log(error)
         })
-    }, [setJson]); */
+    }, [setJson]); 
 
     return (
         <NativeBaseProvider>

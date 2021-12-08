@@ -18,10 +18,10 @@ const NeighboursSingInScreen = ({ navigation }) => {
     const [password, setPassword] = useState("")
     const [showAlert, setShowAlert] = useState(false)
 
-    const hanleSubmit = () => {
+    /* const hanleSubmit = () => {
         navigation.navigate('NeighboursStack', {screen : 'UserHome', params: { isEmployee : false, dni : userName}})
-    }
-    /* hanleSubmit = () => {
+    } */
+    hanleSubmit = () => {
 
         const user = {
             documento: userName,
@@ -46,10 +46,9 @@ const NeighboursSingInScreen = ({ navigation }) => {
                     setAlert(true)
                 }
                 setAlert(true)
-
             })
 
-    } */
+    }
 
 
     const validarUserName = (userName)=>{

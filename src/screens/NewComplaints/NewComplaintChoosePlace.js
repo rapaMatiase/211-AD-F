@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import {
     Heading,
@@ -11,10 +11,11 @@ import {
 import LayoutWithImage from "../../components/LayoutWithImage";
 import LayoutWithImageSimple from "../../components/LayoutWithImageSimple";
 import MyButton from "../../components/MyButton";
+import axios from 'axios';
 
 
-const json = [{"idBarrio":1,"nombre":"Moreno"}, {"idBarrio":2,"nombre":"Merlo"},{"idBarrio":3,"nombre":"San martin"}]
-
+/* const json = [{"idBarrio":1,"nombre":"Moreno"}, {"idBarrio":2,"nombre":"Merlo"},{"idBarrio":3,"nombre":"San martin"}]
+ */
 
 const NewComplaintChoosePlace = ({ navigation , route}) => {
 
@@ -38,7 +39,23 @@ const NewComplaintChoosePlace = ({ navigation , route}) => {
             })
     }
 
-    
+    const [json, setJson] = useState([]); 
+
+     useEffect(() => {
+        axios({
+            method : "GET",
+            url : `http://10.0.2.2:3000/api/ubicaciones`,
+            responseType: "json"
+        })
+        .then( function (response){
+            console.log(response.data)
+            setJson(response.data)
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    }, [setJson]); 
+
     return (
         <LayoutWithImageSimple>
             <Heading>Ubicaciones de la denuncia </Heading>

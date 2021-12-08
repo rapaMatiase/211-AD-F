@@ -11,7 +11,7 @@ import InputWithControl from "../../components/InputWithControl";
 import MunicipioEdificioImage from './../../assets/img/EdificioMunicipioDeMerlo.jpeg';
 import InputTextarea from '../../components/InputTextarea';
 
-const NewComplaintsDetailPlaceScreen = ({navigation, route}) => {
+const NewClaimsDetailPlaceScreen = ({navigation, route}) => {
     const [detailPlace, setDetailPlace] = useState("")
 
     const validatorTextAea = (inputText) => {
@@ -22,7 +22,7 @@ const NewComplaintsDetailPlaceScreen = ({navigation, route}) => {
         navigation.navigate(
             'NewClaimStack', 
             {
-                screen : 'NewComplaintsPersonData', 
+                screen : 'NewClaimsDetail', 
                 params : {
                     ...route.params,
                     detailPlace
@@ -35,7 +35,7 @@ const NewComplaintsDetailPlaceScreen = ({navigation, route}) => {
         <LayoutWithImage image="https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg">
             
                 <VStack space={4} style={{flex: 1}}>
-                    <Heading size="lg">  Detalle la ubicacion </Heading>
+                    <Heading size="lg">  Detalle la ubicacion2 </Heading>
                     <Text fontSize="lg"> Si usted no encontro la ubicacion en la lista, por favor ingrese todos los datos necesarios. </Text>
                     <InputTextarea 
                         setValue={setDetailPlace}
@@ -50,4 +50,4 @@ const NewComplaintsDetailPlaceScreen = ({navigation, route}) => {
     );
 }
 
-export default NewComplaintsDetailPlaceScreen;
+export default NewClaimsDetailPlaceScreen;
