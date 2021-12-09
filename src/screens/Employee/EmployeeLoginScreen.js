@@ -7,12 +7,45 @@ import InputNumber from "../../components/InputNumber";
 import InputPassword from "../../components/InputPassword";
 import MyButton from "../../components/MyButton";
 import AlertMessage from "../../components/AlertMessage";
+import axios from "axios";
+
 
 const EmployeeLoginScreen = ({ navigation }) => {
 
     const [legajo, setLegajo] = useState("")
     const [password, setPassword] = useState("")
     const [showAlert, setShowAlert] = useState(false)
+
+    hanleSubmit = () => {
+
+        const user = {
+            documento: legajo,
+            password: password
+        };
+
+        axios.post('http://10.0.2.2:3000/api/usuario/login', {
+            legajo: legajo,
+            password: password
+        })
+            .then(function (response) {
+                console.log(response.status)
+                if (response.status == "200") {
+                    console.log("Estas logueado")
+                    navigation.navigate('NeighboursStack', {screen : 'UserHome', params: { isEmployee : false, dni : userName}})
+                }
+            })
+            .catch(function (error) {
+                console.log(error.response.status)
+                if (error.response.status === "401") {
+                    console.log("El usuario es desconocido")
+                    setAlert(true)
+                }
+                setAlert(true)
+            })
+
+    }
+
+
 
     return (
         <LayoutWithBrand>

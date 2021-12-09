@@ -4,12 +4,14 @@ import {
     VStack,
     HStack,
     Text,
+    Pressable,
     Heading
 } from "native-base";
 import MyButton from "../../components/MyButton";
 import MunicipioEdificioImage from './../../assets/img/EdificioMunicipioDeMerlo.jpeg';
 import axios from "axios";
 import InputCheckbox from "../../components/InputCheckbox";
+import MyModel from './../../components/Modal';
 
 
 const NewComplaintsConfirmScreen = ({ navigation, route }) => {
@@ -19,16 +21,16 @@ const NewComplaintsConfirmScreen = ({ navigation, route }) => {
         navigation.navigate(
             'NeighboursStack',
             {
-                screen: 'UserHome'
+                screen: 'UserHome',
+                params : {dni : route.params.dni}
+
             }
         )
     }
 
     const [showModal, setShowModal] = useState(false);
     const [accept, setAccept] = useState(false); 
-    /* Aca hay que hacer coneccion al backend */
-    
-
+    const [idDenuncia, setIdDenuncia]  = useState("")
 
     const CreateNewPromotion = () => {
 
@@ -54,6 +56,7 @@ const NewComplaintsConfirmScreen = ({ navigation, route }) => {
                 if (response.status == "200") {
                     console.log("Esta publicado")
                     setShowModal(true)
+                    setIdDenuncia(response.data.idDenuncia)
                 }
             })
             .catch(function (error) {
@@ -101,7 +104,12 @@ const NewComplaintsConfirmScreen = ({ navigation, route }) => {
                 <MyButton text="Enviar" onPress={CreateNewPromotion} />
             </VStack>
 
-         
+            <MyModel title={"Reclamo creado"} message={`Su relcamo fue recibido y archivado bajo el numero ${idDenuncia}`} show={showModal}>
+                <Pressable onPress={NextScreen}>
+                    <Text> Ir al menu principal</Text>
+                </Pressable>
+            </MyModel>
+
 
         </LayoutWithImage>
     );

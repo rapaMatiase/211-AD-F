@@ -11,15 +11,15 @@ import {
 import IconImageNoOk from './../../assets/img/boton-x.png';
 import IconImageOk from './../../assets/img/comprobado.png';
 import LayoutWithImage from "../../components/LayoutWithImage";
-const ComplaintDetailScreen = (props) => {
+const ComplaintDetailScreen = ({route}) => {
 
 
     return (
         <LayoutWithImage>
             <VStack space={4}>
-                <Heading> #{props.id || "Sin numero"} </Heading>
+                <Heading> #{route.params.item.idDenuncias } </Heading>
                 <Text fontSize="xl">
-                    {props.text || "Sin detalle del reclamo"}
+                    {route.params.item.descripcion}
                 </Text>
 
                 {/* ACA TEINE QUE IR LA COSA DE IAMGENS */}
@@ -27,7 +27,7 @@ const ComplaintDetailScreen = (props) => {
                 <Center>
                     <HStack space={4}>
                         
-                        {props.state ? <Image
+                        {route.params.item.estado ? <Image
                             source={IconImageNoOk}
                             alt="Icon no ok"
                             size="xs"
@@ -40,7 +40,7 @@ const ComplaintDetailScreen = (props) => {
                         />}
 
                         <Heading size="lg" ml="-1">
-                            {props.state || "Sin estado"}
+                            {route.params.item.estado || "Sin estado"}
                         </Heading>
                     </HStack>
                 </Center>

@@ -44,7 +44,7 @@ const ComplaintsHomeScreen = ({ navigation, route }) => {
             responseType: "json"
         })
         .then( function (response){
-            console.log(response.data)
+            console.log(response.data.recordset)
             setJson(response.data.recordset)
         })
         .catch(function(error){
@@ -57,7 +57,6 @@ const ComplaintsHomeScreen = ({ navigation, route }) => {
         <LayoutWithImageSimple>
             <VStack space={2}>
                 <Heading > Tus denuncias</Heading>
-                <CardComplaints showState={() => navigation.navigate('Complaint', /* { item: item } */)} />
                 <FlatList 
                     data={json}
                     renderItem={({item})=> <CardComplaints item={item} showState={() => navigation.navigate('ComplaintStack', {screen : 'ComplaintDetail', params : {isEmployee : route.isEmployee, item : item}})} />}

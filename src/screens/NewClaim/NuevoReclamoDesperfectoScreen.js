@@ -57,8 +57,8 @@ const NuevoReclamoDesperfectoScreen = ({navigation, route}) => {
     
     return (
         <LayoutWithImageSimple>
-            <Heading>Ubicaciones del reclamo2 </Heading>
-            <Text> Selecciona de la lista una ubicacion. Si no aparece selecciona otros para ingresar la ubicacion a mano.</Text>
+            <Heading>Seleccionar el desperfecto </Heading>
+            <Text> Eliga el desperfecto a reclamar. Si no encuentra el reclamo, tal vez este en el rubro equivocado.</Text>
             <Radio.Group
                 name="myRadioGroup2"
                 value={value}

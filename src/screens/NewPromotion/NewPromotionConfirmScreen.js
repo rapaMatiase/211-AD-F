@@ -6,7 +6,9 @@ import {
     Text,
     Heading,
     Pressable,
-    FlatList
+    FlatList,
+    AspectRatio,
+    Image
 } from "native-base";
 import MyButton from "../../components/MyButton";
 import MunicipioEdificioImage from './../../assets/img/EdificioMunicipioDeMerlo.jpeg';
@@ -14,11 +16,17 @@ import ModalMessage from "../../components/Modal";
 import axios from "axios";
 
 
-const imageRow = (index) =>{
+const ImageRow = ({index, item}) =>{
     return (
-        <HStack>
-            <Text> Image number {index} </Text>
-        </HStack>
+        
+        <AspectRatio ratio={16 / 9}>
+            <Image
+            source={{uri : "file:///data/user/0/com.municipioappfrontend/cache/Camera/0779c8ea-88a9-48e0-a79a-dcfaf4b66f13.jpg"}}
+            alt="image"
+        />
+               </AspectRatio>
+
+ 
     );
 }
 
@@ -29,7 +37,8 @@ const NewPromotionConfirmScreen = ({ navigation, route }) => {
         navigation.navigate(
             'NeighboursStack',
             {
-                screen: 'UserHome'
+                screen: 'UserHome',
+                params : {dni : route.params.dni}
             }
         )
     }
@@ -46,8 +55,8 @@ const NewPromotionConfirmScreen = ({ navigation, route }) => {
             direccion : route.params.adress , 
             desdeDia : route.params.desdeDia, 
             hastaDia : route.params.hastaDia, 
-            desdeHora : route.params.desdeHora, 
-            hastaHora : route.params.hastaHora, 
+            desdeHora : route.params.desdeHorario, 
+            hastaHora : route.params.hastaHorario, 
             descripcion : route.params.detail,
             servicioProfesional : "No", 
             telefono : route.params.telefono, 
@@ -109,10 +118,10 @@ const NewPromotionConfirmScreen = ({ navigation, route }) => {
                 <Text fontSize="lg" fontWeight="bold"> Detalle: </Text>
                 <Text fontSize="lg"> {route.params.detail} </Text>
                 <Text> Imagenes seleccionados </Text>
-           {/*      <FlatList 
+                <FlatList 
                     data={route.params.images}
-                    renderItem={({index, item}) => <imageRow index={index} />}
-                /> */}
+                    renderItem={({index, item}) => <ImageRow index={index} item={item} />}
+                />
 
                 <MyButton text="Enviar" onPress={CreateNewPromotion} />
             </VStack>

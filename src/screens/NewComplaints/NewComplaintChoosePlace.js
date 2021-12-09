@@ -54,7 +54,7 @@ const NewComplaintChoosePlace = ({ navigation , route}) => {
 
     return (
         <LayoutWithImageSimple>
-            <Heading>Aca 1</Heading>
+            <Heading>Seleccionar Ubicacion</Heading>
             <Text> Selecciona de la lista una ubicacion. Si no aparece selecciona otros para ingresar la ubicacion a mano.</Text>
             <Radio.Group
                 name="myRadioGroup"

@@ -4,6 +4,8 @@ import {
     Heading,
     Text,
     Radio,
+    Center,
+    Flex,
     FlatList
 } from 'native-base';
 import LayoutWithImage from "../../components/LayoutWithImage";
@@ -52,15 +54,14 @@ const NuevoReclamoELegirSitioScreen = ({ navigation , route}) => {
     
     return (
         <LayoutWithImageSimple>
-            <Heading>Ubicaciones del reclamo1 </Heading>
-            <Text> Selecciona de la lista una ubicacion. Si no aparece selecciona otros para ingresar la ubicacion a mano.</Text>
+            <Heading>Seleccione la ubicacion </Heading>
+            <Text> Observe la siguiente lista y seleccione le lugar donde desea realizar el reclamo.</Text>
             <Radio.Group
                 name="myRadioGroup"
                 defaultValue="0"
                 value={value}
                 onChange={(nextValue) => setValue(nextValue)}
             >
-                <Radio key={"0"} value={"0"} my={2}> Otra ubicacion </Radio>
                 <FlatList
                     data={json}
                     renderItem={({ item }) => (<Radio key={item.idSitio} value={item.idSitio} my={2}> {item.descripcion} en {item.calle} {item.numero}</Radio>)}

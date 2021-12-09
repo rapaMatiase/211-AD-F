@@ -35,8 +35,8 @@ const NuevoReclamoDetallarUbicacionScreen = ({navigation, route}) => {
         <LayoutWithImage image="https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg">
             
                 <VStack space={4} style={{flex: 1}}>
-                    <Heading size="lg">  Detalle la ubicacion2 </Heading>
-                    <Text fontSize="lg"> Si usted no encontro la ubicacion en la lista, por favor ingrese todos los datos necesarios. </Text>
+                    <Heading size="lg">  Detalle la ubicacion </Heading>
+                    <Text fontSize="lg"> Necesitamos que detalle la ubicacion del reclamo a hacer. </Text>
                     <InputTextarea 
                         setValue={setDetailPlace}
                         validator={validatorTextAea}

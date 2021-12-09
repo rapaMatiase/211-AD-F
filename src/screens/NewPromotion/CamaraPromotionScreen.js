@@ -33,6 +33,7 @@ export default function Camara ({navigation, route}){
             RNFS.moveFile(filePath, newFilePath )
             .then(() => {
                 console.log("FILE MOVE")
+                
             })
             .catch((error) => {
                 console.log(error)

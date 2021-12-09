@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import LayoutWithImage from "../../components/LayoutWithImage";
 import {
     VStack,
     HStack,
     Text,
+    Pressable,
     Heading
 } from "native-base";
 import MyButton from "../../components/MyButton";
 import MunicipioEdificioImage from './../../assets/img/EdificioMunicipioDeMerlo.jpeg';
 import axios from "axios";
 import InputCheckbox from "../../components/InputCheckbox";
-
+import MyModel from './../../components/Modal';
 
 const NuevoReclamoConfirmarScreen = ({ navigation, route }) => {
 
@@ -19,14 +20,15 @@ const NuevoReclamoConfirmarScreen = ({ navigation, route }) => {
         navigation.navigate(
             'NeighboursStack',
             {
-                screen: 'UserHome'
+                screen: 'UserHome',
+                params : {dni : route.params.dni}
             }
         )
     }
 
     const [showModal, setShowModal] = useState(false);
     const [accept, setAccept] = useState(false); 
-
+    const [idReclamo, setIdReclamo]  = useState("");
     
 
 
@@ -55,10 +57,11 @@ const NuevoReclamoConfirmarScreen = ({ navigation, route }) => {
             ...json
         })
             .then(function (response) {
-                console.log(response.status)
+                console.log(response)
                 if (response.status == "200") {
                     console.log("Esta publicado")
                     setShowModal(true)
+                    setIdReclamo(response.data.idReclamo)
                 }
             })
             .catch(function (error) {
@@ -77,7 +80,7 @@ const NuevoReclamoConfirmarScreen = ({ navigation, route }) => {
         <LayoutWithImage image="https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg">
 
             <VStack space={4} style={{ flex: 1 }}>
-                <Heading> Datos del reclamo 4 </Heading>
+                <Heading>  Confirmar datos del reclamo </Heading>
                 
                 <HStack>
                     <Text fontSize="lg" fontWeight="bold"> Ubicacion: </Text>
@@ -85,7 +88,7 @@ const NuevoReclamoConfirmarScreen = ({ navigation, route }) => {
                 </HStack>
 
                 <HStack>
-                    <Text fontSize="lg" fontWeight="bold"> Aclaracion de la ubicacion: </Text>
+                    <Text fontSize="lg" fontWeight="bold"> Detalle de la ubicacion: </Text>
                     <Text fontSize="lg"> {route.params.detailPlace} </Text>
                 </HStack>
 
@@ -99,6 +102,11 @@ const NuevoReclamoConfirmarScreen = ({ navigation, route }) => {
                     <Text fontSize="lg"> {route.params.descripcionDesperfecto} </Text>
                 </HStack>
 
+                <HStack>
+                    <Text fontSize="lg" fontWeight="bold"> Detalle del desperfecto : </Text>
+                    <Text fontSize="lg"> {route.params.detailDesperfecto} </Text>
+                </HStack>
+
 
               
                 <InputCheckbox text="Acepto los terminos y condiciones" setValue={(value)=> setAccept(value)} />
@@ -106,7 +114,12 @@ const NuevoReclamoConfirmarScreen = ({ navigation, route }) => {
                 <MyButton text="Enviar" onPress={CreateNewClaims} />
             </VStack>
 
-         
+            <MyModel title={"Reclamo creado"} message={`Su relcamo fue recibido y archivado bajo el numero ${idReclamo}`} show={showModal}>
+                <Pressable onPress={NextScreen}>
+                    <Text> Ir al menu principal</Text>
+                </Pressable>
+            </MyModel>
+
 
         </LayoutWithImage>
     );

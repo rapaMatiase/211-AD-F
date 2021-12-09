@@ -23,14 +23,13 @@ const CardPromotion = (props) => {
     return (
         <Card>
             <HStack space={3} alignItems="center">
-                {props.state ?
+                {props.item.estado == "Pendiente" ?
                     <Image
                         source={IconImageNoOk}
                         alt="Icon no ok"
                         size="xs"
                     />
                     :
-
                     <Image
                         source={IconImageOk}
                         alt="Icon no ok"
@@ -39,12 +38,12 @@ const CardPromotion = (props) => {
                 }
 
                 <Heading size="lg" ml="-1">
-                    {props.title || "Sin titulo"}
+                    {props.item.idDenuncias}
                 </Heading>
             </HStack>
             <Divider bg="gray.400" thickness="3" />
             <Text fontSize="lg" fontWeight="400" isTruncated >
-                {props.descripcion}
+                {props.item.descripcion}
             </Text>
             <HStack alignItems="center" justifyContent="center">
                 <Pressable onPress={() => props.showState()}>

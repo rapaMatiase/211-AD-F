@@ -52,7 +52,7 @@ const NeighboursSingInScreen = ({ navigation }) => {
 
 
     const validarUserName = (userName)=>{
-        if(userName.length != 0){
+        if(userName.length == 0){
             return true
         }else{
             return false
@@ -60,7 +60,7 @@ const NeighboursSingInScreen = ({ navigation }) => {
     }
 
     const validarPassword = (password)=>{
-        if(password.length != 0){
+        if(password.length == 0){
             return true
         }else{
             return false

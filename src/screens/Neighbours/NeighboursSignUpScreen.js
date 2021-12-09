@@ -26,10 +26,6 @@ const NeighboursSignUpScreen = () => {
 
     const [resultado, setResultado] = useState(false)
 
-    const sendData = () => {
-        //Aca enviar al backend pero antes hacer la comprobacion.
-        console.log(name)
-    }
 
     const validatorDni = (inputDni) => {
         return inputDni ? true : false
@@ -49,7 +45,7 @@ const NeighboursSignUpScreen = () => {
 
 
 
-    /* hanleSubmit = () => {
+ hanleSubmit = () => {
 
         if (dni === "") {
             setDniError(true)
@@ -96,7 +92,7 @@ const NeighboursSignUpScreen = () => {
                 })
         }
     }
- */
+ 
     return (
         <LayoutWithBrand>
             <VStack space={4}>
