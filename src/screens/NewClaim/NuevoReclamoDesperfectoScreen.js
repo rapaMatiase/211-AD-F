@@ -1,35 +1,37 @@
 import React, { useState, useEffect } from "react";
-
-import {
-    Heading,
-    Text,
-    Pressable,
-    VStack,
-    Radio,
-    FlatList
-} from 'native-base';
 import LayoutWithImage from "../../components/LayoutWithImage";
-import LayoutWithImageSimple from "../../components/LayoutWithImageSimple";
+import {
+    VStack,
+    Text,
+    Button,
+    Heading,
+    Radio,
+    FlatList,
+    TextArea,
+} from "native-base";
 import MyButton from "../../components/MyButton";
+import InputWithControl from "../../components/InputWithControl";
+import MunicipioEdificioImage from './../../assets/img/EdificioMunicipioDeMerlo.jpeg';
+import InputTextarea from '../../components/InputTextarea';
+import LayoutWithImageSimple from "../../components/LayoutWithImageSimple";
+
 import axios from 'axios';
 
-
-const NewComplaintChoosePlace = ({ navigation , route}) => {
-
+const NuevoReclamoDesperfectoScreen = ({navigation, route}) => {
     const [value, setValue] = useState("1");
 
     const handleSubmit = () => {
 
         const item = json.filter((item) => {
-            return item.idSitio == value
+            return item.idDesperfecto == value
         })
 
         navigation.navigate(
-            'NewComplaintStack', {
-                screen : 'NewComplaintsDetailPlace', 
+            'NewClaimStack', {
+                screen : 'NuevoReclamoDetallarDesperfecto', 
                 params: { 
-                    idPlace : item[0].idSitio,
-                    namePlace : item[0].descripcion,
+                    idDesperfecto : item[0].idDesperfecto,
+                    descripcionDesperfecto: item[0].descripcion,
                     ...route.params
                 }
             })
@@ -40,7 +42,7 @@ const NewComplaintChoosePlace = ({ navigation , route}) => {
      useEffect(() => {
         axios({
             method : "GET",
-            url : `http://10.0.2.2:3000/api/sitios`,
+            url : `http://10.0.2.2:3000/api/desperfecto/${route.params.idRubro}`,
             responseType: "json"
         })
         .then( function (response){
@@ -52,19 +54,19 @@ const NewComplaintChoosePlace = ({ navigation , route}) => {
         })
     }, [setJson]); 
 
+    
     return (
         <LayoutWithImageSimple>
-            <Heading>Aca 1</Heading>
+            <Heading>Ubicaciones del reclamo2 </Heading>
             <Text> Selecciona de la lista una ubicacion. Si no aparece selecciona otros para ingresar la ubicacion a mano.</Text>
             <Radio.Group
-                name="myRadioGroup"
-                defaultValue="0"
+                name="myRadioGroup2"
                 value={value}
                 onChange={(nextValue) => setValue(nextValue)}
             >
                 <FlatList
                     data={json}
-                    renderItem={({ item }) => (<Radio key={item.idSitio} value={item.idSitio} my={2}> {item.descripcion} </Radio>)}
+                    renderItem={({ item }) => (<Radio key={item.idDesperfecto} value={item.idDesperfecto} my={2}> {item.descripcion} </Radio>)}
                 />
             </Radio.Group>
             <MyButton text="Siguiente" onPress={handleSubmit} />
@@ -72,4 +74,4 @@ const NewComplaintChoosePlace = ({ navigation , route}) => {
     );
 }
 
-export default NewComplaintChoosePlace;
+export default NuevoReclamoDesperfectoScreen;

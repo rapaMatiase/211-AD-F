@@ -2,40 +2,65 @@ import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 /* SCREENS */
-import HomeScreen from '../screens/HomeScreen';
-import NewClaimsChoosePlaceScreen from '../screens/NewClaim/NewClaimsChoosePlaceScreen';
-import NewClaimsDetailScreen from '../screens/NewClaim/NewClaimsDetailScreen';
-import NewClaimsDetailPlaceScreen from './../screens/NewClaim/NewClaimsDetailPlaceScreen';
-import NewClaimsConfirmScreen from '../screens/NewClaim/NewClaimsConfirmScreen';
+import NuevoReclamoELegirSitioScreen from '../screens/NewClaim/NuevoReclamoElegirSitio';
+import NuevoReclamoDetallarUbicacionScreen from '../screens/NewClaim/NuevoReclamoDetallarUbicacionScreen';
+import NuevoReclamoSeleccionarRubroScreen from '../screens/NewClaim/NuevoReclamoSeleccionarRubroScreen';
+import NuevoReclamoDesperfectoScreen from '../screens/NewClaim/NuevoReclamoDesperfectoScreen';
+import NuevoReclamoDetallarDesperfectoScreen from '../screens/NewClaim/NuevoReclamoDetallarDesperfectoScreen';
+import NuevoReclamoConfirmarScreen from '../screens/NewClaim/NuevoReclamoConfirmarScreen';
+import NuevoReclamoTomarFotosScreen from '../screens/NewClaim/NuevoReclamoTomarFotosScreen';
+
 
 const Stack = createNativeStackNavigator();
 
 const NewClaimStack = () => {
     return (
         <Stack.Navigator initialRouteName="NewClaimsChoosePlace">
-            
+            {/* FISRT SCREEN */}
             <Stack.Screen
-                name="NewClaimsChoosePlace"
-                component={NewClaimsChoosePlaceScreen}
-                options={{ title: 'Bienvenido' }}
+                name="NuevoReclamoELegirSitio"
+                component={NuevoReclamoELegirSitioScreen}
+                options={{ title: 'Sitios reconocidos' }}
             />
+            {/* SECOND SCREEN */}
             <Stack.Screen
-                name="NewClaimsDetailPlaceScreen"
-                component={NewClaimsDetailPlaceScreen}
-                options={{ title: 'Bienvenido' }}
+                name="NuevoReclamoDetallarUbicacion"
+                component={NuevoReclamoDetallarUbicacionScreen}
+                options={{ title: 'Especifique ubicacion' }}
             />
+
+            {/* THIERD SCREEN */}
             <Stack.Screen
-                name="NewClaimsDetail"
-                component={NewClaimsDetailScreen}
-                options={{ title: 'Bienvenido' }}
+                name="NuevoReclamoSeleccionarRubro"
+                component={NuevoReclamoSeleccionarRubroScreen}
+                options={{ title: 'Rubro' }}
             />
-            
- 
+            {/* FOURTH SCREEN */}
             <Stack.Screen
-                name="NewClaimsConfirm"
-                component={NewClaimsConfirmScreen}
-                options={{ title: 'Bienvenido' }}
+                name="NuevoReclamoDesperfecto"
+                component={NuevoReclamoDesperfectoScreen}
+                options={{ title: 'Confirmar' }}
             />
+            {/* FIFTH SCREEN */}
+            <Stack.Screen
+                name="NuevoReclamoDetallarDesperfecto"
+                component={NuevoReclamoDetallarDesperfectoScreen}
+                options={{ title: 'Confirmar' }}
+            />
+            {/* SIXTH SCREEN */}
+            <Stack.Screen
+                name="NuevoReclamoTomarFotos"
+                component={NuevoReclamoTomarFotosScreen}
+                options={{ title: 'Confirmar' }}
+            />
+            {/* SEVENTH SCREEN */}
+            <Stack.Screen
+                name="NuevoReclamoConfirmar"
+                component={NuevoReclamoConfirmarScreen}
+                options={{ title: 'Confirmar' }}
+            />
+        
+        
         </Stack.Navigator>
     );
 }

@@ -12,7 +12,7 @@ import axios from "axios";
 import InputCheckbox from "../../components/InputCheckbox";
 
 
-const NewClaimsConfirmScreen = ({ navigation, route }) => {
+const NuevoReclamoConfirmarScreen = ({ navigation, route }) => {
 
 
     const NextScreen = () => {
@@ -30,23 +30,24 @@ const NewClaimsConfirmScreen = ({ navigation, route }) => {
     
 
 
-    const CreateNewPromotion = () => {
+    const CreateNewClaims = () => {
 
         if(accept == true) {
         const json = {
             documento: route.params.dni, 
-            idDesperfecto : '1', 
-            idSitio : route.params.idPlace, 
-            idReclamoUnificado : '1',
+            idDesperfecto : route.params.idDesperfecto,
+            idSitio : route.params.idSitio, 
+            idReclamoUnificado : null,
             lugarReclamo : route.params.detailPlace, 
-            descripcion : route.params.detail, 
-            imagen1: '', 
-            imagen2 : '', 
-            imagen3 : '',
-            imagen4 : '', 
-            imagen5 : '', 
-            imagen6 : '', 
-            imagen7 : '' 
+            estado : "Pendiente",
+            descripcion : route.params.detailDesperfecto, 
+            imagen1: null, 
+            imagen2 : null, 
+            imagen3 : null,
+            imagen4 : null, 
+            imagen5 : null, 
+            imagen6 : null, 
+            imagen7 : null 
         }
         console.log(json)
     
@@ -77,23 +78,32 @@ const NewClaimsConfirmScreen = ({ navigation, route }) => {
 
             <VStack space={4} style={{ flex: 1 }}>
                 <Heading> Datos del reclamo 4 </Heading>
-
-
-                <HStack>
-                    <Text fontSize="lg" fontWeight="bold"> Descripcion del reclamo: </Text>
-                    <Text fontSize="lg"> {route.params.detail} </Text>
-                </HStack>
+                
                 <HStack>
                     <Text fontSize="lg" fontWeight="bold"> Ubicacion: </Text>
-                    <Text fontSize="lg"> {route.params.namePlace} </Text>
+                    <Text fontSize="lg"> {route.params.descripcionSitio} </Text>
                 </HStack>
+
                 <HStack>
-                    <Text fontSize="lg" fontWeight="bold"> Descripcion de la ubicacion: </Text>
+                    <Text fontSize="lg" fontWeight="bold"> Aclaracion de la ubicacion: </Text>
                     <Text fontSize="lg"> {route.params.detailPlace} </Text>
                 </HStack>
+
+                <HStack>
+                    <Text fontSize="lg" fontWeight="bold"> Rubro: </Text>
+                    <Text fontSize="lg"> {route.params.descripcionRubro} </Text>
+                </HStack>
+
+                <HStack>
+                    <Text fontSize="lg" fontWeight="bold"> Desperfecto : </Text>
+                    <Text fontSize="lg"> {route.params.descripcionDesperfecto} </Text>
+                </HStack>
+
+
+              
                 <InputCheckbox text="Acepto los terminos y condiciones" setValue={(value)=> setAccept(value)} />
 
-                <MyButton text="Enviar" onPress={CreateNewPromotion} />
+                <MyButton text="Enviar" onPress={CreateNewClaims} />
             </VStack>
 
          
@@ -102,4 +112,4 @@ const NewClaimsConfirmScreen = ({ navigation, route }) => {
     );
 }
 
-export default NewClaimsConfirmScreen;
+export default NuevoReclamoConfirmarScreen;

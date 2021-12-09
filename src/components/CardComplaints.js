@@ -44,7 +44,7 @@ const CardPromotion = (props) => {
             </HStack>
             <Divider bg="gray.400" thickness="3" />
             <Text fontSize="lg" fontWeight="400" isTruncated >
-                {props.detail || "No hay descripcion disponible"}
+                {props.descripcion}
             </Text>
             <HStack alignItems="center" justifyContent="center">
                 <Pressable onPress={() => props.showState()}>

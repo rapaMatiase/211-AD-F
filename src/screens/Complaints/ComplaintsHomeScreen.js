@@ -12,13 +12,7 @@ import LayoutWithImage from './../../components/LayoutWithImage';
 import LayoutWithImageSimple from './../../components/LayoutWithImageSimple';
 import axios from 'axios';
 
-/* 
-const json = [
-    {state : "Pendiente", title : "#213123", detail : "Sin ningun detalle en especial"},
-    {state : "Pendiente", title : "#213123", detail : "Sin ningun detalle en especial"},
-    {state : "Pendiente", title : "#213123", detail : "Sin ningun detalle en especial"},
 
-] */
 
 const ButtomAdd = ({ navigation, route }) => {
     return (
@@ -51,7 +45,7 @@ const ComplaintsHomeScreen = ({ navigation, route }) => {
         })
         .then( function (response){
             console.log(response.data)
-            setJson(response.data)
+            setJson(response.data.recordset)
         })
         .catch(function(error){
             console.log(error)
@@ -66,7 +60,7 @@ const ComplaintsHomeScreen = ({ navigation, route }) => {
                 <CardComplaints showState={() => navigation.navigate('Complaint', /* { item: item } */)} />
                 <FlatList 
                     data={json}
-                    renderItem={({state, title, detail})=> <CardComplaints state={state} title={title} detail={detail} showState={() => navigation.navigate('ComplaintStack', {screen : 'ComplaintDetail', params : {isEmployee : route.isEmployee, item : item}})} />}
+                    renderItem={({item})=> <CardComplaints item={item} showState={() => navigation.navigate('ComplaintStack', {screen : 'ComplaintDetail', params : {isEmployee : route.isEmployee, item : item}})} />}
                 />
             </VStack>
             <ButtomAdd navigation={navigation} route={route} />

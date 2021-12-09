@@ -11,8 +11,8 @@ import InputWithControl from "../../components/InputWithControl";
 import MunicipioEdificioImage from './../../assets/img/EdificioMunicipioDeMerlo.jpeg';
 import InputTextarea from '../../components/InputTextarea';
 
-const NewClaimsDetailScreen = ({navigation, route}) => {
-    const [detail, setDetail] = useState("")
+const NuevoReclamoDetallarUbicacionScreen = ({navigation, route}) => {
+    const [detailPlace, setDetailPlace] = useState("")
 
     const validatorTextAea = (inputText) => {
         return    InputTextarea ? false : true
@@ -22,10 +22,10 @@ const NewClaimsDetailScreen = ({navigation, route}) => {
         navigation.navigate(
             'NewClaimStack', 
             {
-                screen : 'NewClaimsConfirm', 
+                screen : 'NuevoReclamoSeleccionarRubro', 
                 params : {
                     ...route.params,
-                    detail
+                    detailPlace
                 }
             }
         )
@@ -35,10 +35,10 @@ const NewClaimsDetailScreen = ({navigation, route}) => {
         <LayoutWithImage image="https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg">
             
                 <VStack space={4} style={{flex: 1}}>
-                    <Heading size="lg">  Detalle la del reclamo3 </Heading>
+                    <Heading size="lg">  Detalle la ubicacion2 </Heading>
                     <Text fontSize="lg"> Si usted no encontro la ubicacion en la lista, por favor ingrese todos los datos necesarios. </Text>
                     <InputTextarea 
-                        setValue={setDetail}
+                        setValue={setDetailPlace}
                         validator={validatorTextAea}
                         title="Descipcion de la ubicacion"
                         placeholder="Sobre la calle Perior, entre alvarez y jonte, frente al local de jose."
@@ -50,4 +50,4 @@ const NewClaimsDetailScreen = ({navigation, route}) => {
     );
 }
 
-export default NewClaimsDetailScreen;
+export default NuevoReclamoDetallarUbicacionScreen;

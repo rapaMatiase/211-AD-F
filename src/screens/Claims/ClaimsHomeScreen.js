@@ -5,31 +5,11 @@ import {
     Box,
     AddIcon
 } from "native-base";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import LayoutWithImage from "../../components/LayoutWithImage";
 import CardClaims from "../../components/CardClaims";
+import axios from 'axios';
 
-
-const json = [
-    {
-        id: "435342343",
-        description: "Este reclamo no tiene ningun sentido alguno, pero tu tienes el derecho de ser estupido.",
-        state: "PENDIENTE",
-
-    },
-    {
-        id: "423123",
-        description: "Este reclamo no tiene ningun sentido alguno, pero tu tienes el derecho de ser estupido.",
-        state: "FINALIZADO",
-
-    },
-    {
-        id: "4a",
-        description: "Este reclamo no tiene ningun sentido alguno, pero tu tienes el derecho de ser estupido.",
-        state: "FINALIZADO",
-
-    }
-]
 
 const ButtomAdd = ({navigation, route}) => {
     return (
@@ -38,7 +18,13 @@ const ButtomAdd = ({navigation, route}) => {
                 position="absolute"
                 size="sm"
                 icon={<AddIcon size="4" />}
-                onPress={()=> navigation.navigate('NewClaimStack', {screen : 'NewClaimsChoosePlace', params : {...route.params}})}
+                onPress={()=> navigation.navigate(
+                    'NewClaimStack', 
+                    {
+                        screen : 'NuevoReclamoELegirSitio', 
+                        params : {...route.params}
+                    }
+                )}
             />
         </Box>
     );
@@ -46,6 +32,28 @@ const ButtomAdd = ({navigation, route}) => {
 
 
 const ClaimsHomeScreen = ({navigation, route}) => {
+
+
+    const [json, setJson] = useState([]); 
+
+    useEffect(() => {
+       axios({
+           method : "GET",
+           url : `http://10.0.2.2:3000/api//reclamo/${route.params.dni}`,
+           responseType: "json"
+       })
+       .then( function (response){
+           
+
+           setJson(response.data.recordset)
+           console.log(json)
+           console.log(json.length)
+       })
+       .catch(function(error){
+           console.log(error)
+       })
+   }, [setJson]); 
+
     return (
         <LayoutWithImage>
             <VStack space={2}>

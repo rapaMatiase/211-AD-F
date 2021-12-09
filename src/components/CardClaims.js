@@ -41,12 +41,12 @@ const CardClaims = (props) => {
             <HStack space={3} alignItems="center">
                 {props.state === "PENDIENTE" ? <ClainNoOk /> : <ClainOk />}
                 <Heading size="lg" ml="-1">
-                    #{props.item.id}
+                    #{props.item.idReclamo[0]} {/* No se porque llega como una lista el id... */}
                 </Heading>
             </HStack>
             <Divider bg="gray.400" thickness="3" />
             <Text fontSize="lg" fontWeight="400" isTruncated >
-                {props.item.description}
+                {props.item.descripcion}
             </Text>
             <HStack alignItems="center" justifyContent="center">
                 <Pressable onPress={() => props.showState()}>

@@ -13,19 +13,22 @@ const Stack = createNativeStackNavigator();
 const NewComplaintStack = () => {
     return (
         <Stack.Navigator initialRouteName="InvitedHome">           
-
+            {/* FISRT SCREEN */}
             <Stack.Screen
                 name="NewComplaintChoose"
                 component={NewComplaintChoosePlace}
             /> 
+            {/* SECOND SCREEN */}
             <Stack.Screen
                 name="NewComplaintsDetailPlace"
                 component={NewComplaintsDetailPlaceScreen}
             /> 
+            {/* THIERD SCREEN */}
             <Stack.Screen
                 name="NewComplaintsPersonData"
                 component={NewComplaintsPersonDataScreen}
             /> 
+            {/* FOURTH SCREEN */}
             <Stack.Screen
                 name="NewComplaintsConfirm"
                 component={NewComplaintsConfirmScreen}

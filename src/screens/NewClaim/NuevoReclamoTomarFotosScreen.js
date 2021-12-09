@@ -11,21 +11,18 @@ import InputWithControl from "../../components/InputWithControl";
 import MunicipioEdificioImage from './../../assets/img/EdificioMunicipioDeMerlo.jpeg';
 import InputTextarea from '../../components/InputTextarea';
 
-const NewClaimsDetailPlaceScreen = ({navigation, route}) => {
+const NuevoReclamoTomarFotosScreen = ({navigation, route}) => {
     const [detailPlace, setDetailPlace] = useState("")
 
-    const validatorTextAea = (inputText) => {
-        return    InputTextarea ? false : true
-    } 
+
 
     const NextScreen = () =>{
         navigation.navigate(
             'NewClaimStack', 
             {
-                screen : 'NewClaimsDetail', 
+                screen : 'NuevoReclamoConfirmar', 
                 params : {
                     ...route.params,
-                    detailPlace
                 }
             }
         )
@@ -35,14 +32,8 @@ const NewClaimsDetailPlaceScreen = ({navigation, route}) => {
         <LayoutWithImage image="https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg">
             
                 <VStack space={4} style={{flex: 1}}>
-                    <Heading size="lg">  Detalle la ubicacion2 </Heading>
-                    <Text fontSize="lg"> Si usted no encontro la ubicacion en la lista, por favor ingrese todos los datos necesarios. </Text>
-                    <InputTextarea 
-                        setValue={setDetailPlace}
-                        validator={validatorTextAea}
-                        title="Descipcion de la ubicacion"
-                        placeholder="Sobre la calle Perior, entre alvarez y jonte, frente al local de jose."
-                    />
+                    <Heading size="lg"> Fotos despues</Heading>
+                    
                     <Button mt="4" onPress={NextScreen}> Continuar </Button>
                 </VStack>
             
@@ -50,4 +41,4 @@ const NewClaimsDetailPlaceScreen = ({navigation, route}) => {
     );
 }
 
-export default NewClaimsDetailPlaceScreen;
+export default NuevoReclamoTomarFotosScreen;

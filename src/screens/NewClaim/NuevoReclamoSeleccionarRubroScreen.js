@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 import {
     Heading,
     Text,
-    Pressable,
-    VStack,
     Radio,
     FlatList
 } from 'native-base';
@@ -13,23 +11,22 @@ import LayoutWithImageSimple from "../../components/LayoutWithImageSimple";
 import MyButton from "../../components/MyButton";
 import axios from 'axios';
 
-
-const NewComplaintChoosePlace = ({ navigation , route}) => {
+const NuevoReclamoSeleccionarRubroScreen = ({ navigation , route}) => {
 
     const [value, setValue] = useState("1");
 
     const handleSubmit = () => {
 
         const item = json.filter((item) => {
-            return item.idSitio == value
+            return item.idRubro == value
         })
 
         navigation.navigate(
-            'NewComplaintStack', {
-                screen : 'NewComplaintsDetailPlace', 
+            'NewClaimStack', {
+                screen : 'NuevoReclamoDesperfecto', 
                 params: { 
-                    idPlace : item[0].idSitio,
-                    namePlace : item[0].descripcion,
+                    idRubro : item[0].idRubro,
+                    descripcionRubro: item[0].descripcion,
                     ...route.params
                 }
             })
@@ -40,7 +37,7 @@ const NewComplaintChoosePlace = ({ navigation , route}) => {
      useEffect(() => {
         axios({
             method : "GET",
-            url : `http://10.0.2.2:3000/api/sitios`,
+            url : `http://10.0.2.2:3000/api/rubros`,
             responseType: "json"
         })
         .then( function (response){
@@ -52,9 +49,10 @@ const NewComplaintChoosePlace = ({ navigation , route}) => {
         })
     }, [setJson]); 
 
+    
     return (
         <LayoutWithImageSimple>
-            <Heading>Aca 1</Heading>
+            <Heading>Ubicaciones del reclamo1 </Heading>
             <Text> Selecciona de la lista una ubicacion. Si no aparece selecciona otros para ingresar la ubicacion a mano.</Text>
             <Radio.Group
                 name="myRadioGroup"
@@ -64,7 +62,7 @@ const NewComplaintChoosePlace = ({ navigation , route}) => {
             >
                 <FlatList
                     data={json}
-                    renderItem={({ item }) => (<Radio key={item.idSitio} value={item.idSitio} my={2}> {item.descripcion} </Radio>)}
+                    renderItem={({ item }) => (<Radio key={item.idRubro} value={item.idRubro} my={2}> {item.descripcion} </Radio>)}
                 />
             </Radio.Group>
             <MyButton text="Siguiente" onPress={handleSubmit} />
@@ -72,4 +70,4 @@ const NewComplaintChoosePlace = ({ navigation , route}) => {
     );
 }
 
-export default NewComplaintChoosePlace;
+export default NuevoReclamoSeleccionarRubroScreen;

@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 import {
     Heading,
     Text,
-    Pressable,
-    VStack,
     Radio,
     FlatList
 } from 'native-base';
@@ -13,27 +11,22 @@ import LayoutWithImageSimple from "../../components/LayoutWithImageSimple";
 import MyButton from "../../components/MyButton";
 import axios from 'axios';
 
-
-/* const json = [{"idBarrio":1,"nombre":"Moreno"}, {"idBarrio":2,"nombre":"Merlo"},{"idBarrio":3,"nombre":"San martin"}]
- */
-
-const NewClaimsChoosePlace = ({ navigation , route}) => {
+const NuevoReclamoELegirSitioScreen = ({ navigation , route}) => {
 
     const [value, setValue] = useState("1");
 
     const handleSubmit = () => {
 
         const item = json.filter((item) => {
-            return item.idBarrio == value
+            return item.idSitio == value
         })
-        console.log(item[0].nombre)
-
+        console.log(item)
         navigation.navigate(
             'NewClaimStack', {
-                screen : 'NewClaimsDetailPlaceScreen', 
+                screen : 'NuevoReclamoDetallarUbicacion', 
                 params: { 
-                    idPlace : item[0].idBarrio,
-                    namePlace : item[0].nombre,
+                    idSitio : item[0].idSitio,
+                    descripcionSitio : item[0].descripcion,
                     ...route.params
                 }
             })
@@ -44,7 +37,7 @@ const NewClaimsChoosePlace = ({ navigation , route}) => {
      useEffect(() => {
         axios({
             method : "GET",
-            url : `http://10.0.2.2:3000/api/ubicaciones`,
+            url : `http://10.0.2.2:3000/api/sitios`,
             responseType: "json"
         })
         .then( function (response){
@@ -67,9 +60,10 @@ const NewClaimsChoosePlace = ({ navigation , route}) => {
                 value={value}
                 onChange={(nextValue) => setValue(nextValue)}
             >
+                <Radio key={"0"} value={"0"} my={2}> Otra ubicacion </Radio>
                 <FlatList
                     data={json}
-                    renderItem={({ item }) => (<Radio key={item.idBarrio} value={item.idBarrio} my={2}> {item.nombre} </Radio>)}
+                    renderItem={({ item }) => (<Radio key={item.idSitio} value={item.idSitio} my={2}> {item.descripcion} en {item.calle} {item.numero}</Radio>)}
                 />
             </Radio.Group>
             <MyButton text="Siguiente" onPress={handleSubmit} />
@@ -77,4 +71,4 @@ const NewClaimsChoosePlace = ({ navigation , route}) => {
     );
 }
 
-export default NewClaimsChoosePlace;
+export default NuevoReclamoELegirSitioScreen;

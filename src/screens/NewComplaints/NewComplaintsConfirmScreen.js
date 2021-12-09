@@ -36,7 +36,7 @@ const NewComplaintsConfirmScreen = ({ navigation, route }) => {
             const json = {
                 documento : route.params.dni, 
                 idSitio : route.params.idPlace,
-                descripcion : route.params.detail,
+                descripcion : route.params.detailPlace,
                 estado : 'Pendiente',
                 aceptaResponsabilidad : accept, 
                 denunciadoNombre : route.params.nameOfTheAccused, 
@@ -45,7 +45,7 @@ const NewComplaintsConfirmScreen = ({ navigation, route }) => {
                 denunciadoDireccion : route.params.adressBuisnessOfTheAccused,
                 denunciadoDocumento : route.params.dniOfTheAccused
             }
-            
+            console.log(json)
             axios.post('http://10.0.2.2:3000/api/denuncia', {
             ...json
         })
