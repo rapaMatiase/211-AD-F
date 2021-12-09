@@ -7,24 +7,20 @@ import {
     Heading,
     Pressable,
     FlatList,
-    AspectRatio,
-    Image
 } from "native-base";
 import MyButton from "../../components/MyButton";
 import MunicipioEdificioImage from './../../assets/img/EdificioMunicipioDeMerlo.jpeg';
 import ModalMessage from "../../components/Modal";
 import axios from "axios";
 
+import { Image } from "react-native-svg";
 
 const ImageRow = ({index, item}) =>{
     return (
         
-        <AspectRatio ratio={16 / 9}>
             <Image
-            source={{uri : "file:///data/user/0/com.municipioappfrontend/cache/Camera/0779c8ea-88a9-48e0-a79a-dcfaf4b66f13.jpg"}}
-            alt="image"
+            source={{uri: "file://data/user/0/com.municipioappfrontend/cache/Camera/0779c8ea-88a9-48e0-a79a-dcfaf4b66f13.jpg"}}
         />
-               </AspectRatio>
 
  
     );
@@ -124,6 +120,10 @@ const NewPromotionConfirmScreen = ({ navigation, route }) => {
                 />
 
                 <MyButton text="Enviar" onPress={CreateNewPromotion} />
+                <Image
+            source={{uri: "file://storage/emulated/0/Android/data/com.municipioappfrontend/files/MyPhoto-0.jpg"}}
+        />
+        
             </VStack>
 
             <ModalMessage title="Promo enviada" message="La promocion fue enviada. Te enviaremos un email en 15 dias con el resultado" show={showModal} >

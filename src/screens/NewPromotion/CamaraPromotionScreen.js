@@ -29,11 +29,11 @@ export default function Camara ({navigation, route}){
             const filePath = data.uri
             const newFilePath = `${RNFS.ExternalDirectoryPath}/MyPhoto-${counter}.jpg` 
             setCounter((counter)=>counter + 1)
-
+            console.log(newFilePath)
             RNFS.moveFile(filePath, newFilePath )
             .then(() => {
                 console.log("FILE MOVE")
-                
+
             })
             .catch((error) => {
                 console.log(error)
